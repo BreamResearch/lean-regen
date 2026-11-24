@@ -1,10 +1,53 @@
 # Lean Regen
 
-予約機能を作り直したとき、正しい予約まで拒否する実装を見抜けますか。Lean Regen は、予約が成功する条件、数量の変化、拒否時の状態を先に決め、実装を変えるたびに同じ仕様を Lean で検査できる OSS です。ローカル利用は無料で、登録は不要です。
+**残り8枠をすべて予約できるはずなのに、サンプルアプリが拒否した。** 合計だけ見ると、空き8＋予約済み2のままでも在庫10は保たれます。Lean Regen は、予約・解放の応答と保存後の残高を、固定した Lean 仕様の結果と1操作ずつ照合します。最初に食い違った状態と操作を、手元のテストに取り込めます。
 
-Would your tests catch a rewrite that rejects every valid reservation? Lean Regen gives developers a fixed contract for when a reservation must succeed, how quantities change and what a rejection preserves. Run the same Lean checks against each implementation and inspect the proof and build logs yourself. Local use is free and requires no account.
+**The sample booking app rejected a reservation for its last 8 available units.** Its totals still balanced. Lean Regen compares each recorded decision and committed balance with a fixed Lean inventory contract. It reports the first input where they differ, so you can turn the failure into a regression test for your implementation.
 
-## アルファ版を試す · Try the source alpha
+[日英ガイド / Project guide](https://breamresearch.github.io/lean-regen/) · [改変不能のアルファ版 / Immutable source alpha](https://github.com/BreamResearch/lean-regen/releases/tag/v0.2.0-alpha.2-dist.1) · [GitHub CI](https://github.com/BreamResearch/lean-regen/actions/runs/45375656292)
+
+## 登録なしで試す · Try the trace checker
+
+Python 3.9 以上だけで、チェッカーと反例サンプルを同じディレクトリに保存し、オフラインで実行できます。ローカル利用は無料です。Download the checker and the sample counterexample to the same directory, then run them offline with Python 3.9+. No account, payment or Lean installation is needed for the bundled examples. [チェッカー / Download the checker](./lean-regen-check.pyz?raw=1) · [誤実装の記録 / Sample counterexample](./wrong.jsonl?raw=1) · [ソース / Checker source ZIP](./lean-regen-conformance-source.zip?raw=1)
+
+```sh
+python3 lean-regen-check.pyz
+python3 lean-regen-check.pyz wrong.jsonl
+```
+
+ソースZIPは開発コミット `cacfa10286e3a06bbab49d38e396f0c9978505db` を収録しています。To rebuild the checker from that source, run `python3 packages/conformance/build_zipapp.py --out ../reproduced.pyz` in the extracted directory. [照合値 / SHA-256 checksums](./CONFORMANCE-SHA256SUMS)
+
+| 入力 / Input | 実行結果 / Observed result |
+| --- | --- |
+| 独立した SQLite アプリの記録 / Trace from the SQLite example app | `TRACE_MATCH` · 16件すべて一致 / 16 of 16 operations matched |
+| 境界で誤る実装の記録 / Trace from the faulty implementation | `COUNTEREXAMPLE` · 5行目、4操作目で終了コード1 / Exit 1 at line 5, operation 4 |
+
+反例の直前は空き8・予約済み2。8を予約したときの期待値は**成功、空き0・予約済み10**。実測値は**拒否、空き8・予約済み2**です。
+
+Before operation 4, there were 8 available and 2 reserved. Reserving 8 should be **accepted, with 0 available and 10 reserved**. The application **rejected it, leaving 8 available and 2 reserved**.
+
+自分の実装では、1資源の操作をコミット順に JSONL へ書き出し、応答と保存後の残高を渡します。形式は `wrong.jsonl` と同じで、開始状態・連番付きの各操作・件数を示す終了行を含みます。既存テストが合計しか確認していないときや、古い実装と書き換え後の実装に同じ基準を当てたいときに使えます。
+
+For your own application, export one resource’s operations in commit order, including its decisions and persisted balances. Use the same JSONL record format as `wrong.jsonl`, with a start state, numbered operations and a final count. This check is useful when existing tests only assert a total, or when you want to compare a rewrite and its predecessor against the same expected behavior.
+
+```sh
+python3 lean-regen-check.pyz my-trace.jsonl
+```
+
+同梱の1,153件は、容量0〜10の全ての正当な状態・両操作・数量0〜容量＋1と、64ビット上限で選んだ9件を含みます。対象外の入力は `OUTSIDE_COVERAGE` です。より大きな数量は同梱の Lean 参照実装をビルドするネイティブモードで扱えます（Python 3.11 以上、Lean/Lake 4.19.0）。macOS 27 の Apple Silicon では下の手順にあるリンカー設定を先に適用してください。
+
+The 1,153 bundled reference transitions cover all valid states for capacities 0–10, both operations and request sizes from 0 through capacity + 1, plus nine selected cases at maximum signed 64-bit capacity. Other inputs return `OUTSIDE_COVERAGE`. For larger quantities, native mode builds the bundled reference with Python 3.11+ and Lean/Lake 4.19.0. On Apple Silicon with macOS 27, use the linker settings under the source alpha instructions below.
+
+```sh
+python3 lean-regen-check.pyz my-trace.jsonl --tool-bin /absolute/path/to/lean-4.19.0/bin
+```
+
+照合できるのは記録した逐次操作です。予約者ごとの権限や並行処理の順序が主な課題なら、別の仕様が必要です。ここでの数値は同梱サンプルの検査結果で、顧客環境での効果や工数削減は未測定です。
+
+A match covers the recorded sequential operations. If your main risk is ownership or concurrency, that needs its own specification. These results come from the supplied examples. Customer outcomes and engineering time saved have yet to be measured.
+
+## Lean の14定理を再検査する · Rebuild the source alpha
+
 
 1. ソース ZIP を保存します。Download the source ZIP. [v0.2.0-alpha.2 ZIP][zip] · [SHA256SUMS][sums]
 2. Python 3.11 以上と、OS に合った公式 Lean/Lake 4.19.0 を用意します。Install Python 3.11+ and the official Lean/Lake 4.19.0 distribution for your platform. [Lean 4.19.0][lean]
