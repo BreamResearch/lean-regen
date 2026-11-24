@@ -128,4 +128,8 @@ jobs:
           cmp "$baseline/scripts/assurance_lib.py" verification/assurance_lib.py
           cmp "$baseline/assets/lean-starter/evidence/validation-summary.json" project/evidence/validation-summary.json
           cmp "$RUNNER_TEMP/demo/authority/candidate-contract.json" contract-lock.json
+          cmp "$GITHUB_WORKSPACE/docs/example/Contract.lean" project/Contract.lean
+          for file in Specification.lean Implementation.lean Proofs.lean; do
+            cmp "$GITHUB_WORKSPACE/docs/example/$file" "project/VerifiedInventory/$file"
+          done
           python3 compare.py --tool-bin "$RUNNER_TEMP/lean-4.19.0-linux/bin" --out "$RUNNER_TEMP/reference-comparison"
