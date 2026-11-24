@@ -3,6 +3,8 @@ name: Verify published Lean Regen distribution
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -10,7 +12,6 @@ permissions:
 
 jobs:
   source-checks:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     defaults:
@@ -35,7 +36,8 @@ jobs:
           GIT_ALLOW_PROTOCOL: file
           GIT_TERMINAL_PROMPT: "0"
         run: |
-          bundle="$GITHUB_WORKSPACE/lean-regen.git.bundle"
+          bundle="$RUNNER_TEMP/lean-regen.git.bundle"
+          git show "$DISTRIBUTION_SNAPSHOT:lean-regen.git.bundle" > "$bundle"
           printf '%s  %s\n' bef15192a35c80de150fa56f8b65d86a08e0f3341263b8a117cf3aec5fe1c1d3 "$bundle" | sha256sum -c -
           git bundle verify "$bundle"
           printf '%s\n' \
@@ -107,25 +109,23 @@ jobs:
             git -C "$GITHUB_WORKSPACE" show "$DISTRIBUTION_SNAPSHOT:$name" | cmp -- "$name" -
             printf 'Matched historical asset %s\n' "$name"
           done
-          for name in lean-regen-v0.2.0-alpha.2-source.zip manifest.json core-check.json; do
-            cmp -- "$name" "$GITHUB_WORKSPACE/$name"
-          done
 
-      - name: Check current download files and release guide
+      - name: Check current downloads
         run: |
-          if LC_ALL=C grep -Evq '^[0-9a-f]{64}  [^/]+$' SHA256SUMS; then
-            echo 'Invalid SHA256SUMS record' >&2
-            exit 1
-          fi
-          cut -c 67- SHA256SUMS | cmp - <(cut -c 67- "$RUNNER_TEMP/source-alpha/SHA256SUMS")
+          cat CONFORMANCE-SHA256SUMS REFERENCE-SHA256SUMS | LC_ALL=C sort -k 2 | cmp - SHA256SUMS
           sha256sum -c SHA256SUMS
 
       - name: Run the published reference design
-        if: ${{ hashFiles('lean-regen-reference.zip', 'REFERENCE-SHA256SUMS') != '' }}
         run: |
+          echo '8055f21c1b134df505c1881c12eed10963cdde813a9fab36d50291b5254f8909  REFERENCE-SHA256SUMS' | sha256sum -c -
           cut -c 67- REFERENCE-SHA256SUMS | cmp - <(printf 'lean-regen-reference.zip\n')
           LC_ALL=C grep -Exq '[0-9a-f]{64}  lean-regen-reference\.zip' REFERENCE-SHA256SUMS
           sha256sum -c REFERENCE-SHA256SUMS
           python3 -m zipfile -e lean-regen-reference.zip "$RUNNER_TEMP"
           cd "$RUNNER_TEMP/lean-regen-reference"
+          baseline="$RUNNER_TEMP/lean-regen-source/packages/lean-verified-sdlc"
+          cmp "$baseline/scripts/verify_project.py" verification/verify_project.py
+          cmp "$baseline/scripts/assurance_lib.py" verification/assurance_lib.py
+          cmp "$baseline/assets/lean-starter/evidence/validation-summary.json" project/evidence/validation-summary.json
+          cmp "$RUNNER_TEMP/demo/authority/candidate-contract.json" contract-lock.json
           python3 compare.py --tool-bin "$RUNNER_TEMP/lean-4.19.0-linux/bin" --out "$RUNNER_TEMP/reference-comparison"
