@@ -22,11 +22,13 @@ jobs:
       SOURCE_TAG: v0.2.0-alpha.2
       TAG_OBJECT: 36b6e8dc0d9a7d9897ae8b455b2f0d9ef59cfab0
       DEVELOPMENT_COMMIT: 753faef659116c340081a00217164a858676b170
+      DISTRIBUTION_SNAPSHOT: 454e9b5581785e82107db88f064b6e65b643f43c
     steps:
       - name: Read source without persisting credentials
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - name: Verify bundle and check out the exact source offline
         env:
@@ -102,6 +104,28 @@ jobs:
           cd "$RUNNER_TEMP/source-alpha"
           sha256sum -c SHA256SUMS
           for name in lean-regen-v0.2.0-alpha.2-source.zip manifest.json RELEASE-NOTES.md SHA256SUMS core-check.json; do
-            cmp -- "$name" "$GITHUB_WORKSPACE/$name"
-            printf 'Matched %s\n' "$name"
+            git -C "$GITHUB_WORKSPACE" show "$DISTRIBUTION_SNAPSHOT:$name" | cmp -- "$name" -
+            printf 'Matched historical asset %s\n' "$name"
           done
+          for name in lean-regen-v0.2.0-alpha.2-source.zip manifest.json core-check.json; do
+            cmp -- "$name" "$GITHUB_WORKSPACE/$name"
+          done
+
+      - name: Check current download files and release guide
+        run: |
+          if LC_ALL=C grep -Evq '^[0-9a-f]{64}  [^/]+$' SHA256SUMS; then
+            echo 'Invalid SHA256SUMS record' >&2
+            exit 1
+          fi
+          cut -c 67- SHA256SUMS | cmp - <(cut -c 67- "$RUNNER_TEMP/source-alpha/SHA256SUMS")
+          sha256sum -c SHA256SUMS
+
+      - name: Run the published reference design
+        if: ${{ hashFiles('lean-regen-reference.zip', 'REFERENCE-SHA256SUMS') != '' }}
+        run: |
+          cut -c 67- REFERENCE-SHA256SUMS | cmp - <(printf 'lean-regen-reference.zip\n')
+          LC_ALL=C grep -Exq '[0-9a-f]{64}  lean-regen-reference\.zip' REFERENCE-SHA256SUMS
+          sha256sum -c REFERENCE-SHA256SUMS
+          python3 -m zipfile -e lean-regen-reference.zip "$RUNNER_TEMP"
+          cd "$RUNNER_TEMP/lean-regen-reference"
+          python3 compare.py --tool-bin "$RUNNER_TEMP/lean-4.19.0-linux/bin" --out "$RUNNER_TEMP/reference-comparison"
