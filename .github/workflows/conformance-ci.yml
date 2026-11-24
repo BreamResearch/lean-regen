@@ -9,6 +9,8 @@ on:
       - lean-regen-conformance-source.zip
       - lean-regen-check.pyz
       - wrong.jsonl
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -16,7 +18,6 @@ permissions:
 
 jobs:
   check:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -27,21 +28,33 @@ jobs:
 
       - name: Verify the edition before extracting its source
         run: |
-          echo 'e248265b9d051fb5a2cda8cda0e5ecdd625bc64b042a81b55c6591ce67349cf2  CONFORMANCE-SHA256SUMS' | sha256sum -c -
+          echo '0ed003d19eba3e7e0597feee073ecbcfe5734abe1ee53585c7bda347fea97684  CONFORMANCE-SHA256SUMS' | sha256sum -c -
           sha256sum -c CONFORMANCE-SHA256SUMS
           python3 -I - <<'PY'
+          import hashlib
+          import json
           import os
           from zipfile import ZipFile
           with ZipFile('lean-regen-conformance-source.zip') as archive:
-              assert archive.comment == b'cacfa10286e3a06bbab49d38e396f0c9978505db', 'Unexpected source commit'
+              prefix = 'lean-regen-conformance/'
+              index = prefix + 'SOURCE-MANIFEST.json'
+              manifest = json.loads(archive.read(index))
+              assert manifest['format'] == 'lean-regen-checker-source-v1'
+              expected = {prefix + name: digest for name, digest in manifest['files'].items()}
+              assert set(archive.namelist()) == {*expected, index}
+              assert len(archive.namelist()) == len(expected) + 1
+              for name, digest in expected.items():
+                  assert hashlib.sha256(archive.read(name)).hexdigest() == digest, name
               archive.extractall(os.environ['RUNNER_TEMP'])
           PY
 
       - name: Rebuild the published zipapp and run the source tests
         run: |
           cd "$RUNNER_TEMP/lean-regen-conformance"
-          python3 packages/conformance/build_zipapp.py --out "$RUNNER_TEMP/rebuilt.pyz"
-          cmp "$RUNNER_TEMP/rebuilt.pyz" "$GITHUB_WORKSPACE/lean-regen-check.pyz"
+          python3 packages/conformance/build_zipapp.py --release-dir "$RUNNER_TEMP/rebuilt-checker"
+          for name in lean-regen-check.pyz lean-regen-conformance-source.zip wrong.jsonl CONFORMANCE-SHA256SUMS; do
+            cmp "$RUNNER_TEMP/rebuilt-checker/$name" "$GITHUB_WORKSPACE/$name"
+          done
           cmp packages/conformance/fixtures/wrong.jsonl "$GITHUB_WORKSPACE/wrong.jsonl"
           python3 -B -m unittest discover -s packages/conformance -p 'test_*.py' -v
 

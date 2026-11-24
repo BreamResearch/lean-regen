@@ -1,0 +1,10 @@
+Lean Regen
+BreamResearch
+
+The project-authored sources, proofs, examples and documentation are offered
+under the Apache License, Version 2.0. This distribution includes material
+from Lean Verified SDLC 1.0.0, developed as part of the same project. Each
+source archive identifies the original material in UPSTREAM_PROVENANCE.json.
+
+Lean Regen is an independent project for use with the Lean proof assistant.
+See LICENSE and THIRD_PARTY_NOTICES.md for licensing and attribution.
