@@ -1,0 +1,107 @@
+name: Verify published Lean Regen distribution
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-checks:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    env:
+      SOURCE_COMMIT: 80a86efab6e6d678d7ae839811a2fb95352ddbbd
+      SOURCE_TREE: c039b27eea884458952bd7ea89e51668128e4b74
+      SOURCE_TAG: v0.2.0-alpha.2
+      TAG_OBJECT: 36b6e8dc0d9a7d9897ae8b455b2f0d9ef59cfab0
+      DEVELOPMENT_COMMIT: 753faef659116c340081a00217164a858676b170
+    steps:
+      - name: Read source without persisting credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Verify bundle and check out the exact source offline
+        env:
+          GIT_ALLOW_PROTOCOL: file
+          GIT_TERMINAL_PROMPT: "0"
+        run: |
+          bundle="$GITHUB_WORKSPACE/lean-regen.git.bundle"
+          printf '%s  %s\n' bef15192a35c80de150fa56f8b65d86a08e0f3341263b8a117cf3aec5fe1c1d3 "$bundle" | sha256sum -c -
+          git bundle verify "$bundle"
+          printf '%s\n' \
+            "$SOURCE_COMMIT refs/heads/main" \
+            "$DEVELOPMENT_COMMIT refs/heads/codex/post-alpha" \
+            "$TAG_OBJECT refs/tags/$SOURCE_TAG" | LC_ALL=C sort > "$RUNNER_TEMP/expected-refs"
+          git bundle list-heads "$bundle" | LC_ALL=C sort | diff -u "$RUNNER_TEMP/expected-refs" -
+          src="$RUNNER_TEMP/lean-regen-source"
+          git -c core.hooksPath=/dev/null clone --branch main --no-checkout "$bundle" "$src"
+          cd "$src"
+          git fsck --full --strict
+          test "$(git rev-parse refs/heads/main)" = "$SOURCE_COMMIT"
+          test "$(git rev-parse refs/remotes/origin/codex/post-alpha)" = "$DEVELOPMENT_COMMIT"
+          test "$(git cat-file -t "refs/tags/$SOURCE_TAG")" = tag
+          test "$(git rev-parse "refs/tags/$SOURCE_TAG")" = "$TAG_OBJECT"
+          test "$(git rev-parse "refs/tags/$SOURCE_TAG^{commit}")" = "$SOURCE_COMMIT"
+          git -c core.hooksPath=/dev/null checkout --detach "$SOURCE_COMMIT"
+          test "$(git rev-parse HEAD^{tree})" = "$SOURCE_TREE"
+
+      - name: Check immutable upstream bytes
+        working-directory: ${{ runner.temp }}/lean-regen-source
+        run: python3 scripts/leanregen.py check-upstream
+
+      - name: Exercise CLI, packaging and state model
+        working-directory: ${{ runner.temp }}/lean-regen-source
+        run: |
+          python3 -m unittest discover -s tests -v
+          python3 autonomy/model_check.py
+
+      - name: Exercise historical evidence tooling
+        working-directory: ${{ runner.temp }}/lean-regen-source
+        run: |
+          openssl version
+          python3 packages/lean-verified-sdlc/assets/evaluation/test_evidence_tools.py
+
+      - name: Fetch and check the pinned historical toolchain
+        working-directory: ${{ runner.temp }}
+        run: |
+          curl --proto '=https' --proto-redir '=https' --fail --silent --show-error --location --retry 3 \
+            --output lean-4.19.0-linux.tar.zst \
+            https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst
+          printf '%s  %s\n' 6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe lean-4.19.0-linux.tar.zst \
+            | cmp - lean-regen-source/config/lean-4.19.0-linux.sha256
+          sha256sum -c lean-regen-source/config/lean-4.19.0-linux.sha256
+          tar --zstd -xf lean-4.19.0-linux.tar.zst
+
+      - name: Rebuild and check the sequential inventory model
+        working-directory: ${{ runner.temp }}/lean-regen-source
+        run: |
+          tool_bin="$RUNNER_TEMP/lean-4.19.0-linux/bin"
+          python3 scripts/leanregen.py demo --tool-bin "$tool_bin" --workdir "$RUNNER_TEMP/demo"
+          python3 - "$RUNNER_TEMP/demo/project/evidence/core-check.json" <<'PY'
+          import json, sys
+          with open(sys.argv[1]) as stream:
+              report = json.load(stream)
+          if report["theorem_count"] != 14 or len(report["theorem_axioms"]) != 14:
+              raise SystemExit("Expected all 14 named historical obligations")
+          PY
+          python3 packages/lean-verified-sdlc/assets/evaluation/check_lean_mutations.py \
+            --tool-bin "$tool_bin" --out-dir "$RUNNER_TEMP/mutations"
+
+      - name: Rebuild source assets from the tested commit
+        working-directory: ${{ runner.temp }}/lean-regen-source
+        run: |
+          python3 scripts/build_source_alpha.py --commit "$SOURCE_COMMIT" --out "$RUNNER_TEMP/source-alpha"
+          cd "$RUNNER_TEMP/source-alpha"
+          sha256sum -c SHA256SUMS
+          for name in lean-regen-v0.2.0-alpha.2-source.zip manifest.json RELEASE-NOTES.md SHA256SUMS core-check.json; do
+            cmp -- "$name" "$GITHUB_WORKSPACE/$name"
+            printf 'Matched %s\n' "$name"
+          done
