@@ -1,10 +1,16 @@
 # Lean Regen
 
-Lean Regen は、業務仕様を Lean で定義し、実装を書き換えても同じ条件を満たすか検査するための参照設計です。在庫の予約と解放を例に、元の実装と二つの書き換えを比較できます。無料で、登録せずに手元で実行できます。
+AIで実装を書き直したとき、同じ業務ルールを守っているか。Lean Regen は、業務を知る人が成功・拒否の条件や状態の変化を Lean の仕様に定め、新しい実装にその仕様を満たす証明を添えるための参照設計です。在庫の例では、加算の順序を変えた版は同じ14定理に合格し、残り8枠すべてを予約する正当な要求を拒む版は証明の検査で止まりました。無料で、登録せずに手元で試せます。
 
-Lean Regen shows how to specify business rules in Lean and check a replacement implementation against those same rules. The example compares three implementations of inventory reservations and releases. The tools run locally, free of charge, without an account.
+仕様で定めた性質は、更新のたびに人がコードを読み直す作業を、証明の再検査に置き換えられます。業務用語やデータの意味、移行規則、反例、各版のソース・証明・検査記録を残せば、後任も判断の根拠をたどれます。ルールを変えるときは人がその意味を決め、DBへの書き込みなどモデルの外の動作は別に検査します。
 
-[設計と手順（日本語）](https://breamresearch.github.io/lean-regen/#design) · [Design and usage (English)](https://breamresearch.github.io/lean-regen/#design-en) · [照合ツール / Trace checker][checker-release]
+[設計の考え方と適用範囲](DESIGN.ja.md) · [在庫の例を実行する](https://breamresearch.github.io/lean-regen/#run)
+
+When AI rewrites a function, how do you know the business rules still hold? In Lean Regen, people who know the business specify when an operation must succeed or fail and how state may change. Each replacement comes with a proof against those rules. In the inventory example, reversing the addition operands passed the same 14 theorems. A version that wrongly refused a reservation for all eight remaining units failed the proof check. Try it locally, free of charge and without an account.
+
+For a property covered by a proof, checking it again can replace reading each new diff to establish that property. Keep the vocabulary, meaning of stored data, migration rules and known counterexamples alongside each version’s source, proofs and check results. The next maintainer can then trace earlier decisions. Changing a business rule requires a human decision. Effects outside the model, including database writes, need their own checks.
+
+[Read the design and its scope](DESIGN.md) · [Run the inventory example](https://breamresearch.github.io/lean-regen/#run-en)
 
 ## 同じ契約で3つの実装を検査する · Compare three implementations
 
@@ -60,16 +66,16 @@ The failing transaction tried to reserve 8 from a state with 8 available and 2 r
 
 ## 仕様から実装をたどる · Follow one rule through the code
 
-参照設計 ZIP の `lean-regen-reference/project/` に次のファイルがあります。
+次のリンクから Lean コードを読めます。参照設計 ZIP を展開すると、同じファイルが `lean-regen-reference/project/` にあります。
 
-In the reference design ZIP, the files below are under `project/`.
+Open the linked Lean files to follow the rule in your browser. The reference ZIP contains the same files under `project/`.
 
 | ファイル / File | 何を読むか / What to read |
 | --- | --- |
-| `VerifiedInventory/Specification.lean` | `ReserveAllowed s q` は `0 < q ∧ q ≤ s.available`。`ReserveSpec` は成功時の正確な増減と、拒否時の元の状態を定義。 / The predicate permits reserving the last unit. The specification defines the exact accepted balances and the unchanged rejected state. |
-| `VerifiedInventory/Implementation.lean` | `reserve` と `release` が実装。`step` は1操作、`run` は有限の操作列を実行。 / `step` dispatches a command to `reserve` or `release`. `run` applies a finite list of commands. |
-| `VerifiedInventory/Proofs.lean` | `reserve_succeeds` は正当な予約の成功、`reserve_rejects_unchanged` は拒否時の状態保存、`run_preserves` は正当な初期状態からの総量保存。 / These prove required success, unchanged state on rejection, and capacity conservation from any well-formed state. |
-| `Contract.lean` · `Audit.lean` · `assurance.json` | 6要件に対応する14定理を所定の型で検査し、使用した公理を照合。 / The challenge checks the expected theorem types. The manifest maps 14 theorems to six requirements. The verifier checks the audit output against the allowed axioms. |
+| [VerifiedInventory/Specification.lean](https://github.com/BreamResearch/lean-regen/blob/main/docs/example/Specification.lean) | `ReserveAllowed s q` は `0 < q ∧ q ≤ s.available`。`ReserveSpec` は成功時の正確な増減と、拒否時の元の状態を定義。 / The predicate permits reserving the last unit. The specification defines the exact accepted balances and the unchanged rejected state. |
+| [VerifiedInventory/Implementation.lean](https://github.com/BreamResearch/lean-regen/blob/main/docs/example/Implementation.lean) | `reserve` と `release` が実装。`step` は1操作、`run` は有限の操作列を実行。 / `step` dispatches a command to `reserve` or `release`. `run` applies a finite list of commands. |
+| [VerifiedInventory/Proofs.lean](https://github.com/BreamResearch/lean-regen/blob/main/docs/example/Proofs.lean) | `reserve_succeeds` は正当な予約の成功、`reserve_rejects_unchanged` は拒否時の状態保存、`run_preserves` は正当な初期状態からの総量保存。 / These prove required success, unchanged state on rejection, and capacity conservation from any well-formed state. |
+| [Contract.lean](https://github.com/BreamResearch/lean-regen/blob/main/docs/example/Contract.lean) · `Audit.lean` · `assurance.json` | 6要件に対応する14定理を所定の型で検査し、使用した公理を照合。 / The challenge checks the expected theorem types. The manifest maps 14 theorems to six requirements. The verifier checks the audit output against the allowed axioms. |
 
 自分の候補を試すには、同梱の `project/` をコピーして実装と証明を編集し、ZIP の README の「自分の実装を試す」に従って元の契約で再検査します。
 
