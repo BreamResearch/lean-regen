@@ -12,6 +12,12 @@ For a property covered by a proof, checking it again can replace reading each ne
 
 [Read the design and its scope](DESIGN.md) · [Run the inventory example](https://breamresearch.github.io/lean-regen/#run-en)
 
+## 応用例 Knot · Portfolio allocation
+
+2件の振替が単独では通っても、同じ枠を使うと発注済み予算・工数を侵すことがあります。Knot では振替案の数量を直し、確約・会計期間・案件の依存関係を再検査してから、仕訳をまとめて確定できます。途中障害や古い版、複数案件の一括振替も登録なしで試せます。[操作する](https://breamresearch.github.io/lean-regen/knot/) · [日英の解説とソース](docs/knot/README.md)
+
+Two transfers can each fit on their own yet overdraw a shared pool. Edit a proposal in Knot, check the combined effect against commitments, periods and project dependencies, then post it as a batch. Try failed writes, stale proposals and a multi-project posting in a browser with no account. [Try Knot in English](https://breamresearch.github.io/lean-regen/knot/?lang=en) · [Guide and source](docs/knot/README.md)
+
 ## 同じ契約で3つの実装を検査する · Compare three implementations
 
 [設計例の ZIP / Download the reference design][reference-zip] · [リリース / Release][reference-release]

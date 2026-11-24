@@ -27,13 +27,14 @@ table{width:100%;border-collapse:collapse;background:white;font-variant-numeric:
 <article id="ja" lang="ja">
 <section class="hero"><div><h1>実装を作り直しても、<br>業務の約束を引き継ぐ</h1>
 <p class="intro">AIや新しいライブラリでコードを書き換えたとき、前と同じ業務ルールを守っているか。Lean Regenでは、人が決めたルールをLeanの仕様にし、次の実装がそれを満たす証明を検査します。仕様に表した性質は、新旧のコードを一行ずつ比較しなくても確かめられます。</p>
-<div class="actions"><a class="button" href="https://github.com/BreamResearch/lean-regen/blob/main/DESIGN.ja.md">設計の考え方を読む</a><a href="#run">在庫の例を動かす</a></div></div>
+<div class="actions"><a class="button" href="./knot/">Knot を操作する</a><a href="https://github.com/BreamResearch/lean-regen/blob/main/DESIGN.ja.md">設計の考え方を読む</a><a href="#run">在庫の例を動かす</a></div></div>
 <figure class="diagram"><figcaption>書き換えの前後で引き継ぐもの</figcaption><div class="fixed"><strong>業務の意味と受入条件</strong><span>用語、入力、成功・拒否、データとその移行規則</span></div><div class="variants"><div><strong>これまでの版</strong><small>ソース、証明、検査記録を保存</small></div><div><strong>次の版</strong><small>新しい実装と証明を同じ条件で検査</small></div></div></figure></section>
 <section id="design"><h2>人が決めること、更新のたびに検査できること</h2><div class="steps">
 <div><h3>意図を具体例で決める</h3><p>「残り8枠をすべて予約してよいか」は業務上の判断です。担当者が受理と決めたら、成功後の残高と、拒否したときに変えてはいけない状態まで仕様に書きます。</p></div>
 <div><h3>実装と証明を組にする</h3><p>担当者やAIが別の実装を書き、その版に対応する証明を用意します。元の条件を満たす証明が通れば、その性質を確認するためのコードレビューを毎回繰り返さずに済みます。</p></div>
 <div><h3>判断と根拠を引き継ぐ</h3><p>後任は、ルールの意味や過去の反例、どの版で何を検査したかをたどれます。業務の方針を変えるときは仕様を改め、DBへの書き込みや並行処理はそれぞれの前提に沿って検査します。</p></div>
 </div><p class="note">在庫はこの方法を試せる一例です。たとえばデータ形式の変換器でも、受け付ける入力、エラー条件、出力を定めれば、その仕様に対して別の変換処理を検査できます。</p></section>
+<section><h2>応用例 Knot で、複数案件の配分を確かめる</h2><p>同じ振替元に2件の依頼が重なったとき、1件ずつなら足りるのに、合算すると確約済みの枠を侵します。案を修正して確定し、会計期間・案件の依存・仕訳への影響をブラウザーで確認できます。登録不要です。</p><div class="actions"><a href="./knot/">配分と仕訳を操作する</a></div></section>
 <section id="run"><div class="cols"><div><h2>在庫の例を動かす</h2><p>参照設計のZIPを展開します。Python 3.11以上とネイティブリンカーを用意し、<code>lean --version</code> が4.19.0を示すことを確認してください。<code>comparison</code> は新しく作成する出力先です。Apple SiliconのmacOS 27では、先に同梱READMEの手順でXcodeのリンカーを選択します。</p><div class="actions"><a class="button" href="https://github.com/BreamResearch/lean-regen/releases/download/reference-design-v0.1.0-alpha.2/lean-regen-reference.zip">参照設計をダウンロード</a><a href="https://github.com/BreamResearch/lean-regen/releases/tag/reference-design-v0.1.0-alpha.2">リリースと配布ファイル</a></div></div><div><pre><code>cd lean-regen-reference
 python3 compare.py \
   --tool-bin "$(lean --print-prefix)/bin" \
@@ -51,13 +52,14 @@ python3 lean-regen-check.pyz wrong.jsonl</code></pre><p class="small">最初の�
 <article id="en" lang="en">
 <section class="hero"><div><h1>Keep the business rules when the code is rewritten</h1>
 <p class="intro">When AI rewrites a function or a library is replaced, how do you know the business rules still hold? Lean Regen records the rules people agree on in a Lean specification. Each replacement comes with a proof against those rules. For a property covered by the proof, you can check it again without rereading the entire diff.</p>
-<div class="actions"><a class="button" href="https://github.com/BreamResearch/lean-regen/blob/main/DESIGN.md">Read the design</a><a href="#run-en">Run the inventory example</a></div></div>
+<div class="actions"><a class="button" href="./knot/?lang=en">Try Knot</a><a href="https://github.com/BreamResearch/lean-regen/blob/main/DESIGN.md">Read the design</a><a href="#run-en">Run the inventory example</a></div></div>
 <figure class="diagram"><figcaption>What your team keeps through a rewrite</figcaption><div class="fixed"><strong>Business meaning and acceptance criteria</strong><span>Terms, inputs, outcomes, data and migration rules</span></div><div class="variants"><div><strong>Previous version</strong><small>Keep its source, proofs and check results</small></div><div><strong>Next version</strong><small>Check its implementation and proofs against the same criteria</small></div></div></figure></section>
 <section id="design-en"><h2>What people decide and what a proof can check</h2><div class="steps">
 <div><h3>Agree on a concrete case</h3><p>Can a customer reserve all eight remaining units? People who know the business decide. If the answer is yes, write down the resulting balances and what must stay unchanged when a request is rejected.</p></div>
 <div><h3>Pair the code with a proof</h3><p>A developer or an AI can write a new implementation and supply its proof. For a property in the fixed specification, checking that proof can replace a fresh line-by-line review of the change.</p></div>
 <div><h3>Keep the reasoning available</h3><p>The next maintainer can recover the meaning of the rule, earlier counterexamples and the results for each version. A change in business policy calls for a new decision. Database writes and concurrency have separate assumptions to check.</p></div>
 </div><p class="note">Inventory is one worked example. For a data-format converter, define its accepted inputs, errors and expected outputs. Those become the specification against which to check a replacement converter.</p></section>
+<section><h2>Check portfolio allocations in Knot</h2><p>Two requests can each fit on their own yet exceed the same source's available capacity. Edit the proposal, check fiscal periods and project dependencies, then see exactly what posts to the ledger. The browser demo needs no account.</p><div class="actions"><a href="./knot/?lang=en">Open the interactive ledger</a></div></section>
 <section id="run-en"><div class="cols"><div><h2>Run the inventory example</h2><p>Extract the reference ZIP. Use Python 3.11+ and a native linker. Check that <code>lean --version</code> reports 4.19.0, and choose a fresh output directory for each run. On Apple Silicon with macOS 27, first follow the ZIP’s README to select the Xcode linker.</p><div class="actions"><a class="button" href="https://github.com/BreamResearch/lean-regen/releases/download/reference-design-v0.1.0-alpha.2/lean-regen-reference.zip">Download the reference design</a><a href="https://github.com/BreamResearch/lean-regen/releases/tag/reference-design-v0.1.0-alpha.2">Release and files</a></div></div><div><pre><code>cd lean-regen-reference
 python3 compare.py \
   --tool-bin "$(lean --print-prefix)/bin" \

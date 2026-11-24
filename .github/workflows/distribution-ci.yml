@@ -133,3 +133,22 @@ jobs:
             cmp "$GITHUB_WORKSPACE/docs/example/$file" "project/VerifiedInventory/$file"
           done
           python3 compare.py --tool-bin "$RUNNER_TEMP/lean-4.19.0-linux/bin" --out "$RUNNER_TEMP/reference-comparison"
+
+      - name: Set up Node for the Knot integration checks
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '24.22.3'
+          package-manager-cache: false
+
+      - name: Check Knot proofs and reconcile SQLite transactions with the Lean model
+        run: |
+          cd docs/knot
+          printf '%s\n' \
+            '694ca5b36aa3e6e71f417819d7df390b65343665fcfa5c69015ca33d93d291b3  sql-wasm.js' \
+            '0734155c83e493983d1f2ff5b09a4fab6e35a32e9449c7e4e545756439f62d73  sql-wasm.wasm' \
+            | sha256sum -c -
+          cmp policy.json formal/policy.json
+          tool_bin="$RUNNER_TEMP/lean-4.19.0-linux/bin"
+          python3 formal/verify.py --tool-bin "$tool_bin" --out "$RUNNER_TEMP/knot-proof.json"
+          (cd formal && "$tool_bin/lake" build)
+          node check.mjs --native "$PWD/formal/.lake/build/bin/knotCheck"

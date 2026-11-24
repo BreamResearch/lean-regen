@@ -1,0 +1,33 @@
+{
+  "format": "knot-projection-contract-v1",
+  "toolchain": "leanprover/lean4:v4.19.0",
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "theorems": [
+    "Knot.rule_semantics",
+    "Knot.reasons_exact",
+    "Knot.row_exact",
+    "Knot.accepted_row",
+    "Knot.rejected_row",
+    "Knot.accepted_effect",
+    "Knot.accepted_bounds",
+    "Knot.batch_exact",
+    "Knot.rejected_batch",
+    "Knot.accepted_batch",
+    "Knot.stale_snapshot",
+    "Knot.batch_conserves",
+    "Knot.consumed_revision"
+  ],
+  "files": {
+    "Knot/Specification.lean": "b5074857de747b988665925ccc8bbfff73f17a918aed9689ea6c66c937ce74b0",
+    "Contract.lean": "f650aee4371e45e1c803ee63b711f5e13ccc23599332cf142ea6767a88f50015",
+    "Audit.lean": "30e10cdb4141275ad717811384823ddab0c92cbccb9354b65cff6a887df0ee78",
+    "Main.lean": "fa954c3e3ac9e9242501f550c9d984ee996b0b811683b5557913a4e886d39656",
+    "cases.json": "9d4c38c0ac998ee587297e91a505b6f7a257141c18570160eab470896c6fc3ce",
+    "lakefile.toml": "aaea1dac5821360786ce62cf77482a3ec4741db7e9994c303ddfa2c05b0e4959",
+    "lake-manifest.json": "8a69c2b9b28466a087e54744c684ca1d4bda804fb57a44f823bda9ea4bb0b67b",
+    "lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea"
+  }
+}
