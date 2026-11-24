@@ -1,0 +1,116 @@
+{
+  "deadline": {
+    "project": "atlas",
+    "priority": 2,
+    "reason": {
+      "ja": "顧客移行が3週間前倒しになったため、atlasを優先度2に引き上げます。提示された承認済みコミットメントを基準にすると、DATAはENG・QAともに移管可能で必要な予算と工数に余裕があり、QAをRISKから出す案より調整先を一本化できます。実行前に、より高い下限が適用されないか確認が必要です。",
+      "en": "The customer migration moved up three weeks, so atlas moves to priority 2. Based on approved commitments, DATA has eligible capacity for both skills and keeps coordination within one cost center compared with sourcing QA from RISK, subject to confirming any higher floors."
+    },
+    "lines": [
+      {
+        "from": "01-DATA-ENG",
+        "to": "01-PLAT-ENG",
+        "budget": 220,
+        "hours": 80
+      },
+      {
+        "from": "01-DATA-QA",
+        "to": "01-PLAT-QA",
+        "budget": 100,
+        "hours": 40
+      }
+    ]
+  },
+  "shared-pool": {
+    "project": "atlas",
+    "priority": 2,
+    "reason": {
+      "ja": "振替元の予算1,000と420時間のうち、630と260時間は承認済みのため、残りは370と160時間。PLATとOPSへの振替はそれぞれ単独なら可能だが、同時に実行すると予算が70、工数が20時間不足する。両明細を候補に残し、合算での不足を検証できるようにする。",
+      "en": "The donor has 370 in budget and 160 hours left after approved commitments of 630 and 260 hours against a pool of 1,000 and 420 hours. Either transfer fits on its own. Together they exceed the available budget by 70 and the available hours by 20. Keep both lines in the candidate for the combined balance check."
+    },
+    "lines": [
+      {
+        "from": "01-DATA-ENG",
+        "to": "01-PLAT-ENG",
+        "budget": 220,
+        "hours": 90
+      },
+      {
+        "from": "01-DATA-ENG",
+        "to": "01-OPS-ENG",
+        "budget": 220,
+        "hours": 90
+      }
+    ]
+  },
+  "stale": {
+    "project": "atlas",
+    "priority": 2,
+    "reason": {
+      "ja": "PLATへの振替案は、別件の調達コミットメントが計上される前の残高に基づく。計上後は振替元の残高が不足する可能性があるため、明細は候補に残し、実行前に最新残高で再確認する。",
+      "en": "The proposed transfer to PLAT uses a snapshot taken before a separate procurement commitment is posted. That posting could leave the donor with too little capacity. Keep the line in the candidate and recheck the current balance before execution."
+    },
+    "lines": [
+      {
+        "from": "01-DATA-ENG",
+        "to": "01-PLAT-ENG",
+        "budget": 200,
+        "hours": 70
+      }
+    ]
+  },
+  "rollback": {
+    "project": "pulse",
+    "priority": 1,
+    "reason": {
+      "ja": "更新リリースにはOPSのエンジニアリングとQAの両方の要員が必要なため、2件の振替を一括で扱う。片方の振替に失敗した場合は、もう片方の適用済みの変更も取り消し、DATAの枠がリリースに使えない状態で拘束されるのを防ぐ。",
+      "en": "The renewal release needs both OPS engineering and QA staffing, so treat the two transfers as a single unit. If either transfer fails, roll back any applied transfer to avoid tying up DATA capacity without enabling the release."
+    },
+    "lines": [
+      {
+        "from": "01-DATA-ENG",
+        "to": "01-OPS-ENG",
+        "budget": 150,
+        "hours": 65
+      },
+      {
+        "from": "01-DATA-QA",
+        "to": "01-OPS-QA",
+        "budget": 80,
+        "hours": 45
+      }
+    ]
+  },
+  "closed-period": {
+    "project": "atlas",
+    "priority": 2,
+    "reason": {
+      "ja": "振替に充てる残高は締め済みの期間にある。締め後の計上は確定済みの記録に影響するおそれがあるため、指定の明細をレビュー用の候補に残す。",
+      "en": "The balance needed for this transfer sits in a closed period. Posting against it could affect finalized records, so retain the specified line in the candidate for review."
+    },
+    "lines": [
+      {
+        "from": "00-DATA-ENG",
+        "to": "00-PLAT-ENG",
+        "budget": 150,
+        "hours": 60
+      }
+    ]
+  },
+  "dependency": {
+    "project": "shield",
+    "priority": 2,
+    "reason": {
+      "ja": "DATAのQA枠には振替に必要な予算と工数がある。RISKのQA枠を確保する候補として明細を残すが、契約更新の準備が整うまでリリースを保留する。準備前に進めると、前提条件を満たさないままリリースすることになる。",
+      "en": "DATA QA has enough budget and hours for the transfer. Keep the line as a candidate to staff RISK QA, and hold the release until Contract Renewals is ready. Releasing sooner would leave a prerequisite unmet."
+    },
+    "lines": [
+      {
+        "from": "01-DATA-QA",
+        "to": "01-RISK-QA",
+        "budget": 75,
+        "hours": 30
+      }
+    ]
+  }
+}

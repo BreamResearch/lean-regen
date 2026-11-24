@@ -1,0 +1,670 @@
+{
+  "fields": [
+    "budget",
+    "hours",
+    "budgetIn",
+    "hoursIn",
+    "budgetOut",
+    "hoursOut",
+    "minBudget",
+    "minHours",
+    "maxBudget",
+    "maxHours",
+    "committedBudget",
+    "committedHours",
+    "closed",
+    "locked"
+  ],
+  "rows": [
+    {
+      "name": "combined-outflow-at-commitment",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 0,
+        "hoursIn": 0,
+        "budgetOut": 60,
+        "hoursOut": 65,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": true,
+        "reasons": [],
+        "budget": 40,
+        "hours": 15
+      }
+    },
+    {
+      "name": "two-requests-each-legal-together-underfund-commitment",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 0,
+        "hoursIn": 0,
+        "budgetOut": 80,
+        "hoursOut": 40,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": false,
+        "reasons": [
+          "budget-floor"
+        ],
+        "budget": 100,
+        "hours": 80
+      }
+    },
+    {
+      "name": "one-of-two-requests-in-isolation",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 0,
+        "hoursIn": 0,
+        "budgetOut": 40,
+        "hoursOut": 20,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": true,
+        "reasons": [],
+        "budget": 60,
+        "hours": 60
+      }
+    },
+    {
+      "name": "hours-already-promised",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 0,
+        "hoursIn": 0,
+        "budgetOut": 0,
+        "hoursOut": 66,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": false,
+        "reasons": [
+          "hours-floor"
+        ],
+        "budget": 100,
+        "hours": 80
+      }
+    },
+    {
+      "name": "locked-pool-may-receive",
+      "row": {
+        "budget": 30,
+        "hours": 20,
+        "budgetIn": 60,
+        "hoursIn": 65,
+        "budgetOut": 0,
+        "hoursOut": 0,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 1
+      },
+      "expected": {
+        "accepted": true,
+        "reasons": [],
+        "budget": 90,
+        "hours": 85
+      }
+    },
+    {
+      "name": "locked-mixed-flow-rejected",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 8,
+        "hoursIn": 0,
+        "budgetOut": 8,
+        "hoursOut": 0,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 1
+      },
+      "expected": {
+        "accepted": false,
+        "reasons": [
+          "locked"
+        ],
+        "budget": 100,
+        "hours": 80
+      }
+    },
+    {
+      "name": "closed-period-rejects-credit",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 1,
+        "hoursIn": 0,
+        "budgetOut": 0,
+        "hoursOut": 0,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 1,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": false,
+        "reasons": [
+          "closed"
+        ],
+        "budget": 100,
+        "hours": 80
+      }
+    },
+    {
+      "name": "both-ceilings",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 11,
+        "hoursIn": 11,
+        "budgetOut": 0,
+        "hoursOut": 0,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": false,
+        "reasons": [
+          "budget-ceiling",
+          "hours-ceiling"
+        ],
+        "budget": 100,
+        "hours": 80
+      }
+    },
+    {
+      "name": "mixed-credit-and-debit-legal-at-net-ceiling",
+      "row": {
+        "budget": 100,
+        "hours": 80,
+        "budgetIn": 60,
+        "hoursIn": 0,
+        "budgetOut": 50,
+        "hoursOut": 0,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": true,
+        "reasons": [],
+        "budget": 110,
+        "hours": 80
+      }
+    },
+    {
+      "name": "safe-inputs-one-unit-over-ceiling-after-large-sums",
+      "row": {
+        "budget": 9007199254740991,
+        "hours": 80,
+        "budgetIn": 2,
+        "hoursIn": 0,
+        "budgetOut": 1,
+        "hoursOut": 0,
+        "minBudget": 10,
+        "minHours": 10,
+        "maxBudget": 9007199254740991,
+        "maxHours": 90,
+        "committedBudget": 40,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": false,
+        "reasons": [
+          "budget-ceiling"
+        ],
+        "budget": 9007199254740991,
+        "hours": 80
+      }
+    },
+    {
+      "name": "drain-more-than-available-even-with-zero-floor",
+      "row": {
+        "budget": 5,
+        "hours": 80,
+        "budgetIn": 0,
+        "hoursIn": 0,
+        "budgetOut": 6,
+        "hoursOut": 0,
+        "minBudget": 0,
+        "minHours": 10,
+        "maxBudget": 110,
+        "maxHours": 90,
+        "committedBudget": 0,
+        "committedHours": 15,
+        "closed": 0,
+        "locked": 0
+      },
+      "expected": {
+        "accepted": false,
+        "reasons": [
+          "budget-floor"
+        ],
+        "budget": 5,
+        "hours": 80
+      }
+    }
+  ],
+  "batches": [
+    {
+      "name": "two-accounts-balanced-at-boundary",
+      "current": 7,
+      "expectedRevision": 7,
+      "rows": [
+        {
+          "budget": 100,
+          "hours": 80,
+          "budgetIn": 0,
+          "hoursIn": 0,
+          "budgetOut": 60,
+          "hoursOut": 65,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 30,
+          "hours": 20,
+          "budgetIn": 60,
+          "hoursIn": 65,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 1
+        }
+      ],
+      "expected": {
+        "accepted": true,
+        "version": 8,
+        "balances": [
+          {
+            "budget": 40,
+            "hours": 15
+          },
+          {
+            "budget": 90,
+            "hours": 85
+          }
+        ]
+      }
+    },
+    {
+      "name": "older-approval-after-commit",
+      "current": 8,
+      "expectedRevision": 7,
+      "rows": [
+        {
+          "budget": 100,
+          "hours": 80,
+          "budgetIn": 0,
+          "hoursIn": 0,
+          "budgetOut": 60,
+          "hoursOut": 65,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 30,
+          "hours": 20,
+          "budgetIn": 60,
+          "hoursIn": 65,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 1
+        }
+      ],
+      "expected": {
+        "accepted": false,
+        "version": 8,
+        "balances": [
+          {
+            "budget": 100,
+            "hours": 80
+          },
+          {
+            "budget": 30,
+            "hours": 20
+          }
+        ]
+      }
+    },
+    {
+      "name": "fully-balanced-but-combined-donor-violates-commitment",
+      "current": 7,
+      "expectedRevision": 7,
+      "rows": [
+        {
+          "budget": 100,
+          "hours": 80,
+          "budgetIn": 0,
+          "hoursIn": 0,
+          "budgetOut": 80,
+          "hoursOut": 40,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 30,
+          "hours": 20,
+          "budgetIn": 40,
+          "hoursIn": 20,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 45,
+          "hours": 35,
+          "budgetIn": 40,
+          "hoursIn": 20,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        }
+      ],
+      "expected": {
+        "accepted": false,
+        "version": 7,
+        "balances": [
+          {
+            "budget": 100,
+            "hours": 80
+          },
+          {
+            "budget": 30,
+            "hours": 20
+          },
+          {
+            "budget": 45,
+            "hours": 35
+          }
+        ]
+      }
+    },
+    {
+      "name": "one-unit-budget-created-in-journal",
+      "current": 7,
+      "expectedRevision": 7,
+      "rows": [
+        {
+          "budget": 100,
+          "hours": 80,
+          "budgetIn": 0,
+          "hoursIn": 0,
+          "budgetOut": 60,
+          "hoursOut": 65,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 30,
+          "hours": 20,
+          "budgetIn": 61,
+          "hoursIn": 65,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 1
+        }
+      ],
+      "expected": {
+        "accepted": false,
+        "version": 7,
+        "balances": [
+          {
+            "budget": 100,
+            "hours": 80
+          },
+          {
+            "budget": 30,
+            "hours": 20
+          }
+        ]
+      }
+    },
+    {
+      "name": "one-hour-missing-in-journal",
+      "current": 7,
+      "expectedRevision": 7,
+      "rows": [
+        {
+          "budget": 100,
+          "hours": 80,
+          "budgetIn": 0,
+          "hoursIn": 0,
+          "budgetOut": 60,
+          "hoursOut": 65,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 30,
+          "hours": 20,
+          "budgetIn": 60,
+          "hoursIn": 64,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 1
+        }
+      ],
+      "expected": {
+        "accepted": false,
+        "version": 7,
+        "balances": [
+          {
+            "budget": 100,
+            "hours": 80
+          },
+          {
+            "budget": 30,
+            "hours": 20
+          }
+        ]
+      }
+    },
+    {
+      "name": "three-accounts-and-locked-credit-pool",
+      "current": 7,
+      "expectedRevision": 7,
+      "rows": [
+        {
+          "budget": 100,
+          "hours": 80,
+          "budgetIn": 0,
+          "hoursIn": 0,
+          "budgetOut": 60,
+          "hoursOut": 65,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 30,
+          "hours": 20,
+          "budgetIn": 30,
+          "hoursIn": 25,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 0
+        },
+        {
+          "budget": 45,
+          "hours": 35,
+          "budgetIn": 30,
+          "hoursIn": 40,
+          "budgetOut": 0,
+          "hoursOut": 0,
+          "minBudget": 10,
+          "minHours": 10,
+          "maxBudget": 110,
+          "maxHours": 90,
+          "committedBudget": 40,
+          "committedHours": 15,
+          "closed": 0,
+          "locked": 1
+        }
+      ],
+      "expected": {
+        "accepted": true,
+        "version": 8,
+        "balances": [
+          {
+            "budget": 40,
+            "hours": 15
+          },
+          {
+            "budget": 60,
+            "hours": 45
+          },
+          {
+            "budget": 75,
+            "hours": 75
+          }
+        ]
+      }
+    }
+  ]
+}

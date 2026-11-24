@@ -1,0 +1,8 @@
+name = "knot"
+version = "0.1.0"
+defaultTargets = ["Knot", "knotCheck"]
+[[lean_lib]]
+name = "Knot"
+[[lean_exe]]
+name = "knotCheck"
+root = "Main"

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#152e27">
+<meta name="description" content="Knot · ポートフォリオの予算と工数を動かし、振替の条件と台帳の変化を確かめる。 Explore portfolio trade-offs and their effect on the ledger.">
+<title>Knot · 資源配分オペレーション</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+<script src="./sql-wasm.js"></script>
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<aside class="rail">
+  <a class="brand" href="#overview" aria-label="Knot"><span class="brandmark" aria-hidden="true"><i></i><i></i><i></i></span><span>Knot</span></a>
+  <div class="rail-title" data-i18n="workspace"></div>
+  <nav id="nav"><a href="#overview" class="nav-item active" data-nav="overview"><span class="icon grid-icon" aria-hidden="true"></span><span data-i18n="portfolio"></span></a>
+    <a href="#simulator" class="nav-item" data-nav="simulator"><span class="icon swap-icon" aria-hidden="true">⇄</span><span data-i18n="desk"></span></a>
+    <a href="#ledger" class="nav-item" data-nav="ledger"><span class="icon list-icon" aria-hidden="true"></span><span data-i18n="history"></span></a></nav>
+  <div class="rail-bottom"><a id="back" href="../" data-i18n="back"></a><button id="reopen" type="button"><span aria-hidden="true">⤾</span><span data-i18n="reopen"></span></button><button id="reset-open" type="button"><span aria-hidden="true">↺</span><span data-i18n="reset"></span></button></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><div class="crumb"><span class="workspace-cube" aria-hidden="true"></span><span data-i18n="office"></span><span class="slash">/</span><span data-i18n="resource"></span></div><div class="languages" role="group" aria-label="言語 / Language"><button type="button" lang="ja" data-lang="ja">日本語</button><button type="button" lang="en" data-lang="en">English</button></div></header>
+  <main id="overview" tabindex="-1">
+    <div class="page-heading"><div><p class="kicker">Portfolio operations</p><h1 data-i18n="title"></h1></div><div class="dataset"><label for="scale" data-i18n="dataset"></label><select id="scale"><option value="0" data-i18n="smallDataset"></option><option value="2000" data-i18n="largeDataset"></option></select><span id="revision" class="revision" hidden></span></div></div>
+    <div id="error" class="error" role="alert" hidden></div>
+    <section class="metrics">
+      <article class="metric primary"><h2 data-i18n="totalBudget"></h2><div class="metric-value"><span id="budget">—</span><small data-i18n="yenUnit"></small></div><div id="budget-caption" class="metric-note"></div></article>
+      <article class="metric"><h2 data-i18n="totalHours"></h2><div class="metric-value"><span id="hours">—</span><small>h</small></div><div id="hours-caption" class="metric-note"></div></article>
+      <article class="metric"><h2 data-i18n="commitments"></h2><div class="metric-value"><span id="priority-count">—</span><small id="projects-count"></small></div><div id="priority-summary" class="metric-note"></div></article>
+    </section>
+    <div class="board">
+      <div class="left-column">
+        <section class="panel portfolio" aria-labelledby="portfolio-title"><div class="panel-heading"><div><p class="kicker">Portfolio</p><h2 id="portfolio-title" data-i18n="allocations"></h2></div><span id="portfolio-count" class="count"></span></div>
+          <div class="counts-strip" id="relations"></div>
+          <div class="project-search"><label for="filter" data-i18n="findProject"></label><input type="search" id="filter" autocomplete="off"></div>
+          <div class="table-scroll"><table><thead><tr><th scope="col" data-i18n="project"></th><th scope="col" data-i18n="priority"></th><th scope="col" data-i18n="projectStatus"></th><th scope="col" class="num" data-i18n="budgetCol"></th><th scope="col" class="num" data-i18n="hoursCol"></th></tr></thead><tbody id="projects"></tbody></table></div>
+          <div id="pages" class="pager"></div>
+        </section>
+        <section class="panel ledger" id="ledger" aria-labelledby="ledger-title" tabindex="-1"><div class="panel-heading"><div><p class="kicker">Transaction ledger</p><h2 id="ledger-title" data-i18n="history"></h2></div><span id="history-count" class="count"></span></div><div id="history"></div></section>
+      </div>
+      <section class="panel simulation" id="simulator" aria-labelledby="simulate-title" tabindex="-1">
+        <div class="panel-heading"><div><p class="kicker">Allocation desk</p><h2 id="simulate-title" data-i18n="desk"></h2></div><span class="desk-icon" aria-hidden="true">⇄</span></div>
+        <div class="simulation-body">
+          <label class="field-title input-label" for="event-select" data-i18n="event"></label>
+          <select id="event-select" class="event-select"></select>
+          <div id="event-context" class="event-context"></div><div id="event-meta" class="provenance"></div>
+          
+          <button id="generate" class="primary-button" type="button" disabled data-i18n="evaluate"></button>
+          <div id="proposal" class="proposal" aria-live="polite" hidden></div>
+        </div>
+      </section>
+    </div>
+    <section class="panel affected" id="affected" hidden><div class="panel-heading"><div><p class="kicker">Joined rows</p><h2 data-i18n="affected"></h2></div></div><div id="affected-rows"></div></section>
+    <section class="notes"><h2 data-i18n="scopeTitle"></h2><p id="scope-copy" data-i18n="scope"></p><div id="source-links" class="source-links"></div></section>
+    <noscript><p>デモを操作するにはJavaScriptを有効にしてください。 Enable JavaScript to use the interactive desk.</p></noscript>
+  </main>
+</div>
+<dialog id="project-dialog"><div class="dialog-head"><h2 id="detail-title"></h2><button type="button" class="close" data-close>×</button></div><div id="project-detail"></div></dialog>
+<dialog id="reset-dialog"><div class="dialog-head"><h2 data-i18n="reset"></h2><button type="button" class="close" data-close>×</button></div><p data-i18n="resetText"></p><div class="dialog-actions"><button type="button" class="secondary-button" data-close data-i18n="cancel"></button><button type="button" id="reset-confirm" class="primary-button" data-i18n="resetConfirm"></button></div></dialog>
+<p id="notification" class="toast" role="status" hidden></p>
+</body>
+</html>

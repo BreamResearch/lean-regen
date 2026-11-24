@@ -1,0 +1,113 @@
+{
+  "format": "knot-proof-evidence-v1",
+  "status": "CORE_KERNEL_CHECKED",
+  "theorem_count": 13,
+  "toolchain_version": "Lean (version 4.19.0, arm64-apple-darwin23.6.0, commit 6caaee842e94, Release)",
+  "contract_sha256": "362af276a453c4ede940f4079a56d2a51792d0a0a914d2e751f150a3720f4918",
+  "source_files": {
+    "Knot/Specification.lean": "b5074857de747b988665925ccc8bbfff73f17a918aed9689ea6c66c937ce74b0",
+    "Contract.lean": "f650aee4371e45e1c803ee63b711f5e13ccc23599332cf142ea6767a88f50015",
+    "Audit.lean": "30e10cdb4141275ad717811384823ddab0c92cbccb9354b65cff6a887df0ee78",
+    "Main.lean": "fa954c3e3ac9e9242501f550c9d984ee996b0b811683b5557913a4e886d39656",
+    "cases.json": "9d4c38c0ac998ee587297e91a505b6f7a257141c18570160eab470896c6fc3ce",
+    "lakefile.toml": "aaea1dac5821360786ce62cf77482a3ec4741db7e9994c303ddfa2c05b0e4959",
+    "lake-manifest.json": "8a69c2b9b28466a087e54744c684ca1d4bda804fb57a44f823bda9ea4bb0b67b",
+    "lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+    "Knot.lean": "4b50f24b5535fad314b540b04507c47cecc068fc9914181a5dfd6540d30cea00",
+    "Knot/Policy.lean": "6d603c31217b8bb31560fc870ab3ae4d4b99ed7fdb7a57b3681e422502e3bfe0",
+    "Knot/Batch.lean": "42f576407bf90ce8838a036467be9118d186ef8cfda931ae7825518afa8465b5",
+    "Knot/Proofs.lean": "fcbfc6a95d9ea8a4551398acf4e638f0a532e7de073918f29efc96ffb24dc178"
+  },
+  "theorem_axioms": {
+    "Knot.rule_semantics": [
+      "propext"
+    ],
+    "Knot.reasons_exact": [
+      "propext"
+    ],
+    "Knot.row_exact": [
+      "propext"
+    ],
+    "Knot.accepted_row": [
+      "propext"
+    ],
+    "Knot.rejected_row": [
+      "propext"
+    ],
+    "Knot.accepted_effect": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Knot.accepted_bounds": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Knot.batch_exact": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Knot.rejected_batch": [
+      "propext"
+    ],
+    "Knot.accepted_batch": [
+      "propext"
+    ],
+    "Knot.stale_snapshot": [
+      "propext"
+    ],
+    "Knot.batch_conserves": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Knot.consumed_revision": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "policy_sha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+  "policy_bytes_match_native_export": true,
+  "native_cases": {
+    "rows": [
+      "combined-outflow-at-commitment",
+      "two-requests-each-legal-together-underfund-commitment",
+      "one-of-two-requests-in-isolation",
+      "hours-already-promised",
+      "locked-pool-may-receive",
+      "locked-mixed-flow-rejected",
+      "closed-period-rejects-credit",
+      "both-ceilings",
+      "mixed-credit-and-debit-legal-at-net-ceiling",
+      "safe-inputs-one-unit-over-ceiling-after-large-sums",
+      "drain-more-than-available-even-with-zero-floor"
+    ],
+    "batches": [
+      "two-accounts-balanced-at-boundary",
+      "older-approval-after-commit",
+      "fully-balanced-but-combined-donor-violates-commitment",
+      "one-unit-budget-created-in-journal",
+      "one-hour-missing-in-journal",
+      "three-accounts-and-locked-credit-pool"
+    ]
+  },
+  "mutations": [
+    {
+      "name": "ignore-committed-budget",
+      "modified_file": "Knot/Policy.lean",
+      "rejected_by_original_proof": true,
+      "first_proof_diagnostic": "5:86: unsolved goals"
+    },
+    {
+      "name": "allow-unbalanced-journal",
+      "modified_file": "Knot/Batch.lean",
+      "rejected_by_original_proof": true,
+      "first_proof_diagnostic": "55:62: unsolved goals"
+    },
+    {
+      "name": "reuse-stale-revision",
+      "modified_file": "Knot/Batch.lean",
+      "rejected_by_original_proof": true,
+      "first_proof_diagnostic": "55:62: unsolved goals"
+    }
+  ],
+  "scope": "Joined per-account inputs, all-or-nothing balanced posting and revision model. Browser interpreter, SQL aggregation, live ERP and approval identity are separate."
+}

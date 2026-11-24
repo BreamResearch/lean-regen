@@ -1,0 +1,432 @@
+{
+  "result": "PASS",
+  "node": "v24.22.3",
+  "nativeSQLite": "3.54.1",
+  "platform": "darwin",
+  "arch": "arm64",
+  "method": "sql.js executes the application. A separate native SQLite reader checks exported records in primary-key order, foreign keys, integrity, signed postings and each pool against the opening balance and journal.",
+  "sources": {
+    "check.mjs": "3ffb6271a939ec1b388d3387f610034b8a6cc2527c45926399ce0339cc407714",
+    "engine.mjs": "0824bea7b60fb721d8ecd544a6bc182ab9dfecb30ba6764d2d444af0e196ac00",
+    "schema.sql": "34e6c262888522144c0fd39df643eff2b3c418f3f1e44a2eddce24e5441f0ffd",
+    "scenarios.mjs": "b1baec2309a1cbb09a2539fdc57d7d69e8c99d117dafbe4ab944a1e07cbeda35",
+    "recorded-plans.json": "104079f7660fcea4990d23ec63bdb0bc2acc228c72c23e62135809550af2f144",
+    "sql-wasm.js": "694ca5b36aa3e6e71f417819d7df390b65343665fcfa5c69015ca33d93d291b3",
+    "sql-wasm.wasm": "0734155c83e493983d1f2ff5b09a4fab6e35a32e9449c7e4e545756439f62d73"
+  },
+  "baseline": {
+    "counts": {
+      "batch": 0,
+      "commitment": 8,
+      "cost_center": 4,
+      "dependency": 3,
+      "fiscal_period": 3,
+      "journal": 0,
+      "meta": 1,
+      "opening": 12,
+      "pool": 12,
+      "project": 4,
+      "route": 7,
+      "skill": 2
+    },
+    "tableRowSHA256": {
+      "batch": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "commitment": "7e459bce9ca8c948d65507c4a42a97342a0296508b4f2b327b2f81486dc9abcb",
+      "cost_center": "dd55fa1dbf9a5cc75140891e8925eda9822816cebc1781f5c13efefbd60d6904",
+      "dependency": "b4259f3bf477a4127df9928b5e3a7f33f77bb8bd27ab5d84d6303e7425df9075",
+      "fiscal_period": "db5db7b07dfadfd6a4ebb7d856f3d7d0d8f261c041318e6a80c2736b18698176",
+      "journal": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "meta": "ff9f6cebfb377a7673854cb25f3e8963968440764cab9fc17e16cc2e60557901",
+      "opening": "bafa78470983d7db8df2640b3f26e9950a37a99f8a89a3f3f3305d018159407c",
+      "pool": "e31dc7b5ca2cfa33812ed79c63ce69ffbcb6b2393cc83943e316f27a4f2c5582",
+      "project": "30afacfb503b5a8086d539a2084a3cb9b556c9739828d6d2cf19e845397357fc",
+      "route": "0792b7fb27feba940f295f7984e8d41fcfbd48d08061cc40a38ff68c2fb3adaf",
+      "skill": "48fa39fc8600ebe84996c414e70957d4d6e4166141ecf7458c58dc87f2de6ea0"
+    }
+  },
+  "cases": [
+    {
+      "case": "deadline",
+      "before": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "after": "80189e8113c7bc0c3b9d88eb8144cec35ed0f2403a990a966fd8e93ff2d5cef2",
+      "beforeCounts": {
+        "batch": 0,
+        "commitment": 8,
+        "cost_center": 4,
+        "dependency": 3,
+        "fiscal_period": 3,
+        "journal": 0,
+        "meta": 1,
+        "opening": 12,
+        "pool": 12,
+        "project": 4,
+        "route": 7,
+        "skill": 2
+      },
+      "afterCounts": {
+        "batch": 1,
+        "commitment": 8,
+        "cost_center": 4,
+        "dependency": 3,
+        "fiscal_period": 3,
+        "journal": 4,
+        "meta": 1,
+        "opening": 12,
+        "pool": 12,
+        "project": 4,
+        "route": 7,
+        "skill": 2
+      },
+      "lines": [
+        {
+          "from": "01-DATA-ENG",
+          "to": "01-PLAT-ENG",
+          "budget": 220,
+          "hours": 80
+        },
+        {
+          "from": "01-DATA-QA",
+          "to": "01-PLAT-QA",
+          "budget": 100,
+          "hours": 40
+        }
+      ],
+      "checkedPools": 4,
+      "commitMilliseconds": 3.2
+    },
+    {
+      "case": "shared-pool",
+      "individuallyEligible": 2,
+      "combinedIssues": [
+        {
+          "code": "budget-floor",
+          "pool": "01-DATA-ENG"
+        },
+        {
+          "code": "hours-floor",
+          "pool": "01-DATA-ENG"
+        }
+      ],
+      "unchangedOnRejection": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "exactBoundary": [
+        630,
+        260
+      ],
+      "singleUnitRejections": [
+        "budget-floor",
+        "hours-floor"
+      ],
+      "corrected": {
+        "spent": [
+          360,
+          150
+        ],
+        "remaining": [
+          640,
+          270
+        ],
+        "committedDigest": "cc7b653715facec1372af35a4de4d1760a66d3261a06d49452ba3053ab1c32e1"
+      }
+    },
+    {
+      "case": "stale",
+      "before": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "afterCommitment": "6f13f2fd4bdcc8c40e1a3b936938a64caf8f9055ae594396294b6df41eee0222",
+      "persistedAfterRejection": "6f13f2fd4bdcc8c40e1a3b936938a64caf8f9055ae594396294b6df41eee0222"
+    },
+    {
+      "case": "rollback",
+      "before": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "after": "25fca6e3a2011a27980ad9b79778b5c1df266fa9897caee800600f114d7cbf9d",
+      "beforeCounts": {
+        "batch": 0,
+        "commitment": 8,
+        "cost_center": 4,
+        "dependency": 3,
+        "fiscal_period": 3,
+        "journal": 0,
+        "meta": 1,
+        "opening": 12,
+        "pool": 12,
+        "project": 4,
+        "route": 7,
+        "skill": 2
+      },
+      "afterCounts": {
+        "batch": 1,
+        "commitment": 8,
+        "cost_center": 4,
+        "dependency": 3,
+        "fiscal_period": 3,
+        "journal": 4,
+        "meta": 1,
+        "opening": 12,
+        "pool": 12,
+        "project": 4,
+        "route": 7,
+        "skill": 2
+      },
+      "lines": [
+        {
+          "from": "01-DATA-ENG",
+          "to": "01-OPS-ENG",
+          "budget": 150,
+          "hours": 65
+        },
+        {
+          "from": "01-DATA-QA",
+          "to": "01-OPS-QA",
+          "budget": 80,
+          "hours": 45
+        }
+      ],
+      "checkedPools": 4,
+      "commitMilliseconds": 1.3
+    },
+    {
+      "case": "closed-period",
+      "before": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "persistedAfter": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "issues": [
+        {
+          "code": "closed",
+          "pool": "00-DATA-ENG"
+        },
+        {
+          "code": "closed",
+          "pool": "00-PLAT-ENG"
+        }
+      ]
+    },
+    {
+      "case": "dependency",
+      "before": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "persistedAfter": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464",
+      "issues": [
+        {
+          "code": "dependency",
+          "pool": "01-RISK-QA"
+        }
+      ]
+    },
+    {
+      "case": "routing",
+      "blockedDestinations": [
+        "02-PLAT-ENG",
+        "01-PLAT-QA"
+      ],
+      "allTablesUnchanged": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464"
+    }
+  ],
+  "scale": {
+    "addedProjects": 2000,
+    "seedMilliseconds": 152.4,
+    "exportedBytes": 6180864,
+    "case": "portfolio-wave",
+    "before": "23c3cd48d3b7f74bfd1b1ac9e36384c5ea5e751e2c4812c99f311f180ddb277a",
+    "after": "206421224a2b0dacbd4536d33a72a718a5259e535e7fa37f49569b933dcb2a6e",
+    "beforeCounts": {
+      "batch": 0,
+      "commitment": 24008,
+      "cost_center": 4,
+      "dependency": 6000,
+      "fiscal_period": 3,
+      "journal": 0,
+      "meta": 1,
+      "opening": 12012,
+      "pool": 12012,
+      "project": 2004,
+      "route": 7,
+      "skill": 2
+    },
+    "afterCounts": {
+      "batch": 1,
+      "commitment": 24008,
+      "cost_center": 4,
+      "dependency": 6000,
+      "fiscal_period": 3,
+      "journal": 32,
+      "meta": 1,
+      "opening": 12012,
+      "pool": 12012,
+      "project": 2004,
+      "route": 7,
+      "skill": 2
+    },
+    "lines": [
+      {
+        "from": "work-00001-01-ENG",
+        "to": "work-00002-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00001-01-QA",
+        "to": "work-00002-01-QA",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00003-01-ENG",
+        "to": "work-00004-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00003-01-QA",
+        "to": "work-00004-01-QA",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00005-01-ENG",
+        "to": "work-00006-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00005-01-QA",
+        "to": "work-00006-01-QA",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00007-01-ENG",
+        "to": "work-00008-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00007-01-QA",
+        "to": "work-00008-01-QA",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00009-01-ENG",
+        "to": "work-00010-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00009-01-QA",
+        "to": "work-00010-01-QA",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00011-01-ENG",
+        "to": "work-00012-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00011-01-QA",
+        "to": "work-00012-01-QA",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00013-01-ENG",
+        "to": "work-00014-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00013-01-QA",
+        "to": "work-00014-01-QA",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00015-01-ENG",
+        "to": "work-00016-01-ENG",
+        "budget": 35,
+        "hours": 15
+      },
+      {
+        "from": "work-00015-01-QA",
+        "to": "work-00016-01-QA",
+        "budget": 35,
+        "hours": 15
+      }
+    ],
+    "checkedPools": 32,
+    "commitMilliseconds": 4.9,
+    "subsequentCommit": "4c51c96d06ca1b367527e6e9c7bf0fa33ca30b98f0310f022c09adeb80e25509",
+    "measured": "One local in-process seed and one commit call. Export, verification and setup are outside commit timing."
+  },
+  "nativeComparison": {
+    "policySHA256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+    "binarySHA256": "5a7c3879cc1e9aa9a55f4ce85b477aa373d1feb44bea9a2a9c4f2eecb76bb8cf",
+    "cases": [
+      {
+        "case": "deadline",
+        "joinedRows": 4,
+        "nativeBatchAccepted": true,
+        "relationalIssues": [],
+        "applicationCode": "committed",
+        "storedDigest": "e9c1277ac2cdd012a822158e5a028c9848e35bb1401e6aa866f7b159596b3aa6"
+      },
+      {
+        "case": "shared-pool",
+        "joinedRows": 3,
+        "nativeBatchAccepted": false,
+        "relationalIssues": [],
+        "applicationCode": "blocked",
+        "storedDigest": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464"
+      },
+      {
+        "case": "shared-revised",
+        "joinedRows": 3,
+        "nativeBatchAccepted": true,
+        "relationalIssues": [],
+        "applicationCode": "committed",
+        "storedDigest": "9294c965187b07fe1a49de297b066e5361316b008c74ff5c58253718c4f4f06d"
+      },
+      {
+        "case": "stale",
+        "joinedRows": 2,
+        "nativeBatchAccepted": false,
+        "relationalIssues": [],
+        "applicationCode": "stale",
+        "storedDigest": "6f13f2fd4bdcc8c40e1a3b936938a64caf8f9055ae594396294b6df41eee0222"
+      },
+      {
+        "case": "rollback",
+        "joinedRows": 4,
+        "nativeBatchAccepted": true,
+        "relationalIssues": [],
+        "applicationCode": "committed",
+        "storedDigest": "7c49965200bde7ebe6991ee6a168fc8f63913cb382de0537986c4aacf3d98605"
+      },
+      {
+        "case": "closed-period",
+        "joinedRows": 2,
+        "nativeBatchAccepted": false,
+        "relationalIssues": [],
+        "applicationCode": "blocked",
+        "storedDigest": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464"
+      },
+      {
+        "case": "dependency",
+        "joinedRows": 2,
+        "nativeBatchAccepted": true,
+        "relationalIssues": [
+          "dependency"
+        ],
+        "applicationCode": "blocked",
+        "storedDigest": "ddfbe65845797625ae055b7c01e8bfba2d6380bb7aa6f012a68ef3219c812464"
+      },
+      {
+        "case": "portfolio-wave",
+        "joinedRows": 32,
+        "nativeBatchAccepted": true,
+        "relationalIssues": [],
+        "applicationCode": "committed",
+        "storedDigest": "07d6bf77cb6230e54977c174d48e368f9b39f9043f255a3482ea642607511e92"
+      }
+    ],
+    "scope": "Separate native SQLite reads reconstruct each participating row. The compiled Lean CLI checks each row and assembled batch. Additional relational restrictions are enforced in the application."
+  }
+}
