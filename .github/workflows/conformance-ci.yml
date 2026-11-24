@@ -1,0 +1,76 @@
+name: Verify inventory conformance kit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/conformance-ci.yml
+      - CONFORMANCE-SHA256SUMS
+      - lean-regen-conformance-source.zip
+      - lean-regen-check.pyz
+      - wrong.jsonl
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Read the distribution
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Verify the edition before extracting its source
+        run: |
+          echo 'e248265b9d051fb5a2cda8cda0e5ecdd625bc64b042a81b55c6591ce67349cf2  CONFORMANCE-SHA256SUMS' | sha256sum -c -
+          sha256sum -c CONFORMANCE-SHA256SUMS
+          python3 -I - <<'PY'
+          import os
+          from zipfile import ZipFile
+          with ZipFile('lean-regen-conformance-source.zip') as archive:
+              assert archive.comment == b'cacfa10286e3a06bbab49d38e396f0c9978505db', 'Unexpected source commit'
+              archive.extractall(os.environ['RUNNER_TEMP'])
+          PY
+
+      - name: Rebuild the published zipapp and run the source tests
+        run: |
+          cd "$RUNNER_TEMP/lean-regen-conformance"
+          python3 packages/conformance/build_zipapp.py --out "$RUNNER_TEMP/rebuilt.pyz"
+          cmp "$RUNNER_TEMP/rebuilt.pyz" "$GITHUB_WORKSPACE/lean-regen-check.pyz"
+          cmp packages/conformance/fixtures/wrong.jsonl "$GITHUB_WORKSPACE/wrong.jsonl"
+          python3 -B -m unittest discover -s packages/conformance -p 'test_*.py' -v
+
+      - name: Exercise the public CLI and its failure reports
+        run: |
+          python3 -I - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          def check(code, status, *args, data=None):
+              result = subprocess.run([sys.executable, 'lean-regen-check.pyz', *args], input=data,
+                                      stdout=subprocess.PIPE, check=False)
+              report = json.loads(result.stdout)
+              assert (result.returncode, report['status']) == (code, status), report
+              print(status, flush=True)
+              return report
+
+          good = check(0, 'TRACE_MATCH')
+          assert good['matched_steps'] == good['total_steps'] == 16, good
+          bad = check(1, 'COUNTEREXAMPLE', 'wrong.jsonl')
+          assert (bad['line'], bad['seq'], bad['matched_steps']) == (5, 4, 3), bad
+          assert bad['before'] == {'available': 8, 'reserved': 2}, bad
+          assert bad['command'] == {'operation': 'reserve', 'quantity': 8}, bad
+          assert bad['expected'] == {'outcome': 'accepted', 'available': 0, 'reserved': 10}, bad
+          assert bad['observed'] == {'outcome': 'rejected', 'available': 8, 'reserved': 2}, bad
+          check(2, 'INVALID_TRACE', '-', data=b'{}\n')
+          fixtures = Path(os.environ['RUNNER_TEMP']) / 'lean-regen-conformance/packages/conformance/fixtures'
+          check(3, 'OUTSIDE_COVERAGE', fixtures / 'sqlite-1000.jsonl')
+          PY
