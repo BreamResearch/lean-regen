@@ -9,6 +9,7 @@ import {parseArgs} from 'node:util';
 import {performance} from 'node:perf_hooks';
 import {DatabaseSync} from 'node:sqlite';
 import {createLab} from './engine.mjs';
+import {backgroundId} from './scenarios.mjs';
 
 const tables = [
   'batch', 'commitment', 'cost_center', 'dependency', 'fiscal_period', 'journal',
@@ -231,7 +232,11 @@ function assertPosted(before, after, proposal) {
   assert.equal(batch.items, proposal.lines.length);
   assert.equal(batch.budget, proposal.lines.reduce((sum,line) => sum+line.budget,0));
   assert.equal(batch.hours, proposal.lines.reduce((sum,line) => sum+line.hours,0));
-  // Independently reconstruct every final pool, including untouched periods and centres.
+  assertReconciled(after);
+}
+
+// Independently reconstruct every final pool, including untouched periods and centres.
+function assertReconciled(after) {
   const opening = new Map(after.records.opening.map(row => [row.pool,{budget:row.budget,hours:row.hours}]));
   for (const row of after.records.journal) {
     const balance = opening.get(row.pool);
@@ -243,6 +248,59 @@ function assertPosted(before, after, proposal) {
   for (const row of after.records.pool) {
     assert.deepEqual(opening.get(row.id), {budget:row.budget,hours:row.hours}, 'opening-to-ledger mismatch on '+row.id);
   }
+}
+
+function repeatedPostings(lab, capture) {
+  const seeded = elapsed(() => lab.reset(10000));
+  const first = capture();
+  const expected = [];
+  const priorities = new Map();
+  const posted = elapsed(() => {
+    for (let batch = 0; batch < 100; batch += 1) {
+      const proposal = lab.prepare('portfolio-wave');
+      proposal.project = backgroundId(16*batch+2);
+      proposal.lines = proposal.lines.map((line,index) => {
+        const recipient = 16*batch+2*(1+Math.floor(index/2));
+        const suffix = index%2===0?'-01-ENG':'-01-QA';
+        return {...line,from:backgroundId(recipient-1)+suffix,to:backgroundId(recipient)+suffix};
+      });
+      if (batch===50) {
+        const beforeFault = capture();
+        const failed = expectCode(lab.apply(proposal,{fault:true}),'rolled-back',false);
+        assert.equal(failed.state.counts.ledgerLines,batch*32);
+        sameState(beforeFault,capture(),'interrupted batch 51 changed the persistent database');
+      }
+      const outcome = expectCode(lab.apply(proposal),'committed',true);
+      assert.equal(outcome.state.counts.ledgerLines,(batch+1)*32);
+      if (batch%10===0) expectCode(lab.apply(proposal),'duplicate',true);
+      for (const [index,line] of proposal.lines.entries()) {
+        for (const [pool,sign] of [[line.from,-1],[line.to,1]]) {
+          expected.push({batch:proposal.id,item:index+1,sign,pool,budget:sign*line.budget,hours:sign*line.hours});
+        }
+      }
+      priorities.set(proposal.project,proposal.priority);
+    }
+  });
+  const finalState = lab.reopen();
+  const final = capture();
+  unchangedExcept(first,final,['pool','project','batch','journal','meta'],'extended load');
+  assert.equal(final.counts.project,10004);
+  assert.equal(final.counts.pool,60012);
+  assert.equal(final.counts.commitment,120008);
+  assert.equal(final.counts.dependency,30000);
+  assert.equal(final.counts.batch,100);
+  assert.deepEqual(final.records.journal.map(row=>({...row})),expected);
+  assert.equal(final.records.meta[0].revision,101);
+  assert.deepEqual(finalState.totals,seeded.value.totals);
+  assertReconciled(final);
+  audit(lab);
+  assert.deepEqual(final.records.project.map(row=>({...row})),first.records.project.map(row=>(
+    {...row,priority:priorities.get(row.id) ?? row.priority})));
+  return {counts:final.counts, finalRevision:101, batches:100, signedJournalRows:expected.length,
+    checkedPools:final.counts.pool, duplicateChecks:10, rolledBackBatch:51,
+    sourceStateSHA256:first.digest, reconciledStateSHA256:final.digest,
+    seedMilliseconds:seeded.ms, exerciseMilliseconds:posted.ms,
+    timingScope:'local observations including one independent snapshot-based rollback check'};
 }
 
 async function main() {
@@ -285,6 +343,7 @@ async function main() {
         measured:'One local in-process seed and one commit call. Export, verification and setup are outside commit timing.'},
     };
     if (options.native) report.nativeComparison = compareNative(lab, capture, resolve(options.native));
+    report.extendedLoad = repeatedPostings(lab,capture);
     const formatted = JSON.stringify(report,null,2)+'\n';
     if (options.out) writeFileSync(options.out, formatted, {flag:'wx'});
     process.stdout.write(formatted);

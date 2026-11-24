@@ -6,7 +6,7 @@
   "arch": "arm64",
   "method": "sql.js executes the application. A separate native SQLite reader checks exported records in primary-key order, foreign keys, integrity, signed postings and each pool against the opening balance and journal.",
   "sources": {
-    "check.mjs": "3ffb6271a939ec1b388d3387f610034b8a6cc2527c45926399ce0339cc407714",
+    "check.mjs": "05e0a31f5f19f2173d5870cdf6e5e96aaca88135bce63ebd8340c412c4f16d2f",
     "engine.mjs": "0824bea7b60fb721d8ecd544a6bc182ab9dfecb30ba6764d2d444af0e196ac00",
     "schema.sql": "34e6c262888522144c0fd39df643eff2b3c418f3f1e44a2eddce24e5441f0ffd",
     "scenarios.mjs": "b1baec2309a1cbb09a2539fdc57d7d69e8c99d117dafbe4ab944a1e07cbeda35",
@@ -92,7 +92,7 @@
         }
       ],
       "checkedPools": 4,
-      "commitMilliseconds": 3.2
+      "commitMilliseconds": 5.6
     },
     {
       "case": "shared-pool",
@@ -220,7 +220,7 @@
   ],
   "scale": {
     "addedProjects": 2000,
-    "seedMilliseconds": 152.4,
+    "seedMilliseconds": 159.3,
     "exportedBytes": 6180864,
     "case": "portfolio-wave",
     "before": "23c3cd48d3b7f74bfd1b1ac9e36384c5ea5e751e2c4812c99f311f180ddb277a",
@@ -352,13 +352,13 @@
       }
     ],
     "checkedPools": 32,
-    "commitMilliseconds": 4.9,
+    "commitMilliseconds": 5,
     "subsequentCommit": "4c51c96d06ca1b367527e6e9c7bf0fa33ca30b98f0310f022c09adeb80e25509",
     "measured": "One local in-process seed and one commit call. Export, verification and setup are outside commit timing."
   },
   "nativeComparison": {
     "policySHA256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
-    "binarySHA256": "5a7c3879cc1e9aa9a55f4ce85b477aa373d1feb44bea9a2a9c4f2eecb76bb8cf",
+    "binarySHA256": "b585e070880c04835e333f2635498040aa47b627513e14d2d669a446de25e8ed",
     "cases": [
       {
         "case": "deadline",
@@ -428,5 +428,32 @@
       }
     ],
     "scope": "Separate native SQLite reads reconstruct each participating row. The compiled Lean CLI checks each row and assembled batch. Additional relational restrictions are enforced in the application."
+  },
+  "extendedLoad": {
+    "counts": {
+      "batch": 100,
+      "commitment": 120008,
+      "cost_center": 4,
+      "dependency": 30000,
+      "fiscal_period": 3,
+      "journal": 3200,
+      "meta": 1,
+      "opening": 60012,
+      "pool": 60012,
+      "project": 10004,
+      "route": 7,
+      "skill": 2
+    },
+    "finalRevision": 101,
+    "batches": 100,
+    "signedJournalRows": 3200,
+    "checkedPools": 60012,
+    "duplicateChecks": 10,
+    "rolledBackBatch": 51,
+    "sourceStateSHA256": "eb1bfbe49bb2668157b8db850b5c94874376847ce323a85cbe0f7c22bc6581f2",
+    "reconciledStateSHA256": "1e0ab26af9f4ec0aad1ab4219df53d5b19f6c0c049f193f73284fe74bca5a9bc",
+    "seedMilliseconds": 794.9,
+    "exerciseMilliseconds": 2461.3,
+    "timingScope": "local observations including one independent snapshot-based rollback check"
   }
 }

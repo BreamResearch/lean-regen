@@ -35,6 +35,10 @@ A transfer can balance perfectly while spending a protected allocation or debiti
 
 The large dataset has 2,004 projects, three fiscal periods, four cost centres, 12,012 allocation pools, 24,008 commitments and 6,000 dependency records. Its scripted eight-recipient batch posts 16 transfers, totalling ¥5.6 million and 240 hours, as 32 signed ledger entries. The integration check reads every pool back, including the untouched ones. The demo uses one tab with one transaction writer.
 
+公開した検査コマンドは、10,004案件・60,012配分枠の台帳にも、16明細ずつ100回の振替を連続で適用します。途中失敗と再送を挟み、台帳を開き直した後に3,200行の仕訳と全配分枠を照合します。[検証記録](integration.json)
+
+The integration command also applies 100 consecutive 16-line batches to a synthetic ledger of 10,004 projects and 60,012 allocation pools. It injects a failure, retries requests and reconciles all pools and 3,200 postings after reopening. [Integration results](integration.json)
+
 ## 検査を再実行する / Reproduce the checks
 
 公開リポジトリの `docs/knot` ディレクトリで実行します。Node.js 24は検査用のネイティブSQLiteを内蔵しています。アプリには同梱のsql.jsを使い、書き出したデータベースを別のSQLiteで開いて12表の内容を照合します。
