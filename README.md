@@ -18,6 +18,8 @@ For a property covered by a proof, checking it again can replace reading each ne
 
 Two transfers can each fit on their own yet overdraw a shared pool. Edit a proposal in Knot, check the combined effect against commitments, periods and project dependencies, then post it as a batch. Try failed writes, stale proposals and a multi-project posting in a browser with no account. [Try Knot in English](https://breamresearch.github.io/lean-regen/knot/?lang=en) · [Guide and source](docs/knot/README.md)
 
+運用デモでは、同じ配分を複数人が確定する競合、役割・担当範囲による拒否、新旧の書き込みが混在する移行を再現できます。The operations lab covers concurrent writers, access by role and scope, and a migration with old and new writers. [日本語デモ](https://breamresearch.github.io/lean-regen/knot/operations/) · [English lab](https://breamresearch.github.io/lean-regen/knot/operations/?lang=en) · [Source and database results](docs/knot/operations/README.md)
+
 ## 同じ契約で3つの実装を検査する · Compare three implementations
 
 [設計例の ZIP / Download the reference design][reference-zip] · [リリース / Release][reference-release]

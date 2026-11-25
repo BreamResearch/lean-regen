@@ -1,0 +1,207 @@
+{
+  "status": "PASS",
+  "server_version": "16.16 (Postgres.app)",
+  "client": "psql (PostgreSQL) 16.16 (Postgres.app)",
+  "authentication": "SCRAM-SHA-256 over a private Unix socket; fresh passwords per run",
+  "wrong_password_rejected": true,
+  "denials_sqlstate": {
+    "reader_cannot_post": "42501",
+    "writer_cannot_read_other_tenant": "42501",
+    "writer_cannot_post_other_tenant": "42501",
+    "reader_cannot_select_private_table": "42501",
+    "writer_cannot_update_private_balances": "42501"
+  },
+  "race": {
+    "holder_pid": 48672,
+    "waiting_pid": 48678,
+    "blocker_observed": true,
+    "holder_result": "committed",
+    "waiter_result": "stale"
+  },
+  "after_race": {
+    "journal": [
+      {
+        "actor": "north_writer",
+        "hours": 25,
+        "budget": 70,
+        "tenant": "north",
+        "revision": 2,
+        "request_id": "race-winner",
+        "client_version": 1
+      }
+    ],
+    "revisions": {
+      "north": 2,
+      "south": 1
+    },
+    "balances": {
+      "north/A": [
+        930,
+        375
+      ],
+      "north/B": [
+        370,
+        175
+      ],
+      "south/A": [
+        800,
+        300
+      ],
+      "south/B": [
+        200,
+        100
+      ]
+    }
+  },
+  "early_cutover": "unreconciled",
+  "dual_write": {
+    "new_writer_pid": 48727,
+    "new_committed_while_old_was_open": true,
+    "backfill": {
+      "holder_pid": 48722,
+      "waiting_pid": 48732,
+      "blocker_observed": true,
+      "holder_result": "committed",
+      "waiter_result": "backfilled"
+    }
+  },
+  "mismatched_copy_cutover": "unreconciled",
+  "before_cutover": {
+    "journal": [
+      {
+        "actor": "north_writer",
+        "hours": 25,
+        "budget": 70,
+        "tenant": "north",
+        "revision": 2,
+        "request_id": "race-winner",
+        "client_version": 1
+      },
+      {
+        "actor": "north_peer",
+        "hours": 10,
+        "budget": 35,
+        "tenant": "north",
+        "revision": 3,
+        "request_id": "legacy-during-expand",
+        "client_version": 1
+      },
+      {
+        "actor": "south_writer",
+        "hours": 15,
+        "budget": 45,
+        "tenant": "south",
+        "revision": 2,
+        "request_id": "modern-during-expand",
+        "client_version": 2
+      }
+    ],
+    "revisions": {
+      "north": 3,
+      "south": 2
+    },
+    "balances": {
+      "north/A": [
+        895,
+        365
+      ],
+      "north/B": [
+        405,
+        185
+      ],
+      "south/A": [
+        755,
+        285
+      ],
+      "south/B": [
+        245,
+        115
+      ]
+    }
+  },
+  "cutover": {
+    "holder_pid": 48766,
+    "waiting_pid": 48772,
+    "blocker_observed": true,
+    "holder_result": "committed",
+    "waiter_result": "contracted"
+  },
+  "v1_table_removed": true,
+  "retired_writer": "writer-retired",
+  "final": {
+    "journal": [
+      {
+        "actor": "north_writer",
+        "hours": 25,
+        "budget": 70,
+        "tenant": "north",
+        "revision": 2,
+        "request_id": "race-winner",
+        "client_version": 1
+      },
+      {
+        "actor": "north_peer",
+        "hours": 10,
+        "budget": 35,
+        "tenant": "north",
+        "revision": 3,
+        "request_id": "legacy-during-expand",
+        "client_version": 1
+      },
+      {
+        "actor": "north_writer",
+        "hours": 5,
+        "budget": 10,
+        "tenant": "north",
+        "revision": 4,
+        "request_id": "legacy-at-cutover",
+        "client_version": 1
+      },
+      {
+        "actor": "north_writer",
+        "hours": 12,
+        "budget": 30,
+        "tenant": "north",
+        "revision": 5,
+        "request_id": "v2-only",
+        "client_version": 2
+      },
+      {
+        "actor": "south_writer",
+        "hours": 15,
+        "budget": 45,
+        "tenant": "south",
+        "revision": 2,
+        "request_id": "modern-during-expand",
+        "client_version": 2
+      }
+    ],
+    "revisions": {
+      "north": 5,
+      "south": 2
+    },
+    "balances": {
+      "north/A": [
+        855,
+        348
+      ],
+      "north/B": [
+        445,
+        202
+      ],
+      "south/A": [
+        755,
+        285
+      ],
+      "south/B": [
+        245,
+        115
+      ]
+    }
+  },
+  "sources": {
+    "ledger.sql": "cb208c8af40c1cfcb62f7367a2cefa6823d21e5ddc21a2f3492db22d1551603f",
+    "expand.sql": "cc8b9652cb4da2bb9c54d074c7a3dfd14d5bd6f23f2d72b0df4b84674aab9fcb",
+    "verify.py": "5f484f2c07fc876e469f5f53cafc9452586874d55d67f4bd57590c4c70318b0e"
+  }
+}

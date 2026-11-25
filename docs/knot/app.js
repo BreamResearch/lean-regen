@@ -54,6 +54,8 @@ function localizedUI() {
   document.querySelectorAll('[data-close].close').forEach(button=>button.setAttribute('aria-label',t('close')));
   $('filter').placeholder=t('findHint');
   $('back').href=lang==='en'?'../#en':'../#ja';
+  $('operations-link').href='./operations/?lang='+lang;
+  $('operations-link').textContent=lang==='en'?'Operations lab':'運用デモ';
   const guide=el('a',t('guide'));
   guide.href='https://github.com/BreamResearch/lean-regen/blob/main/docs/knot/README.md';
   const design=el('a',t('design'));

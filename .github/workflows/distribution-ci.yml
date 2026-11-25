@@ -152,3 +152,12 @@ jobs:
           python3 formal/verify.py --tool-bin "$tool_bin" --out "$RUNNER_TEMP/knot-proof.json"
           (cd formal && "$tool_bin/lake" build)
           node check.mjs --native "$PWD/formal/.lake/build/bin/knotCheck"
+
+      - name: Check Knot's browser operations
+        run: node docs/knot/operations/check.mjs
+
+      - name: Race authenticated HTTP clients and migrate the SQLite ledger
+        run: python3 -B docs/knot/operations/server/exercise.py --out "$RUNNER_TEMP/knot-operations-sqlite.json"
+
+      - name: Exercise independent sessions, roles and cutover on PostgreSQL 16
+        run: python3 -B docs/knot/operations/postgres/verify.py --pg-bin /usr/lib/postgresql/16/bin --out "$RUNNER_TEMP/knot-operations-postgres.json"
