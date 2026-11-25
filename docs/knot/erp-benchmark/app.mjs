@@ -51,6 +51,7 @@ function translate() {
   document.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));
   byId('brand').href='../'+(lang==='en'?'?lang=en':'');
   byId('back').href='../operations/'+(lang==='en'?'?lang=en':'');
+  byId('suspension').href='./suspension/'+(lang==='en'?'?lang=en':'');
   byId('prev').setAttribute('aria-label',t('previous'));byId('next').setAttribute('aria-label',t('next'));
   byId('status').textContent=t(failed?'unavailable':'loading');
 }
