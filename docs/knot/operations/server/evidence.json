@@ -1,0 +1,173 @@
+{
+  "format": "knot-http-sqlite-operations-v1",
+  "result": "PASS",
+  "observedUtc": "2026-11-25T00:40:09.189430+00:00",
+  "sqliteVersion": "3.54.0",
+  "pythonVersion": "3.9.6",
+  "policySha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+  "authorization": {
+    "unissuedToken": 401,
+    "readerForgedRole": 403,
+    "posterForgedActor": 400,
+    "crossCenterPoster": 403,
+    "posterRequestedDDL": 403,
+    "limitedReadCenters": [
+      "HQ"
+    ],
+    "revisionUnchanged": true
+  },
+  "rejectedWithoutPosting": {
+    "ceiling": [
+      "budget-ceiling"
+    ],
+    "floor": [
+      "hours-floor",
+      "hours-ceiling"
+    ],
+    "commitment": [
+      "budget-floor",
+      "budget-ceiling"
+    ],
+    "locked": [
+      "locked"
+    ],
+    "period": "route",
+    "skill": "route",
+    "dependency": "dependency",
+    "unapprovedCenterRoute": "route",
+    "closedPeriod": [
+      {
+        "pool": "D",
+        "code": "closed"
+      },
+      {
+        "pool": "H",
+        "code": "closed"
+      }
+    ],
+    "zeroAmount": "invalid-line",
+    "aggregate-commitment": [
+      {
+        "pool": "A",
+        "code": "budget-floor"
+      }
+    ]
+  },
+  "race": {
+    "overlappingPool": "A",
+    "submittedRevision": 1,
+    "concurrentHttpHandlersObservedSQLiteBusy": 2,
+    "commits": 1,
+    "stale": 1,
+    "winner": "finance",
+    "loser": "planning",
+    "sameRequestReplay": "duplicate",
+    "changedReplay": "key-conflict",
+    "journalLegs": 2
+  },
+  "acceptedSplit": {
+    "revision": 3,
+    "changesBudgetHours": {
+      "A": [
+        -6,
+        -8
+      ],
+      "B": [
+        2,
+        3
+      ],
+      "C": [
+        4,
+        5
+      ]
+    },
+    "journalLegs": 4
+  },
+  "migration": {
+    "mode": "budget/hours columns to normalized budget/hour rows; amounts retain original units",
+    "expandMissingUnits": 16,
+    "incompleteCutover": "reconciliation-failed",
+    "injectedCorruptionCutover": "reconciliation-failed",
+    "injectedOpeningJournalMismatches": 1,
+    "missingUnitRowsAfterBackfillChunks": [
+      10,
+      8,
+      6,
+      4,
+      2,
+      0
+    ],
+    "commitsBetweenBackfillChunks": {
+      "v1": 3,
+      "v2": 2
+    },
+    "commitsBySchemaAndWriter": {
+      "expanded/v1": 5,
+      "expanded/v2": 6,
+      "v1/v1": 4,
+      "v2/v1": 3,
+      "v2/v2": 2
+    },
+    "cutover": {
+      "phase": "v2",
+      "revision": 12,
+      "pools": 8,
+      "missingUnitRows": 0,
+      "divergentBalances": 0,
+      "openingJournalMismatches": 0,
+      "unbalancedItems": 0,
+      "receiptCount": 11,
+      "emptyReceipts": 0,
+      "contiguousRevisions": true,
+      "foreignKeyErrors": 0,
+      "clean": true,
+      "beforeDataSha256": "79ff4e851940939fa86bced6aac5020de1402c3470bd8502e014d4be1bee9269",
+      "afterDataSha256": "79ff4e851940939fa86bced6aac5020de1402c3470bd8502e014d4be1bee9269"
+    },
+    "v1ObjectAfterCutover": "updatable-view",
+    "rollback": {
+      "phase": "expanded",
+      "revision": 17,
+      "pools": 8,
+      "missingUnitRows": 0,
+      "divergentBalances": 0,
+      "openingJournalMismatches": 0,
+      "unbalancedItems": 0,
+      "receiptCount": 16,
+      "emptyReceipts": 0,
+      "contiguousRevisions": true,
+      "foreignKeyErrors": 0,
+      "clean": true,
+      "beforeDataSha256": "c77903b4308dda99f7c0f94cf094ab85c65af3292bc393ae067dd985206473e1",
+      "afterDataSha256": "c77903b4308dda99f7c0f94cf094ab85c65af3292bc393ae067dd985206473e1"
+    },
+    "v1ObjectAfterRollback": "physical-table",
+    "commitsAfterRollback": {
+      "v1": 2,
+      "v2": 2
+    }
+  },
+  "finalReconciliation": {
+    "phase": "expanded",
+    "revision": 21,
+    "pools": 8,
+    "missingUnitRows": 0,
+    "divergentBalances": 0,
+    "openingJournalMismatches": 0,
+    "unbalancedItems": 0,
+    "receiptCount": 20,
+    "emptyReceipts": 0,
+    "contiguousRevisions": true,
+    "foreignKeyErrors": 0,
+    "clean": true,
+    "journalLegs": 42,
+    "journalMode": "wal",
+    "integrityCheck": "ok"
+  },
+  "sourceSha256": {
+    "schema.sql": "ef38c45a6a76337ba930f967430359fc62e7bf205cae37d03759673a9084f86a",
+    "backend.py": "a7096aa9bf0a431c8aeb37864eac1e6f4d0bfbb34390709d1bd9f003ed46e6f5",
+    "migration.py": "5371a57de5c9a251391107116e8d042676ba7e19c3610135ddf38dfe568d0f49",
+    "exercise.py": "461b33070db86b3d55f5e3164452c45706499dd47452e1b0e60d152f8b4fcc43"
+  }
+}

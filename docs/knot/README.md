@@ -6,6 +6,8 @@ A transfer can balance perfectly while spending a protected allocation or debiti
 
 [デモを開く / Open the demo](https://breamresearch.github.io/lean-regen/knot/)
 
+取引を運用する条件も試せます。二者の確定が競合した場合、担当範囲を越えた取引、新旧の書き込みが共存する移行を扱います。The operations lab exercises conflicting writers, access scopes and a live schema migration. [日本語](https://breamresearch.github.io/lean-regen/knot/operations/) · [English](https://breamresearch.github.io/lean-regen/knot/operations/?lang=en) · [Guide and evidence](operations/README.md)
+
 **最初の1件。** 「顧客移行の期限前倒し」を選び、「案を読み込み、検査する」を押します。「配分枠の検査結果を見る」で振替元と先を調べ、「配分を確定」で取引履歴の件数と仕訳を確認します。金額の単位は万円、工数の単位は時間です。
 
 **First transaction.** Choose *Customer migration moves up*, load its proposal, inspect the affected pools and commit the allocation. Open the ledger to see the postings. Budget figures are in units of ¥10,000 and effort is in hours.

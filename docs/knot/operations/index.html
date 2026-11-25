@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#19382e">
+  <meta name="description" content="Knot の台帳で、同時更新・権限・移行を操作して検証する。 Inspect concurrent writes, approval controls and schema migration in a working SQLite ledger.">
+  <title>Knot · 台帳の運用検証</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../sql-wasm.js"></script>
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="mast"><div class="mast-inner">
+    <a class="wordmark" id="brand" href="../" aria-label="Knot"><span class="brandmark" aria-hidden="true"><i></i><i></i><i></i></span>Knot</a>
+    <a class="back" id="back" href="../" data-t="back">資源配分へ戻る</a>
+    <div class="lang" role="group" aria-label="言語 / Language"><button type="button" lang="ja" data-lang="ja">日本語</button><button type="button" lang="en" data-lang="en">English</button></div>
+  </div></header>
+  <main>
+    <header class="intro"><div><h1 data-t="title">台帳の運用検証</h1><p data-t="intro">同じ予算を動かす同時更新、承認者の取り違え、移行中の書き込みを台帳で試せます。</p></div><a id="guide" class="guide" href="https://github.com/BreamResearch/lean-regen/blob/main/docs/knot/operations/README.md" data-t="guide">検証ガイド ↗</a></header>
+    <div class="tabs" role="tablist" aria-label="検証シナリオ / Scenarios">
+      <button type="button" role="tab" id="tab-race" data-tab="race" aria-controls="case-panel" aria-selected="true" data-t="race">同時更新</button>
+      <button type="button" role="tab" id="tab-auth" data-tab="auth" aria-controls="case-panel" aria-selected="false" tabindex="-1" data-t="auth">操作権限</button>
+      <button type="button" role="tab" id="tab-migration" data-tab="migration" aria-controls="case-panel" aria-selected="false" tabindex="-1" data-t="migration">オンライン移行</button>
+    </div>
+    <p id="announcer" class="sr-only" role="status" aria-live="polite"></p>
+    <p id="error" class="error" role="alert" hidden></p>
+    <section id="case-panel" role="tabpanel" aria-labelledby="tab-race">
+      <div class="case-head"><div><h2 id="case-title"></h2><p id="case-detail"></p></div><button class="quiet" type="button" id="reset" data-t="reset">初期状態に戻す</button></div>
+      <div class="split">
+        <section class="card control" aria-labelledby="controls-title"><div class="card-head"><h3 id="controls-title" data-t="controls">実行する操作</h3></div><div class="body" id="controls"></div><div id="outcome" hidden></div></section>
+        <section class="card" aria-labelledby="state-title"><div class="card-head"><h3 id="state-title" data-t="state">現在の台帳</h3></div><div id="state" class="body"></div></section>
+      </div>
+      <section class="card trace" aria-labelledby="trace-title"><div class="card-head"><h3 id="trace-title" data-t="trace">操作履歴</h3><span id="trace-count" class="count"></span></div><div id="trace"></div></section>
+    </section>
+    <footer><p data-t="boundary"></p><div><a href="./server/evidence.json" id="native" data-t="evidence">SQLite HTTP 実測 ↗</a> <a href="./postgres/evidence.json" data-t="pgEvidence">PostgreSQL 実測 ↗</a></div></footer>
+    <noscript><p>操作にはJavaScriptが必要です。 Enable JavaScript to run the lab.</p></noscript>
+  </main>
+</body>
+</html>
