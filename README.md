@@ -20,6 +20,8 @@ Two transfers can each fit on their own yet overdraw a shared pool. Edit a propo
 
 運用デモでは、同じ配分を複数人が確定する競合、役割・担当範囲による拒否、新旧の書き込みが混在する移行を再現できます。The operations lab covers concurrent writers, access by role and scope, and a migration with old and new writers. [日本語デモ](https://breamresearch.github.io/lean-regen/knot/operations/) · [English lab](https://breamresearch.github.io/lean-regen/knot/operations/?lang=en) · [Source and database results](docs/knot/operations/README.md)
 
+Odoo Community の分析会計に同時に書き込み、Knot の台帳を切り替えて元に戻すまでを計測しました。The Odoo Community benchmark measures a Knot ledger cutover and rollback under concurrent ERP writes. [実測デモ](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/) · [English benchmark](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/?lang=en) · [測定結果・再現手順 / Results and reproduction](docs/knot/erp-benchmark/README.md)
+
 ## 同じ契約で3つの実装を検査する · Compare three implementations
 
 [設計例の ZIP / Download the reference design][reference-zip] · [リリース / Release][reference-release]

@@ -1,0 +1,56 @@
+name: Run the Knot Odoo Community benchmark
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/knot-erp-benchmark.yml
+      - docs/knot/erp-benchmark/*.py
+      - docs/knot/erp-benchmark/*.sql
+      - docs/knot/erp-benchmark/requirements.txt
+      - docs/knot/erp-benchmark/erp/**
+      - docs/knot/formal/policy.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  erp-benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    defaults:
+      run:
+        working-directory: docs/knot/erp-benchmark
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install the pinned PostgreSQL driver
+        run: |
+          python3.12 -m venv "$RUNNER_TEMP/knot-erp"
+          "$RUNNER_TEMP/knot-erp/bin/python" -m pip install --disable-pip-version-check --only-binary=:all: --require-hashes -r requirements.txt
+
+      - name: Apply concurrent Odoo writes during expand, cutover and rollback
+        run: |
+          python="$RUNNER_TEMP/knot-erp/bin/python"
+          "$python" erp/run.py -- "$python" benchmark.py --out "$RUNNER_TEMP/knot-erp.json" --rows 100000 --writers 8 --phase-seconds 6 --chunk 4000
+
+      - name: Publish the measured report to the run log
+        run: |
+          "$RUNNER_TEMP/knot-erp/bin/python" -I - "$RUNNER_TEMP/knot-erp.json" <<'PY'
+          import base64, json, sys
+          from pathlib import Path
+          path = Path(sys.argv[1])
+          raw = path.read_bytes()
+          json.loads(raw)
+          if len(raw) > 48 * 1024:
+              raise SystemExit("Expected an aggregate report, without individual records")
+          for offset in range(0, len(raw), 1800):
+              part = raw[offset:offset+1800]
+              print(f"KNOT_ERP_REPORT_PART {offset:06d} {base64.b64encode(part).decode()}")
+          print("KNOT_ERP_REPORT_END", len(raw))
+          PY

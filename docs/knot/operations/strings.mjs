@@ -1,7 +1,7 @@
 const strings = {
   ja: {
     title:'台帳の運用検証', back:'← 資源配分へ', intro:'同時に届く振替、担当者ごとの権限、稼働中のデータ移行。操作の順序を変えて、残高と仕訳に何が残るかを確かめます。',
-    race:'同時更新', auth:'操作権限', migration:'オンライン移行', controls:'実行する操作', state:'現在の台帳', trace:'操作履歴', guide:'操作ガイド ↗', evidence:'SQLite HTTP 実測 ↗', pgEvidence:'PostgreSQL 実測 ↗', orderDenied:'先に提案を用意し、指定された順番で操作してください。',
+    race:'同時更新', auth:'操作権限', migration:'オンライン移行', controls:'実行する操作', state:'現在の台帳', trace:'操作履歴', guide:'操作ガイド ↗', evidence:'SQLite HTTP 実測 ↗', pgEvidence:'PostgreSQL 実測 ↗', erpBenchmark:'Odoo 接続の実測 ↗', orderDenied:'先に提案を用意し、指定された順番で操作してください。',
     boundary:'このページでは、一つのタブ内の SQLite で利用者と実行順を選んで試します。独立した接続による同時書き込みや HTTP リクエストの認可は、実サーバーの検証記録で確認できます。',
     reset:'初期状態に戻す', empty:'操作すると、担当者・結果・確定時点の台帳の版がここに表示されます。', loading:'台帳を開いています…', error:'台帳を操作できませんでした。', storage:'台帳を開けませんでした。ページを再読み込みしてください。',
     raceTitle:'同じ残高を見て、二人が振り替える', raceIntro:'AとBに同じ版の残高を読ませます。先に処理する担当者を選び、二人目の提案と、最新の残高で再計算した提案を比べてください。',
@@ -17,7 +17,7 @@ const strings = {
   },
   en: {
     title:'Ledger operations lab', back:'← Allocation desk', intro:'Try competing transfers, scoped permissions and a schema migration under writes. Change the order and see which balances and journal entries survive.',
-    race:'Concurrent writes', auth:'Authorization', migration:'Online migration', controls:'Operations', state:'Ledger state', trace:'Operation history', guide:'Operating guide ↗', evidence:'SQLite HTTP run ↗', pgEvidence:'PostgreSQL run ↗', orderDenied:'Prepare the proposals and submit them in order first.',
+    race:'Concurrent writes', auth:'Authorization', migration:'Online migration', controls:'Operations', state:'Ledger state', trace:'Operation history', guide:'Operating guide ↗', evidence:'SQLite HTTP run ↗', pgEvidence:'PostgreSQL run ↗', erpBenchmark:'Odoo benchmark ↗', orderDenied:'Prepare the proposals and submit them in order first.',
     boundary:'This page runs SQLite in one browser tab. You choose the acting identities and execution order. The native server test record covers competing writes over independent connections and authorization of HTTP requests.',
     reset:'Reset this scenario', empty:'Run an operation to see the actor, decision and resulting ledger revision.', loading:'Opening the ledger…', error:'Could not complete the operation.', storage:'Could not open the ledger. Reload the page to try again.',
     raceTitle:'Two operators transfer against the same balance', raceIntro:'Let A and B read the same revision. Choose whose request goes first, then compare the second request with a fresh attempt against the remaining balance.',

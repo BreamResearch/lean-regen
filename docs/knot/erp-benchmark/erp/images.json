@@ -1,0 +1,20 @@
+{
+  "odoo": {
+    "repository": "docker.io/library/odoo",
+    "tag": "18.0-20261112",
+    "digest": "sha256:0bd79cf07f59105c5697667c2241b86447e99c6adb036200df0e4e295785bdf3",
+    "platform_manifests": {
+      "linux/amd64": "sha256:f5e18dea144c6054b2084874801283cf4e31868186415c19f21e3c0904545bec",
+      "linux/arm64": "sha256:9f66068dfbe6cba6d4e814a373b367fe02e217aca65ce9037c89bb873e07c787"
+    }
+  },
+  "postgres": {
+    "repository": "docker.io/library/postgres",
+    "tag": "16.16-bookworm",
+    "digest": "sha256:cd0e9518bda5f2ea667ff84d22795d089720c883f288e215d97ce57437e8ef37",
+    "platform_manifests": {
+      "linux/amd64": "sha256:d755a91aff87574a57060f86ecc0d55f83ccb51ceec6ec6f904c1210d018d998",
+      "linux/arm64": "sha256:a5891b08b971e6763d167887261f5586089a91ca57443437ba73cfbf72ac7776"
+    }
+  }
+}
