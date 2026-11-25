@@ -151,10 +151,19 @@ def phase_stats(clients, start, end):
     items = [r for r in clients.samples if start <= r[2] < end]
     ends = sorted(r[2] for r in items)
     boundaries = [start, *ends, end]
+    endpoints = []
+    for _, sent, finish, _, _ in clients.samples:
+        if sent < end and finish > start:
+            endpoints.extend([(max(sent, start), 1), (min(finish, end), -1)])
+    active = peak = 0
+    for _, change in sorted(endpoints):
+        active += change
+        peak = max(peak, active)
     return {
         "durationMs": pg.ms(end - start),
         "completedResponses": len(items),
         "distinctWriters": len({r[0] for r in items}),
+        "peakInFlightErpRequests": peak,
         "requestsPerSecond": round(len(items) / (end - start), 2)
         if end > start
         else None,
@@ -166,6 +175,34 @@ def phase_stats(clients, start, end):
             start <= finish < end for _, finish in clients.reads
         ),
     }
+
+
+def verify_native_receipts(cur, fixture, samples, historical_high):
+    """Check each acknowledged leg against the independently specified workload and authenticated Odoo user."""
+    sequence = Counter()
+    expected = {}
+    for worker, _, _, debit_id, credit_id in samples:
+        n = sequence[worker]
+        sequence[worker] += 1
+        accounts = fixture["accounts"][2 * worker : 2 * worker + 2]
+        donor, recipient = (accounts[1], accounts[0]) if n % 2 else accounts
+        money, hours = 1 + (n // 2) % 17, 1 + (n // 2) % 5
+        actor = fixture["workers"][worker]
+        prefix = f"KNOTBENCH:L{worker}-{n}"
+        common = (fixture["company_id"], actor)
+        expected[debit_id] = (prefix + ":D", donor, *common, -money, -hours)
+        expected[credit_id] = (prefix + ":C", recipient, *common, money, hours)
+    cur.execute(
+        """SELECT id,name,account_id,company_id,create_uid,amount::numeric,unit_amount::numeric
+      FROM public.account_analytic_line WHERE id>%s AND name LIKE 'KNOTBENCH:%%'""",
+        (historical_high,),
+    )
+    actual = {row[0]: tuple(row[1:]) for row in cur}
+    pg.check(
+        len(expected) == 2 * len(samples) and actual == expected,
+        "Native Odoo rows differ from intended signed legs, projects, company or authenticated writer",
+    )
+    return len(actual)
 
 
 def run(args):
@@ -308,12 +345,7 @@ def run(args):
         )
         with pg.cursor(db) as cur:
             final_native = pg.native_digest(cur, high)
-            cur.execute("SELECT id FROM knot_bench.erp_lines WHERE id>%s", (high,))
-            actual = {row[0] for row in cur}
-            pg.check(
-                actual == set(erp_acks),
-                "Acknowledged native IDs disagree with authoritative ERP records",
-            )
+            matched = verify_native_receipts(cur, fixture, clients.samples, high)
         pg.check(
             final_native == native_history, "Full native ERP history digest changed"
         )
@@ -324,6 +356,7 @@ def run(args):
     source_paths = [
         HERE / n
         for n in (
+            "requirements.txt",
             "benchmark.py",
             "projection.py",
             "policy_gate.py",
@@ -339,6 +372,7 @@ def run(args):
         str(path.relative_to(HERE)): sha256(path.read_bytes()).hexdigest()
         for path in source_paths
     }
+    sources["../formal/policy.json"] = POLICY_HASH
     counts = Counter(r[0] for r in clients.samples)
     phases = {
         name: phase_stats(clients, *interval) for name, interval in stages.items()
@@ -351,6 +385,15 @@ def run(args):
         "startedUtc": start_utc,
         "runtime": {
             "python": platform.python_version(),
+            "loadGenerator": {
+                "os": platform.system(),
+                "architecture": platform.machine(),
+                "logicalCpuCountVisible": len(os.sched_getaffinity(0))
+                if hasattr(os, "sched_getaffinity")
+                else os.cpu_count(),
+                "physicalMemoryBytesVisible": os.sysconf("SC_PHYS_PAGES")
+                * os.sysconf("SC_PAGE_SIZE"),
+            },
             "postgresql": version,
             "driver": psycopg2.__version__,
             "odoo": fixture.get("odoo_version"),
@@ -371,7 +414,8 @@ def run(args):
             "writers": args.writers,
             "successfulRequests": len(clients.samples),
             "failedRequests": len(clients.failures),
-            "acknowledgedNativeLineIdsMatched": len(erp_acks),
+            "acknowledgedNativeLineIdsMatched": matched,
+            "nativeSignedLegsAndCreatorsMatched": matched,
             "perWriter": {str(i): counts[i] for i in range(args.writers)},
             "phases": phases,
             "overall": phase_stats(clients, clock_zero, finished),
