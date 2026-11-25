@@ -1,0 +1,1012 @@
+{
+  "runs": [
+    {
+      "format": "knot-odoo-cutover-benchmark-v1",
+      "status": "PASS",
+      "profile": "100k-plus",
+      "startedUtc": "2026-11-25T01:08:58.612017+00:00",
+      "runtime": {
+        "python": "3.12.3",
+        "loadGenerator": {
+          "os": "Linux",
+          "architecture": "x86_64",
+          "logicalCpuCountVisible": 4,
+          "physicalMemoryBytesVisible": 16464306176
+        },
+        "postgresql": "16.16 (Debian 16.16-1.pgdg12+1)",
+        "driver": "2.9.13 (dt dec pq3 ext lo64)",
+        "odoo": "18.0-20261112",
+        "images": {
+          "mode": "official-docker",
+          "images": {
+            "odoo": {
+              "repository": "docker.io/library/odoo",
+              "tag": "18.0-20261112",
+              "digest": "sha256:0bd79cf07f59105c5697667c2241b86447e99c6adb036200df0e4e295785bdf3",
+              "platform_manifests": {
+                "linux/amd64": "sha256:f5e18dea144c6054b2084874801283cf4e31868186415c19f21e3c0904545bec",
+                "linux/arm64": "sha256:9f66068dfbe6cba6d4e814a373b367fe02e217aca65ce9037c89bb873e07c787"
+              }
+            },
+            "postgres": {
+              "repository": "docker.io/library/postgres",
+              "tag": "16.16-bookworm",
+              "digest": "sha256:cd0e9518bda5f2ea667ff84d22795d089720c883f288e215d97ce57437e8ef37",
+              "platform_manifests": {
+                "linux/amd64": "sha256:d755a91aff87574a57060f86ecc0d55f83ccb51ceec6ec6f904c1210d018d998",
+                "linux/arm64": "sha256:a5891b08b971e6763d167887261f5586089a91ca57443437ba73cfbf72ac7776"
+              }
+            }
+          },
+          "odooPackage": "18.0.20261112",
+          "odooWorkers": 0,
+          "odooCronThreads": 0,
+          "httpMode": "threaded",
+          "dockerHost": {
+            "cpus": 4,
+            "memoryBytes": 16464306176,
+            "architecture": "x86_64",
+            "engineVersion": "28.0.4"
+          }
+        }
+      },
+      "parameters": {
+        "rows": 100000,
+        "writers": 8,
+        "chunk": 4000,
+        "minimumSteadyPhaseSeconds": 6.0
+      },
+      "seed": {
+        "elapsedMs": 32330.856,
+        "adapter": {
+          "lines": 100000,
+          "pairs": 50000,
+          "orm_create_calls": 200
+        }
+      },
+      "history": {
+        "rows": 100000,
+        "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+      },
+      "fullNativeHistory": {
+        "before": {
+          "rows": 100000,
+          "sha256": "8332717081004f7c83b5883629df8042362b232f1b82ac5fa42aeb42dc5a4dca"
+        },
+        "after": {
+          "rows": 100000,
+          "sha256": "8332717081004f7c83b5883629df8042362b232f1b82ac5fa42aeb42dc5a4dca"
+        }
+      },
+      "checks": {
+        "initial": {
+          "mode": "legacy",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 100000,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0
+          }
+        },
+        "afterRefusal": {
+          "mode": "dual",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 102506,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        },
+        "afterCutover": {
+          "mode": "normalized",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 102762,
+          "widePhysicalTable": false,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        },
+        "afterRollback": {
+          "mode": "dual",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 104142,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        },
+        "final": {
+          "mode": "dual",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 105380,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        }
+      },
+      "migration": {
+        "expand": {
+          "action": "expand",
+          "backfillHighId": 100768,
+          "legacyRowsAtExpansion": 100768,
+          "gateAcquisitionMs": 3.702,
+          "gateHeldThroughCommitOrRollbackMs": 10.768,
+          "totalMs": 14.47,
+          "transaction": "committed"
+        },
+        "earlyCutover": {
+          "action": "early-cutover",
+          "legacyDifferences": 0,
+          "newDifferences": 100768,
+          "gateAcquisitionMs": 0.989,
+          "gateHeldThroughCommitOrRollbackMs": 109.199,
+          "totalMs": 110.188,
+          "transaction": "rolled-back"
+        },
+        "backfill": {
+          "rowsCopied": 100768,
+          "committedChunks": 26,
+          "longestChunkMs": 162.037
+        },
+        "failedCutover": {
+          "action": "failed-cutover",
+          "legacyDifferences": 0,
+          "newDifferences": 1,
+          "gateAcquisitionMs": 12.162,
+          "gateHeldThroughCommitOrRollbackMs": 249.091,
+          "totalMs": 261.253,
+          "transaction": "rolled-back"
+        },
+        "cutover": {
+          "action": "cutover",
+          "legacyDifferences": 0,
+          "newDifferences": 0,
+          "gateAcquisitionMs": 0.66,
+          "gateHeldThroughCommitOrRollbackMs": 508.834,
+          "totalMs": 509.494,
+          "transaction": "committed"
+        },
+        "rollback": {
+          "action": "rollback",
+          "rebuiltLegacyRows": 104142,
+          "legacyDifferences": 0,
+          "gateAcquisitionMs": 0.855,
+          "gateHeldThroughCommitOrRollbackMs": 843.986,
+          "totalMs": 844.841,
+          "transaction": "committed"
+        }
+      },
+      "load": {
+        "writers": 8,
+        "successfulRequests": 2690,
+        "failedRequests": 0,
+        "acknowledgedNativeLineIdsMatched": 5380,
+        "nativeSignedLegsAndCreatorsMatched": 5380,
+        "perWriter": {
+          "0": 342,
+          "1": 322,
+          "2": 299,
+          "3": 323,
+          "4": 337,
+          "5": 380,
+          "6": 323,
+          "7": 364
+        },
+        "phases": {
+          "legacy": {
+            "durationMs": 6027.33,
+            "completedResponses": 383,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 63.54,
+            "latencyMs": {
+              "p50": 80.869,
+              "p95": 101.271,
+              "p99": 112.205,
+              "max": 117.881
+            },
+            "maxResponseGapMs": 1306.533,
+            "projectionReadResponses": 216
+          },
+          "expand": {
+            "durationMs": 14.492,
+            "completedResponses": 1,
+            "distinctWriters": 1,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 69.0,
+            "latencyMs": {
+              "p50": 69.943,
+              "p95": 69.943,
+              "p99": 69.943,
+              "max": 69.943
+            },
+            "maxResponseGapMs": 10.709,
+            "projectionReadResponses": 1
+          },
+          "earlyCutover": {
+            "durationMs": 110.208,
+            "completedResponses": 0,
+            "distinctWriters": 0,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 0.0,
+            "latencyMs": {
+              "p50": null,
+              "p95": null,
+              "p99": null,
+              "max": null
+            },
+            "maxResponseGapMs": 110.208,
+            "projectionReadResponses": 4
+          },
+          "backfill": {
+            "durationMs": 3487.488,
+            "completedResponses": 286,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 82.01,
+            "latencyMs": {
+              "p50": 84.638,
+              "p95": 121.501,
+              "p99": 801.46,
+              "max": 2062.747
+            },
+            "maxResponseGapMs": 62.797,
+            "projectionReadResponses": 132
+          },
+          "dual": {
+            "durationMs": 6000.131,
+            "completedResponses": 576,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 96.0,
+            "latencyMs": {
+              "p50": 82.782,
+              "p95": 102.819,
+              "p99": 123.848,
+              "max": 149.925
+            },
+            "maxResponseGapMs": 80.179,
+            "projectionReadResponses": 231
+          },
+          "failedCutover": {
+            "durationMs": 261.275,
+            "completedResponses": 7,
+            "distinctWriters": 7,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 26.79,
+            "latencyMs": {
+              "p50": 81.507,
+              "p95": 97.324,
+              "p99": 97.324,
+              "max": 97.324
+            },
+            "maxResponseGapMs": 211.414,
+            "projectionReadResponses": 10
+          },
+          "refusalAudit": {
+            "durationMs": 1562.3,
+            "completedResponses": 128,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 81.93,
+            "latencyMs": {
+              "p50": 98.802,
+              "p95": 266.354,
+              "p99": 289.362,
+              "max": 293.833
+            },
+            "maxResponseGapMs": 66.227,
+            "projectionReadResponses": 60
+          },
+          "cutover": {
+            "durationMs": 509.518,
+            "completedResponses": 0,
+            "distinctWriters": 0,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 0.0,
+            "latencyMs": {
+              "p50": null,
+              "p95": null,
+              "p99": null,
+              "max": null
+            },
+            "maxResponseGapMs": 509.518,
+            "projectionReadResponses": 20
+          },
+          "cutoverAudit": {
+            "durationMs": 1519.897,
+            "completedResponses": 106,
+            "distinctWriters": 4,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 69.74,
+            "latencyMs": {
+              "p50": 28.276,
+              "p95": 60.961,
+              "p99": 1473.439,
+              "max": 1709.091
+            },
+            "maxResponseGapMs": 138.999,
+            "projectionReadResponses": 58
+          },
+          "normalized": {
+            "durationMs": 6010.015,
+            "completedResponses": 584,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 97.17,
+            "latencyMs": {
+              "p50": 80.8,
+              "p95": 101.259,
+              "p99": 136.717,
+              "max": 2418.623
+            },
+            "maxResponseGapMs": 59.406,
+            "projectionReadResponses": 231
+          },
+          "rollback": {
+            "durationMs": 844.868,
+            "completedResponses": 0,
+            "distinctWriters": 0,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 0.0,
+            "latencyMs": {
+              "p50": null,
+              "p95": null,
+              "p99": null,
+              "max": null
+            },
+            "maxResponseGapMs": 844.868,
+            "projectionReadResponses": 33
+          },
+          "rollbackAudit": {
+            "durationMs": 1246.659,
+            "completedResponses": 21,
+            "distinctWriters": 1,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 16.85,
+            "latencyMs": {
+              "p50": 14.343,
+              "p95": 18.458,
+              "p99": 1851.53,
+              "max": 1851.53
+            },
+            "maxResponseGapMs": 943.572,
+            "projectionReadResponses": 49
+          },
+          "restored": {
+            "durationMs": 6036.514,
+            "completedResponses": 590,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 97.74,
+            "latencyMs": {
+              "p50": 80.359,
+              "p95": 100.781,
+              "p99": 2283.089,
+              "max": 2709.216
+            },
+            "maxResponseGapMs": 63.038,
+            "projectionReadResponses": 234
+          }
+        },
+        "overall": {
+          "durationMs": 33654.12,
+          "completedResponses": 2690,
+          "distinctWriters": 8,
+          "peakInFlightErpRequests": 8,
+          "requestsPerSecond": 79.93,
+          "latencyMs": {
+            "p50": 81.48,
+            "p95": 107.208,
+            "p99": 237.49,
+            "max": 2709.216
+          },
+          "maxResponseGapMs": 1788.643,
+          "projectionReadResponses": 1279
+        },
+        "projectionReadLatencyMs": {
+          "p50": 0.589,
+          "p95": 4.907,
+          "p99": 7.933,
+          "max": 14.926
+        }
+      },
+      "policySha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+      "policyChallenge": {
+        "sha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+        "openingPerAccount": [
+          1000000,
+          1000000
+        ],
+        "donor": [
+          1000000,
+          1000000
+        ],
+        "recipient": [
+          1000000,
+          1000000
+        ],
+        "requestedBudget": 1000000,
+        "requestedHours": 1,
+        "outcome": {
+          "accepted": false,
+          "reasons": {
+            "donor": [
+              "budget-floor"
+            ],
+            "recipient": []
+          },
+          "donorAfter": [
+            1000000,
+            1000000
+          ],
+          "recipientAfter": [
+            1000000,
+            1000000
+          ]
+        },
+        "beforeErpLines": 100000,
+        "afterErpLines": 100000
+      },
+      "sourceSha256": {
+        "requirements.txt": "448726c91c8e46402388c991ce876f4e1976d9dc21ac996c3dfc6a2736251572",
+        "benchmark.py": "5f1d2d826e05ef3964d99e0eb7164762f6dfd23e9413e24978bffe2c9be082e9",
+        "projection.py": "800cb80927670168d48a3c1815dd3be27fd349b44e3f3c86996a478547c9f5d3",
+        "policy_gate.py": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b",
+        "install.sql": "bd26725f7bfab6b1015c33c0de1a4d37eb2afef9fa8acc22f0d332bfebde4eab",
+        "expand.sql": "02a8db6b78f55ed24bf24dc568844ee3d74c7575eac66c4aa9743fcd85b919c5",
+        "backfill.sql": "1dab649eb9bf555e60e8f1249168e890cd42615bc01c821f66fad3a883b01778",
+        "erp/adapter.py": "11caee708a5d16938e0a1a4e31609da616e6265b1d1b1b472f3776acc6e6cdfb",
+        "erp/run.py": "992058877b5121fa2c9e428e05a159605ebfe6a6e1642b6118e36a5eba6e17b2",
+        "erp/images.json": "bf33f26c4cad484379033761fa8c3fb80996b97ed06ebfb23c1a1c3081fc569d",
+        "../formal/policy.json": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa"
+      },
+      "provenance": {
+        "runUrl": "https://github.com/BreamResearch/lean-regen/actions/runs/45523419930",
+        "sourceCommit": "207750c7cc003c0510966fb2b817aa38c71d4bb9",
+        "reportSha256": "3de93b89c6c4597916427c81efa852600d965808a432149c3fe10b627a171b72"
+      }
+    },
+    {
+      "format": "knot-odoo-cutover-benchmark-v1",
+      "status": "PASS",
+      "profile": "100k-plus",
+      "startedUtc": "2026-11-25T01:09:02.132857+00:00",
+      "runtime": {
+        "python": "3.12.3",
+        "loadGenerator": {
+          "os": "Linux",
+          "architecture": "aarch64",
+          "logicalCpuCountVisible": 3,
+          "physicalMemoryBytesVisible": 3589001216
+        },
+        "postgresql": "16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)",
+        "driver": "2.9.13 (dt dec pq3 ext lo64)",
+        "odoo": "18.0-20261112",
+        "images": {
+          "mode": "native-packages",
+          "guestVcpus": 3,
+          "guestMemoryMiB": 3584,
+          "odooWorkers": 0,
+          "odooCronThreads": 0,
+          "httpMode": "threaded",
+          "guest": "Ubuntu 24.04 ARM64 on QEMU HVF, 3 vCPU, 3584 MiB",
+          "odooDeb": "18.0.20261112",
+          "odooPackageSha1": "cd29eedcd78f286cd0e44958760f1fdaf8927dd3",
+          "odooPackageSha256": "8627032a534a0dcac65304a34604dd4beb29145bce8b9ae61e848ae5ab4b9f42"
+        }
+      },
+      "parameters": {
+        "rows": 100000,
+        "writers": 8,
+        "chunk": 4000,
+        "minimumSteadyPhaseSeconds": 6.0
+      },
+      "seed": {
+        "elapsedMs": 37473.046,
+        "adapter": {
+          "lines": 100000,
+          "pairs": 50000,
+          "orm_create_calls": 200
+        }
+      },
+      "history": {
+        "rows": 100000,
+        "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+      },
+      "fullNativeHistory": {
+        "before": {
+          "rows": 100000,
+          "sha256": "c72e8f9396915d6ab2b0e71bf4bd02776a7d8fef84556eebb195720864cd1043"
+        },
+        "after": {
+          "rows": 100000,
+          "sha256": "c72e8f9396915d6ab2b0e71bf4bd02776a7d8fef84556eebb195720864cd1043"
+        }
+      },
+      "checks": {
+        "initial": {
+          "mode": "legacy",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 100000,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0
+          }
+        },
+        "afterRefusal": {
+          "mode": "dual",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 101258,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        },
+        "afterCutover": {
+          "mode": "normalized",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 101442,
+          "widePhysicalTable": false,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        },
+        "afterRollback": {
+          "mode": "dual",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 102160,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        },
+        "final": {
+          "mode": "dual",
+          "erpHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "activeHistory": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "erpRows": 102912,
+          "widePhysicalTable": true,
+          "unbalancedRequestPairs": 0,
+          "projectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          }
+        }
+      },
+      "migration": {
+        "expand": {
+          "action": "expand",
+          "backfillHighId": 100362,
+          "legacyRowsAtExpansion": 100362,
+          "gateAcquisitionMs": 1.121,
+          "gateHeldThroughCommitOrRollbackMs": 36.851,
+          "totalMs": 37.972,
+          "transaction": "committed"
+        },
+        "earlyCutover": {
+          "action": "early-cutover",
+          "legacyDifferences": 0,
+          "newDifferences": 100362,
+          "gateAcquisitionMs": 0.736,
+          "gateHeldThroughCommitOrRollbackMs": 158.569,
+          "totalMs": 159.305,
+          "transaction": "rolled-back"
+        },
+        "backfill": {
+          "rowsCopied": 100362,
+          "committedChunks": 26,
+          "longestChunkMs": 191.517
+        },
+        "failedCutover": {
+          "action": "failed-cutover",
+          "legacyDifferences": 0,
+          "newDifferences": 1,
+          "gateAcquisitionMs": 0.359,
+          "gateHeldThroughCommitOrRollbackMs": 395.713,
+          "totalMs": 396.073,
+          "transaction": "rolled-back"
+        },
+        "cutover": {
+          "action": "cutover",
+          "legacyDifferences": 0,
+          "newDifferences": 0,
+          "gateAcquisitionMs": 21.731,
+          "gateHeldThroughCommitOrRollbackMs": 711.431,
+          "totalMs": 733.162,
+          "transaction": "committed"
+        },
+        "rollback": {
+          "action": "rollback",
+          "rebuiltLegacyRows": 102160,
+          "legacyDifferences": 0,
+          "gateAcquisitionMs": 0.559,
+          "gateHeldThroughCommitOrRollbackMs": 886.005,
+          "totalMs": 886.564,
+          "transaction": "committed"
+        }
+      },
+      "load": {
+        "writers": 8,
+        "successfulRequests": 1456,
+        "failedRequests": 0,
+        "acknowledgedNativeLineIdsMatched": 2912,
+        "nativeSignedLegsAndCreatorsMatched": 2912,
+        "perWriter": {
+          "0": 196,
+          "1": 177,
+          "2": 202,
+          "3": 166,
+          "4": 178,
+          "5": 175,
+          "6": 173,
+          "7": 189
+        },
+        "phases": {
+          "legacy": {
+            "durationMs": 6019.514,
+            "completedResponses": 180,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 29.9,
+            "latencyMs": {
+              "p50": 154.901,
+              "p95": 256.472,
+              "p99": 385.455,
+              "max": 391.238
+            },
+            "maxResponseGapMs": 1220.849,
+            "projectionReadResponses": 227
+          },
+          "expand": {
+            "durationMs": 37.998,
+            "completedResponses": 1,
+            "distinctWriters": 1,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 26.32,
+            "latencyMs": {
+              "p50": 142.046,
+              "p95": 142.046,
+              "p99": 142.046,
+              "max": 142.046
+            },
+            "maxResponseGapMs": 37.308,
+            "projectionReadResponses": 1
+          },
+          "earlyCutover": {
+            "durationMs": 159.321,
+            "completedResponses": 0,
+            "distinctWriters": 0,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 0.0,
+            "latencyMs": {
+              "p50": null,
+              "p95": null,
+              "p99": null,
+              "max": null
+            },
+            "maxResponseGapMs": 159.321,
+            "projectionReadResponses": 6
+          },
+          "backfill": {
+            "durationMs": 3548.809,
+            "completedResponses": 145,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 40.86,
+            "latencyMs": {
+              "p50": 191.008,
+              "p95": 274.667,
+              "p99": 344.965,
+              "max": 381.522
+            },
+            "maxResponseGapMs": 167.82,
+            "projectionReadResponses": 134
+          },
+          "dual": {
+            "durationMs": 6054.457,
+            "completedResponses": 302,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 49.88,
+            "latencyMs": {
+              "p50": 157.267,
+              "p95": 216.765,
+              "p99": 266.344,
+              "max": 303.369
+            },
+            "maxResponseGapMs": 170.074,
+            "projectionReadResponses": 227
+          },
+          "failedCutover": {
+            "durationMs": 396.082,
+            "completedResponses": 1,
+            "distinctWriters": 1,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 2.52,
+            "latencyMs": {
+              "p50": 234.384,
+              "p95": 234.384,
+              "p99": 234.384,
+              "max": 234.384
+            },
+            "maxResponseGapMs": 389.29,
+            "projectionReadResponses": 13
+          },
+          "refusalAudit": {
+            "durationMs": 2267.209,
+            "completedResponses": 86,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 37.93,
+            "latencyMs": {
+              "p50": 214.064,
+              "p95": 516.263,
+              "p99": 582.157,
+              "max": 582.157
+            },
+            "maxResponseGapMs": 116.991,
+            "projectionReadResponses": 86
+          },
+          "cutover": {
+            "durationMs": 733.175,
+            "completedResponses": 6,
+            "distinctWriters": 6,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 8.18,
+            "latencyMs": {
+              "p50": 185.091,
+              "p95": 210.028,
+              "p99": 210.028,
+              "max": 210.028
+            },
+            "maxResponseGapMs": 663.745,
+            "projectionReadResponses": 25
+          },
+          "cutoverAudit": {
+            "durationMs": 2158.24,
+            "completedResponses": 68,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 31.51,
+            "latencyMs": {
+              "p50": 138.34,
+              "p95": 1784.357,
+              "p99": 2227.408,
+              "max": 2227.408
+            },
+            "maxResponseGapMs": 410.502,
+            "projectionReadResponses": 77
+          },
+          "normalized": {
+            "durationMs": 6000.349,
+            "completedResponses": 289,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 48.16,
+            "latencyMs": {
+              "p50": 158.712,
+              "p95": 273.296,
+              "p99": 338.507,
+              "max": 413.214
+            },
+            "maxResponseGapMs": 113.859,
+            "projectionReadResponses": 226
+          },
+          "rollback": {
+            "durationMs": 886.597,
+            "completedResponses": 2,
+            "distinctWriters": 2,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 2.26,
+            "latencyMs": {
+              "p50": 112.069,
+              "p95": 161.802,
+              "p99": 161.802,
+              "max": 161.802
+            },
+            "maxResponseGapMs": 876.339,
+            "projectionReadResponses": 31
+          },
+          "rollbackAudit": {
+            "durationMs": 1789.465,
+            "completedResponses": 71,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 39.68,
+            "latencyMs": {
+              "p50": 117.437,
+              "p95": 1871.546,
+              "p99": 2568.272,
+              "max": 2568.272
+            },
+            "maxResponseGapMs": 268.052,
+            "projectionReadResponses": 68
+          },
+          "restored": {
+            "durationMs": 6002.595,
+            "completedResponses": 297,
+            "distinctWriters": 8,
+            "peakInFlightErpRequests": 8,
+            "requestsPerSecond": 49.48,
+            "latencyMs": {
+              "p50": 158.042,
+              "p95": 219.339,
+              "p99": 262.101,
+              "max": 292.649
+            },
+            "maxResponseGapMs": 106.375,
+            "projectionReadResponses": 226
+          }
+        },
+        "overall": {
+          "durationMs": 36112.778,
+          "completedResponses": 1456,
+          "distinctWriters": 8,
+          "peakInFlightErpRequests": 8,
+          "requestsPerSecond": 40.32,
+          "latencyMs": {
+            "p50": 161.246,
+            "p95": 273.296,
+            "p99": 1185.707,
+            "max": 2568.272
+          },
+          "maxResponseGapMs": 1225.83,
+          "projectionReadResponses": 1347
+        },
+        "projectionReadLatencyMs": {
+          "p50": 0.849,
+          "p95": 3.112,
+          "p99": 5.506,
+          "max": 13.714
+        }
+      },
+      "policySha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+      "policyChallenge": {
+        "sha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+        "openingPerAccount": [
+          1000000,
+          1000000
+        ],
+        "donor": [
+          1000000,
+          1000000
+        ],
+        "recipient": [
+          1000000,
+          1000000
+        ],
+        "requestedBudget": 1000000,
+        "requestedHours": 1,
+        "outcome": {
+          "accepted": false,
+          "reasons": {
+            "donor": [
+              "budget-floor"
+            ],
+            "recipient": []
+          },
+          "donorAfter": [
+            1000000,
+            1000000
+          ],
+          "recipientAfter": [
+            1000000,
+            1000000
+          ]
+        },
+        "beforeErpLines": 100000,
+        "afterErpLines": 100000
+      },
+      "sourceSha256": {
+        "requirements.txt": "448726c91c8e46402388c991ce876f4e1976d9dc21ac996c3dfc6a2736251572",
+        "benchmark.py": "5f1d2d826e05ef3964d99e0eb7164762f6dfd23e9413e24978bffe2c9be082e9",
+        "projection.py": "800cb80927670168d48a3c1815dd3be27fd349b44e3f3c86996a478547c9f5d3",
+        "policy_gate.py": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b",
+        "install.sql": "bd26725f7bfab6b1015c33c0de1a4d37eb2afef9fa8acc22f0d332bfebde4eab",
+        "expand.sql": "02a8db6b78f55ed24bf24dc568844ee3d74c7575eac66c4aa9743fcd85b919c5",
+        "backfill.sql": "1dab649eb9bf555e60e8f1249168e890cd42615bc01c821f66fad3a883b01778",
+        "erp/adapter.py": "11caee708a5d16938e0a1a4e31609da616e6265b1d1b1b472f3776acc6e6cdfb",
+        "erp/run.py": "992058877b5121fa2c9e428e05a159605ebfe6a6e1642b6118e36a5eba6e17b2",
+        "erp/images.json": "bf33f26c4cad484379033761fa8c3fb80996b97ed06ebfb23c1a1c3081fc569d",
+        "../formal/policy.json": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa"
+      },
+      "provenance": {
+        "sourceCommit": "207750c7cc003c0510966fb2b817aa38c71d4bb9",
+        "reportSha256": "c12da232707d02790e3d9a9b73037f3bf040ecd45ba06f940a1fc19495c021b2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#19382e">
+  <meta name="description" content="実際のERPで測定した切替、同時書き込み、応答時間、履歴照合を確認する。 Replay recorded ERP cutovers and inspect the measured workload.">
+  <title>Knot · Odoo連携台帳の切替実測</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../operations/style.css">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="mast"><div class="mast-inner"><a id="brand" class="wordmark" href="../" aria-label="Knot"><span class="brandmark" aria-hidden="true"><i></i><i></i><i></i></span>Knot</a>
+    <a class="back" id="back" href="../operations/" data-t="back">← 台帳の運用検証</a>
+    <div class="lang" role="group" aria-label="言語 / Language"><button type="button" data-lang="ja" lang="ja" aria-pressed="true">日本語</button><button type="button" data-lang="en" lang="en" aria-pressed="false">English</button></div>
+  </div></header>
+  <main>
+    <header class="intro"><div><p id="product" class="product" hidden></p><h1 data-t="title">Odoo連携台帳の切替実測</h1>
+      <p data-t="intro">Odooで分析明細を作成しながら、Knotが参照する台帳を新しい保存形式に切り替えました。移行時の応答時間と、切り戻し後の履歴を実測記録で確認できます。</p></div>
+      <div class="references"><a class="guide" id="guide" href="https://github.com/BreamResearch/lean-regen/blob/main/docs/knot/erp-benchmark/README.md" data-t="guide">再現手順 ↗</a><a class="guide" id="ci-run" data-t="ciRun" hidden>公開CIの実行記録 ↗</a><a class="guide" href="./evidence.json" data-t="raw">実測値のJSON ↗</a></div>
+    </header>
+    <p id="status" role="status" class="notice">実測記録を読み込んでいます。</p>
+    <div id="report" hidden>
+      <div class="select-band"><label id="scenario-label" for="scenario" data-t="scenario">実行を選ぶ</label><select id="scenario"></select><span id="single-run" hidden></span><p id="scenario-note"></p></div>
+      <section class="summary" aria-labelledby="summary-title"><h2 id="summary-title" data-t="summary">測定結果</h2><div id="metrics" class="metric-grid"></div><p id="summary-note" class="summary-note" hidden></p></section>
+      <div class="bench-grid">
+        <section class="card replay" aria-labelledby="trace-title"><div class="card-head"><h2 id="trace-title" data-t="trace">切替の記録</h2><span id="trace-index" class="count"></span></div>
+          <div class="body"><div class="timeline-nav"><label for="step" class="sr-only" data-t="selectStep">記録を選ぶ</label><select id="step"></select><button id="prev" type="button" class="action" aria-label="前の記録">←</button><button id="next" type="button" class="action" aria-label="次の記録">→</button></div>
+            <div id="jump" class="jump"></div><div id="trace-detail" class="trace-detail" aria-live="polite"></div></div></section>
+        <section class="card" aria-labelledby="load-title"><div class="card-head"><h2 id="load-title" data-t="load">負荷と応答</h2></div><div id="load" class="body"></div></section>
+      </div>
+      <section class="card section" id="audit-card" aria-labelledby="audit-title"><div class="card-head"><h2 id="audit-title" data-t="audit">切替後の照合</h2></div><div class="body" id="audit"></div></section>
+      <section class="card section" id="setup-card" aria-labelledby="setup-title"><div class="card-head"><h2 id="setup-title" data-t="setup">測定条件</h2></div><div class="body" id="setup"></div></section>
+    </div>
+    <noscript><p>実行記録を見るにはJavaScriptを有効にするか、上のJSONを開いてください。 Enable JavaScript or open the raw JSON above.</p></noscript>
+  </main>
+</body></html>

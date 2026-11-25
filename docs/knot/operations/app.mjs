@@ -183,6 +183,7 @@ function render() {
   id('case-title').textContent=t(track+'Title');id('case-detail').textContent=t(track+'Intro');
   id('brand').href=id('back').href='../'+(lang==='en'?'?lang=en':'');
   id('guide').href=guideBase+'README.md';
+  id('erp-benchmark').href='../erp-benchmark/'+(lang==='en'?'?lang=en':'');
   id('reset').disabled=!lab;
   controls();ledger();trace();
 }

@@ -1,5 +1,7 @@
 # Knot · 台帳の運用を試す / Operating the Knot ledger
 
+Odoo Community への書き込み中に台帳の切替と復帰を測った別の実験も公開しています。See the [Odoo Community benchmark](../erp-benchmark/README.md) for measured cutover and recovery under concurrent ERP writes.
+
 同じ残高を見た二人が同時に振替を確定したら、仕訳は何件残るでしょうか。配分の計算に加えて、誰がどの取引を確定できるか、別の書き手が先に確定したとき次の書き手に何を返すか、移行の前後でどの履歴を引き継ぐかを調べる演習です。
 
 Two operators see the same balance and try to commit a transfer. How many entries should the ledger retain? This exercise shows who may commit a transaction, what a second writer sees after the first commits, and which entries survive a migration.
