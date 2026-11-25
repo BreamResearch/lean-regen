@@ -22,6 +22,8 @@ Two transfers can each fit on their own yet overdraw a shared pool. Edit a propo
 
 Odoo Community の分析会計に同時に書き込み、Knot の台帳を切り替えて元に戻すまでを計測しました。The Odoo Community benchmark measures a Knot ledger cutover and rollback under concurrent ERP writes. [実測デモ](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/) · [English benchmark](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/?lang=en) · [測定結果・再現手順 / Results and reproduction](docs/knot/erp-benchmark/README.md)
 
+同じ Odoo 負荷で、固定バッチ、負荷に応じた自動調整、LLM の切替助言を比較できます。Explore fixed batches, feedback control and model advice under matched Odoo load. [日本語デモ](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/suspension/) · [English comparison](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/suspension/?lang=en) · [測定結果・再現手順 / Results and reproduction](docs/knot/erp-benchmark/suspension/README.md)
+
 ## 同じ契約で3つの実装を検査する · Compare three implementations
 
 [設計例の ZIP / Download the reference design][reference-zip] · [リリース / Release][reference-release]

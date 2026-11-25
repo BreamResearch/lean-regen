@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#19382e">
+  <meta name="description" content="Odooの書き込み中に既存データを転記し、固定方式、自動調整、LLM併用の実測結果を比較する。 Compare measured backfill performance and decisions with and without LLM advice.">
+  <title>Knot · LLMは台帳の切替判断に役立つか</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../operations/style.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="mast"><div class="mast-inner">
+    <a class="wordmark" id="brand" href="../../" aria-label="Knot"><span class="brandmark" aria-hidden="true"><i></i><i></i><i></i></span>Knot</a>
+    <a class="back" id="back" href="../" data-i18n="back">← ERP切替の実測</a>
+    <div class="lang" role="group" aria-label="言語 / Language"><button type="button" data-lang="ja" lang="ja" aria-pressed="true">日本語</button><button type="button" data-lang="en" lang="en" aria-pressed="false">English</button></div>
+  </div></header>
+  <main>
+    <header class="intro"><div><p id="context" class="product" hidden></p><h1 data-i18n="title">LLMは台帳の切替判断に役立つか</h1><p data-i18n="intro">Odooへの書き込み中に台帳を移行します。自動調整の2方式で転記の制御は同じです。LLMに切替時点を相談すると、利用者の待ち時間や判断はどう変わるでしょうか。</p></div>
+      <div class="references"><a class="guide" href="https://github.com/BreamResearch/lean-regen/blob/main/docs/knot/erp-benchmark/suspension/README.md" data-i18n="guide">再現手順 ↗</a><a class="guide" id="ci" data-i18n="ci" hidden>公開CIの実行記録 ↗</a><a class="guide" href="./evidence.json" data-i18n="raw">実測値のJSON ↗</a></div>
+    </header>
+    <p id="loading" class="notice" role="status">実測記録を読み込んでいます。</p>
+    <div id="report" hidden>
+      <div id="run-picker" class="run-picker" hidden><div class="repeat-picker"><label for="run" data-i18n="run">計測記録</label><select id="run"></select></div><p id="run-note"></p></div>
+      <section class="conclusion" aria-labelledby="find-title"><h2 id="find-title" data-i18n="findings">今回の結果</h2><p id="finding"></p><p id="finding-note" class="finding-note"></p><p id="controller-note" class="finding-note"></p></section>
+      <section class="card comparison" aria-labelledby="compare-title"><div class="card-head"><h2 id="compare-title" data-i18n="compare">3方式の実測比較</h2><span class="count" id="run-count"></span></div>
+        <div class="body">
+          <div class="repeat-picker"><label for="repeat" data-i18n="repeat">表示する試行</label><select id="repeat"></select></div><div class="compare-controls"><label for="metric" data-i18n="metric">比較する指標</label><select id="metric"></select><label for="base" data-i18n="base">差の基準</label><select id="base"></select></div>
+          <div id="arrival-controls" class="repeat-picker"><label for="arrival" data-i18n="arrival">要求の到着時間帯</label><select id="arrival"></select></div><div id="chart" class="arm-chart"></div><p id="metric-note" class="inspect-note"></p>
+          <div id="results"></div>
+        </div>
+      </section>
+      <section class="card live-decisions" aria-labelledby="live-title"><div class="card-head"><h2 id="live-title" data-i18n="live">業務負荷中の切替判断</h2></div><div class="body">
+        <div class="decision-picker"><label for="trial" data-i18n="trial">試行を選ぶ</label><select id="trial"></select></div><div id="live" aria-live="polite"></div>
+      </div></section>
+      <div class="lower">
+        <section class="card" aria-labelledby="decisions-title"><div class="card-head"><h2 id="decisions-title" data-i18n="decisions">判断の記録</h2></div><div class="body">
+          <p id="decisions-intro"></p><div id="scores"></div><div class="decision-picker"><label for="case" data-i18n="case">状況を選ぶ</label><select id="case"></select></div>
+          <div id="decision" aria-live="polite"></div>
+        </div></section>
+        <section class="card" aria-labelledby="limits-title"><div class="card-head"><h2 id="limits-title" data-i18n="scope">測定条件と適用範囲</h2></div><div id="scope" class="body"></div></section>
+      </div>
+    </div>
+    <noscript><p>実測値は上のJSONでも確認できます。 The raw measurements are available in the JSON above.</p></noscript>
+  </main>
+</body></html>
