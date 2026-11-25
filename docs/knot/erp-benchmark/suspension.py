@@ -389,7 +389,7 @@ def drive(args, fixture, segments, lanes, baseline, native, high, strategy):
             else:
                 switch_start = None
                 migration.update(cutover=None, rollback=None)
-                seen = restored = repaired
+                seen = restored = None
                 post_workers = 0
             finished = CLOCK()
             await_late_model(late, decision)
@@ -421,7 +421,9 @@ def drive(args, fixture, segments, lanes, baseline, native, high, strategy):
             "migration": migration,
             "decision": decision,
             "cutoverStartedAtMs": cut_ms,
-            "migrationThroughRollbackAuditMs": milliseconds(finished - begin),
+            "migrationThroughRollbackAuditMs": milliseconds(finished - begin)
+            if submit
+            else None,
             "workersPostingAfterCutover": post_workers,
             "cutoverDuringOfferedLoad": ended_under_load,
             "integrity": {
@@ -433,8 +435,11 @@ def drive(args, fixture, segments, lanes, baseline, native, high, strategy):
                 "finalProjectionDifferences": end["projectionDifferences"],
                 "unbalancedRequestPairs": end["unbalancedRequestPairs"],
                 "oldTableRetainedOnRefusal": repaired["widePhysicalTable"],
-                "oldTableRemovedOnCutover": not seen["widePhysicalTable"],
-                "oldTableRestored": restored["widePhysicalTable"],
+                "oldTableRemovedOnCutover": (not seen["widePhysicalTable"])
+                if submit
+                else None,
+                "oldTableRestored": restored["widePhysicalTable"] if submit else None,
+                "finalWidePhysicalTable": end["widePhysicalTable"],
             },
         }
 
@@ -452,7 +457,9 @@ def aggregate(trials):
                 if r["migration"]["cutover"]
             ],
             "migrationThroughRollbackAuditMs": [
-                r["migrationThroughRollbackAuditMs"] for r in rows
+                r["migrationThroughRollbackAuditMs"]
+                for r in rows
+                if r["migrationThroughRollbackAuditMs"] is not None
             ],
             "effectiveRequestsPerSecond": [
                 r["workload"]["achievedPerSecond"] for r in rows
