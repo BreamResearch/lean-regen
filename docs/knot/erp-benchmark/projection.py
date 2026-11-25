@@ -149,6 +149,12 @@ def fence(db, action, baseline=None, high=None):
             }[action]
             check(phase == expected, "Wrong migration phase")
             if action == "expand":
+                # The immutable seed boundary predates the sustained legacy traffic.
+                # Under this fence capture *all* writes committed in legacy mode.
+                cur.execute("SELECT max(id),count(*) FROM knot_bench.wide")
+                result["backfillHighId"], result["legacyRowsAtExpansion"] = (
+                    cur.fetchone()
+                )
                 cur.execute((HERE / "expand.sql").read_text())
             elif action in ("early-cutover", "failed-cutover", "cutover"):
                 # Challenge exactly the live gate; the modification and attempted switch share one transaction.

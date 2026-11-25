@@ -24,14 +24,18 @@ class LocalTransport(Transport):
     """One request per call. An ambiguous write must not be replayed by the client."""
 
     def request(self, host, handler, request_body, verbose=False):
-        return self.single_request(host, handler, request_body, verbose)
+        try:
+            return self.single_request(host, handler, request_body, verbose)
+        finally:
+            self.close()
 
     def make_connection(self, host):
-        if self._connection and self._connection[0] == host:
-            return self._connection[1]
         connection = http.client.HTTPConnection(host, timeout=180)
         self._connection = host, connection
         return connection
+
+    def send_headers(self, connection, headers):
+        super().send_headers(connection, [*headers, ("Connection", "close")])
 
 
 class Odoo:

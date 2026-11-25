@@ -274,10 +274,18 @@ def run(args):
                 migrations["earlyCutover"]["newDifferences"] > 0,
                 "Unfilled projection escaped the early cutover check",
             )
-            migrations["backfill"] = act("backfill", pg.backfill, db, high, args.chunk)
+            migrations["backfill"] = act(
+                "backfill",
+                pg.backfill,
+                db,
+                migrations["expand"]["backfillHighId"],
+                args.chunk,
+            )
             pg.check(
-                migrations["backfill"]["rowsCopied"] == args.rows,
-                "Historical backfill count mismatch",
+                migrations["backfill"]["rowsCopied"]
+                >= migrations["expand"]["legacyRowsAtExpansion"]
+                > args.rows,
+                "Backfill did not include historical and committed legacy-mode ERP writes",
             )
             act("dual", clients.sustain, args.phase_seconds)
             migrations["failedCutover"] = act(
@@ -285,7 +293,7 @@ def run(args):
             )
             pg.check(
                 migrations["failedCutover"]["newDifferences"] == 1,
-                "Deliberate targeted divergence was not detected",
+                f"Expected exactly one divergent projection row, found {migrations['failedCutover']['newDifferences']}",
             )
             checks["afterRefusal"] = act(
                 "refusalAudit",
