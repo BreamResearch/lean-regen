@@ -1,0 +1,71 @@
+name: Compare Knot migration strategies on Odoo Community
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/knot-suspension.yml
+      - docs/knot/erp-benchmark/*.py
+      - docs/knot/erp-benchmark/*.sql
+      - docs/knot/erp-benchmark/suspension*.json
+      - docs/knot/erp-benchmark/requirements.txt
+      - docs/knot/erp-benchmark/erp/**
+      - docs/knot/formal/policy.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    defaults:
+      run:
+        working-directory: docs/knot/erp-benchmark
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Prepare the PostgreSQL driver and the pinned offline model
+        run: |
+          python3.12 -m venv "$RUNNER_TEMP/knot-suspension"
+          python="$RUNNER_TEMP/knot-suspension/bin/python"
+          "$python" -m pip install --disable-pip-version-check --only-binary=:all: --require-hashes -r requirements.txt
+          "$python" suspension_model.py --prepare --cache "$RUNNER_TEMP/knot-model"
+
+      - name: Compare strategies against the identical Odoo workload
+        run: |
+          python="$RUNNER_TEMP/knot-suspension/bin/python"
+          export KNOT_MODEL_CACHE="$RUNNER_TEMP/knot-model"
+          "$python" suspension_launcher.py -- "$python" suspension.py \
+            --out "$RUNNER_TEMP/knot-suspension.json" --rows 100000 --writers 8 --repeats 3
+
+      - name: Score the frozen operational decision cases
+        run: |
+          python="$RUNNER_TEMP/knot-suspension/bin/python"
+          export KNOT_MODEL_CACHE="$RUNNER_TEMP/knot-model"
+          "$python" suspension_model.py --evaluate --out "$RUNNER_TEMP/knot-model-cases.json"
+
+      - name: Publish machine-readable measurements in the run log
+        run: |
+          "$RUNNER_TEMP/knot-suspension/bin/python" -I - "$RUNNER_TEMP" <<'PY'
+          import base64
+          import json
+          import sys
+          from pathlib import Path
+
+          root = Path(sys.argv[1])
+          for name in ('knot-suspension', 'knot-model-cases'):
+              raw = (root / (name + '.json')).read_bytes()
+              json.loads(raw)
+              if len(raw) > 192 * 1024:
+                  raise SystemExit('Expected an aggregate report with no individual ERP records')
+              for offset in range(0, len(raw), 1800):
+                  part = raw[offset:offset + 1800]
+                  print(f'KNOT_REPORT_PART {name} {offset:06d} {base64.b64encode(part).decode()}')
+              print(f'KNOT_REPORT_END {name} {len(raw)}')
+          PY
