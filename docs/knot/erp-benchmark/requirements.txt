@@ -1,0 +1,6 @@
+# CPython 3.12 wheels from PyPI, for Linux glibc and macOS on x86_64 or arm64.
+psycopg2-binary==2.9.13 \
+    --hash=sha256:e3861eba31f8ea8663fd876166b032fd89179e42aa63764d6feb281f13f9eb60 \
+    --hash=sha256:3dc3372b3731b3ef23407fe06b94f640ef87a2bda242fa386033d5589c87514a \
+    --hash=sha256:07b7bd9f410650c34c3532162cc329f112368d78a3fc8668cb1ea9df61bc11bf \
+    --hash=sha256:2bf9f97a6df69a5d89d054b8cf5257a0916096c479800715fbfe7974dbcb3a26
