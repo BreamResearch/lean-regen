@@ -4,7 +4,7 @@
 
 Two operators see the same balance and try to commit a transfer. How many entries should the ledger retain? This exercise shows who may commit a transaction, what a second writer sees after the first commits, and which entries survive a migration.
 
-[日本語で開く](https://breamresearch.github.io/lean-regen/knot/operations/) · [Open in English](https://breamresearch.github.io/lean-regen/knot/operations/?lang=en)
+[日本語で開く](index.html) · [Open in English](index.html?lang=en)
 
 | タブ / Scenario | 確かめること / What to inspect |
 | --- | --- |
@@ -26,7 +26,7 @@ The free browser lab runs SQLite in one tab. You choose the submission order and
 
 **PostgreSQL 16.** Separate database logins use SCRAM authentication. PostgreSQL reports which backend blocks a competing writer. A new writer in a different tenant commits while the legacy transaction remains open. Backfill and final cutover wait where they overlap with outstanding writes. The cutover refuses an incomplete copy or a one-unit mismatch, then retires the old table only after reconciliation. The local record covers one database instance, two tenants and five committed transfers.
 
-公開リポジトリの `docs/knot/operations` から実行します。最初のコマンドは Python 3.9 以上とそのSQLiteモジュール、2つ目は PostgreSQL 16 のサーバー・クライアントコマンド一式を使います。Node.js 24 があれば `node check.mjs` でブラウザー用処理も再検査できます。Run from `docs/knot/operations` using new report filenames. The PostgreSQL command expects that version’s `pg_config` on your path.
+公開リポジトリの `docs/knot/operations` から実行します。最初のコマンドは Python 3.9 以上と SQLite 3.37 以上、2つ目は PostgreSQL 16 のサーバー・クライアントコマンド一式を使います。Node.js 24 があれば `node check.mjs` でブラウザー用処理も再検査できます。Run from `docs/knot/operations` using new report filenames. The first command requires Python 3.9+ linked to SQLite 3.37+. The PostgreSQL command expects that version’s `pg_config` on your path.
 
 ```sh
 python3 -B server/exercise.py --out new-sqlite.json
