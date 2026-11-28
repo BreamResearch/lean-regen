@@ -1,0 +1,4153 @@
+{
+  "micro": {
+    "backends": {
+      "native-batch": {
+        "cpuNsPerOperation": {
+          "max": 2.0384788513183594,
+          "median": 1.9106864929199219,
+          "min": 1.903533935546875
+        },
+        "operationsPerSecond": {
+          "max": 526145952.8961646,
+          "median": 523715186.51474947,
+          "min": 490930384.93690354
+        },
+        "peakRssBytes": {
+          "max": 27492352,
+          "median": 27426816,
+          "min": 27344896
+        },
+        "samples": [
+          {
+            "cpuNs": 4229000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 27344896,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 4226166
+          },
+          {
+            "cpuNs": 4275000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 27459584,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 4271791
+          },
+          {
+            "cpuNs": 4021000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 27492352,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 4026208
+          },
+          {
+            "cpuNs": 3997000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 27344896,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 3991917
+          },
+          {
+            "cpuNs": 4007000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 27492352,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 4004375
+          },
+          {
+            "cpuNs": 3998000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 27426816,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 3994167
+          },
+          {
+            "cpuNs": 3992000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 27344896,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 3985875
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 2.0369486808776855,
+          "median": 1.9094347953796387,
+          "min": 1.9006133079528809
+        }
+      },
+      "native-transfer": {
+        "cpuNsPerOperation": {
+          "max": 2512.2884114583335,
+          "median": 2343.017578125,
+          "min": 2336.2630208333335
+        },
+        "operationsPerSecond": {
+          "max": 428071.9018661887,
+          "median": 426719.7547528222,
+          "min": 397982.7766216729
+        },
+        "peakRssBytes": {
+          "max": 27721728,
+          "median": 27574272,
+          "min": 27541504
+        },
+        "samples": [
+          {
+            "cpuNs": 30871000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27721728,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 30875708
+          },
+          {
+            "cpuNs": 30149000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27557888,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 30145334
+          },
+          {
+            "cpuNs": 28791000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27541504,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 28800625
+          },
+          {
+            "cpuNs": 28708000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27574272,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 28705458
+          },
+          {
+            "cpuNs": 28758000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27656192,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 28768125
+          },
+          {
+            "cpuNs": 28796000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27688960,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 28796417
+          },
+          {
+            "cpuNs": 28729000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27541504,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 28729208
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 2512.6715494791665,
+          "median": 2343.4584147135415,
+          "min": 2336.05615234375
+        }
+      },
+      "numpy-batch": {
+        "cpuNsPerOperation": {
+          "max": 17.446517944335938,
+          "median": 15.954017639160156,
+          "min": 15.854358673095703
+        },
+        "operationsPerSecond": {
+          "max": 63072318.37488882,
+          "median": 62678888.63232025,
+          "min": 56267661.18429878
+        },
+        "peakRssBytes": {
+          "max": 36962304,
+          "median": 36716544,
+          "min": 36552704
+        },
+        "samples": [
+          {
+            "cpuNs": 34453000,
+            "numpyAdditionalLayoutBytes": 0,
+            "numpyLayoutConversionWallNs": 0,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 36585472,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 34465166
+          },
+          {
+            "cpuNs": 36588000,
+            "numpyAdditionalLayoutBytes": 0,
+            "numpyLayoutConversionWallNs": 0,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 36962304,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 37271000
+          },
+          {
+            "cpuNs": 33423000,
+            "numpyAdditionalLayoutBytes": 0,
+            "numpyLayoutConversionWallNs": 0,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 36716544,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 33423625
+          },
+          {
+            "cpuNs": 33347000,
+            "numpyAdditionalLayoutBytes": 0,
+            "numpyLayoutConversionWallNs": 0,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 36552704,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 33341959
+          },
+          {
+            "cpuNs": 33470000,
+            "numpyAdditionalLayoutBytes": 0,
+            "numpyLayoutConversionWallNs": 0,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 36782080,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 33491833
+          },
+          {
+            "cpuNs": 33249000,
+            "numpyAdditionalLayoutBytes": 0,
+            "numpyLayoutConversionWallNs": 0,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 36601856,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 33249959
+          },
+          {
+            "cpuNs": 33458000,
+            "numpyAdditionalLayoutBytes": 0,
+            "numpyLayoutConversionWallNs": 0,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 36749312,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 33458666
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 17.772197723388672,
+          "median": 15.95433521270752,
+          "min": 15.85481595993042
+        }
+      },
+      "numpy-columnar-batch": {
+        "cpuNsPerOperation": {
+          "max": 9.61446762084961,
+          "median": 8.13150405883789,
+          "min": 8.084774017333984
+        },
+        "operationsPerSecond": {
+          "max": 123720000.81176148,
+          "median": 122995009.94328213,
+          "min": 101456072.12428199
+        },
+        "peakRssBytes": {
+          "max": 37797888,
+          "median": 37634048,
+          "min": 37453824
+        },
+        "samples": [
+          {
+            "cpuNs": 18202000,
+            "numpyAdditionalLayoutBytes": 917504,
+            "numpyLayoutConversionWallNs": 270917,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 37617664,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 18198125
+          },
+          {
+            "cpuNs": 18583000,
+            "numpyAdditionalLayoutBytes": 917504,
+            "numpyLayoutConversionWallNs": 362833,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 37634048,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 18576500
+          },
+          {
+            "cpuNs": 16955000,
+            "numpyAdditionalLayoutBytes": 917504,
+            "numpyLayoutConversionWallNs": 220041,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 37453824,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 16950792
+          },
+          {
+            "cpuNs": 17051000,
+            "numpyAdditionalLayoutBytes": 917504,
+            "numpyLayoutConversionWallNs": 218250,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 37634048,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 17047875
+          },
+          {
+            "cpuNs": 17053000,
+            "numpyAdditionalLayoutBytes": 917504,
+            "numpyLayoutConversionWallNs": 204209,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 37453824,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 17050708
+          },
+          {
+            "cpuNs": 17047000,
+            "numpyAdditionalLayoutBytes": 917504,
+            "numpyLayoutConversionWallNs": 255417,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 37666816,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 17041750
+          },
+          {
+            "cpuNs": 20163000,
+            "numpyAdditionalLayoutBytes": 917504,
+            "numpyLayoutConversionWallNs": 247959,
+            "numpyReusableScratchBytes": 294912,
+            "numpyVersion": "2.3.5",
+            "operations": 2097152,
+            "peakRssBytes": 37797888,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 20670542
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 9.85648250579834,
+          "median": 8.130411148071289,
+          "min": 8.082767486572266
+        }
+      },
+      "python-transfer": {
+        "cpuNsPerOperation": {
+          "max": 10142.740885416666,
+          "median": 9501.383463541666,
+          "min": 9438.232421875
+        },
+        "operationsPerSecond": {
+          "max": 105938.94976618642,
+          "median": 105244.26214286721,
+          "min": 98542.24282128623
+        },
+        "peakRssBytes": {
+          "max": 27492352,
+          "median": 27443200,
+          "min": 27361280
+        },
+        "samples": [
+          {
+            "cpuNs": 124634000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27443200,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 124697791
+          },
+          {
+            "cpuNs": 119507000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27410432,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 119577667
+          },
+          {
+            "cpuNs": 116753000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27475968,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 116756959
+          },
+          {
+            "cpuNs": 117057000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27459584,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 117057458
+          },
+          {
+            "cpuNs": 115977000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27361280,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 115991333
+          },
+          {
+            "cpuNs": 116359000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27361280,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 116368167
+          },
+          {
+            "cpuNs": 116045000,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 27492352,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 116058583
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 10147.932210286459,
+          "median": 9501.705647786459,
+          "min": 9439.398844401041
+        }
+      }
+    },
+    "completedUtc": "2026-11-28T14:11:38.590483+00:00",
+    "corpus": {
+      "batch": {
+        "accepted": 2058,
+        "canonicalInput": "little-endian uint32 in row-major order, two flags encoded 0 or 1",
+        "count": 16384,
+        "distinctMasks": 64,
+        "fieldOrder": [
+          "budget",
+          "hours",
+          "budgetIn",
+          "hoursIn",
+          "budgetOut",
+          "hoursOut",
+          "minBudget",
+          "minHours",
+          "maxBudget",
+          "maxHours",
+          "committedBudget",
+          "committedHours",
+          "closed",
+          "locked"
+        ],
+        "generatorSeed": 941103,
+        "inputSha256": "503fc36dcb54db7a6f392d06a25955026aa3636dfcc210638aed0767fbccd4d3",
+        "maskSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a"
+      },
+      "transfer": {
+        "accepted": 1519,
+        "count": 4096,
+        "fullResultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+        "generatorSeed": 837209,
+        "inputSha256": "0e2256cfe99720b8ffed8346e9503e845bd06b45afeb369ec2a604a0eca4b641",
+        "rejected": 2577,
+        "wideFallbackCount": 43
+      }
+    },
+    "host": {
+      "affinityCpus": null,
+      "cpu": "arm64",
+      "logicalCpus": 8,
+      "machine": "arm64",
+      "platform": "macOS-27.0.1-arm64-arm-64bit",
+      "python": "3.12.14",
+      "pythonImplementation": "CPython",
+      "visibleCompiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+    },
+    "library": {
+      "bytes": 16888,
+      "disassemblyCommand": "otool -tvV",
+      "disassemblyTextBytes": 8892,
+      "disassemblyTextSha256": "132459565b26dd3ee88238e23ef16fd76335605d349166972edd82cf7bf5daa5",
+      "dynamicDependencies": [
+        "/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.40.3)"
+      ],
+      "fileName": "guard.dylib",
+      "format": "Mach-O 64-bit dynamically linked shared library arm64",
+      "machineTextBytes": 1036,
+      "sha256": "32253cf89a68140766f3b287586afee5049612cc6782026ae11d6de52751b086"
+    },
+    "method": {
+      "batch": "One call for the whole warmed, contiguous uint32 row-major input and reusable uint8 output. NumPy widens sums to uint64 and reuses scratch arrays. numpy-batch views the same interleaved rows. numpy-columnar-batch makes one contiguous transposed copy outside timing and reports the copy cost and storage. Division by row count gives per-account throughput.",
+      "config": {
+        "batchPasses": 128,
+        "repeats": 7,
+        "rows": 16384,
+        "transferPasses": 3,
+        "transfers": 4096
+      },
+      "memory": "Fresh subprocess for each backend and round; process-lifetime peak RSS includes interpreter, imports, constructed inputs and warmed execution. Scratch is an explicit array-byte count.",
+      "orderByRound": [
+        [
+          "python-transfer",
+          "native-transfer",
+          "native-batch",
+          "numpy-batch",
+          "numpy-columnar-batch"
+        ],
+        [
+          "native-transfer",
+          "native-batch",
+          "numpy-batch",
+          "numpy-columnar-batch",
+          "python-transfer"
+        ],
+        [
+          "native-batch",
+          "numpy-batch",
+          "numpy-columnar-batch",
+          "python-transfer",
+          "native-transfer"
+        ],
+        [
+          "numpy-batch",
+          "numpy-columnar-batch",
+          "python-transfer",
+          "native-transfer",
+          "native-batch"
+        ],
+        [
+          "numpy-columnar-batch",
+          "python-transfer",
+          "native-transfer",
+          "native-batch",
+          "numpy-batch"
+        ],
+        [
+          "python-transfer",
+          "native-transfer",
+          "native-batch",
+          "numpy-batch",
+          "numpy-columnar-batch"
+        ],
+        [
+          "native-transfer",
+          "native-batch",
+          "numpy-batch",
+          "numpy-columnar-batch",
+          "python-transfer"
+        ]
+      ],
+      "policySha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+      "ratio": "Median, min and max of paired elapsed wall-time ratios for the same round.",
+      "scalar": "One complete ERP Python call produces the full dictionary; the timed consumer counts acceptances. Canonical JSON of every full result is checked outside timing.",
+      "scope": "Transfer latency and independent batch throughput; excludes database, RPC, UI, compile and cold-start time.",
+      "timing": "One complete dataset warm-up before each sample. Each round rotates backend order. Wall and process CPU exclude startup, preparation and output verification. Corpus and outputs are reused across passes."
+    },
+    "mode": "full",
+    "numpyStatus": "measured",
+    "ratios": {
+      "numpyColumnarOverNativeBatchWall": {
+        "byRound": [
+          4.3060601500272355,
+          4.348644397630877,
+          4.210113337413269,
+          4.270598562044251,
+          4.258019790853754,
+          4.266659356005896,
+          5.185948380217644
+        ],
+        "max": 5.185948380217644,
+        "median": 4.270598562044251,
+        "min": 4.210113337413269
+      },
+      "numpyOverNativeBatchWall": {
+        "byRound": [
+          8.155185101579066,
+          8.72491186951796,
+          8.301514725518404,
+          8.352367797226245,
+          8.363810332448883,
+          8.324629140444053,
+          8.39430890331483
+        ],
+        "max": 8.72491186951796,
+        "median": 8.352367797226245,
+        "min": 8.155185101579066
+      },
+      "pythonOverNativeTransferWall": {
+        "byRound": [
+          4.038702238018315,
+          3.9667056599870483,
+          4.053973099542111,
+          4.077881565241007,
+          4.031939273066979,
+          4.041064101829058,
+          4.039741819544765
+        ],
+        "max": 4.077881565241007,
+        "median": 4.039741819544765,
+        "min": 3.9667056599870483
+      }
+    },
+    "schema": "knot-native-local-measurement-v1",
+    "source": {
+      "bridge.py": {
+        "bytes": 2761,
+        "sha256": "d529471b3d0d200ba87b407e21f3aaa77454732dc026531ea0df2c4d70eaa989"
+      },
+      "guard.c": {
+        "bytes": 3212,
+        "sha256": "9956b9dbc9a792230dc9f2bd0e8eba5e1770b38f14efd8ee3b7009b91dce1429"
+      },
+      "guard.h": {
+        "bytes": 1555,
+        "sha256": "91aa1c325b2d8c5c3c6ee6f4cbb5348122098ee066525c4b0ba3eb22b623d364"
+      },
+      "measure.py": {
+        "bytes": 17197,
+        "sha256": "5090c5543e27ab9df5b0554ec7a3c3a003266a7746974710f4ff829d93e9d069"
+      },
+      "policy_gate.py": {
+        "bytes": 2859,
+        "sha256": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b"
+      }
+    }
+  },
+  "correctness": {
+    "acceptedTransfers": 106,
+    "allReasonMasks": 64,
+    "arbitraryPrecisionFallbacks": 4,
+    "binaries": {
+      "guardSha256": "32253cf89a68140766f3b287586afee5049612cc6782026ae11d6de52751b086",
+      "leanScalarSha256": "b8374eef37368b437e1a87743e311e10910df5ab0ea5e7a08fe5a6825b3a0abe",
+      "oracleSha256": "8f75b1ee2e7986f4d57bca3115127948d37e063fdac5bb6b0600f36072f1e67c"
+    },
+    "corpusSha256": "1dad0767cfda344f34f59db1657c45cd05bbab5ec42d719ef67756673eb6d5ce",
+    "directLeanScalarRows": 8271,
+    "format": "knot-native-conformance-v1",
+    "frozenRowCases": 11,
+    "frozenRowsBeyondUInt32": 1,
+    "guardRows": 8271,
+    "invalidTransferInputs": 9,
+    "masksSha256": "8007ddb95b5d7be3e281c9deb08ae6c76876501a3815d660c664d0d5d2bf51fc",
+    "oracleRefusals": 7,
+    "rejectedTransfers": 926,
+    "seed": 2363688,
+    "sources": {
+      "erp-benchmark/native/WordOracle.lean": "6eda900b40401113c885040cbbd6044984bd1697f547c0a0f0b3e4816de98f23",
+      "erp-benchmark/native/bridge.py": "d529471b3d0d200ba87b407e21f3aaa77454732dc026531ea0df2c4d70eaa989",
+      "erp-benchmark/native/check.py": "bdbc17f55e9815878cf7a9ace2c1a7b5602923f3f5c7429d849a317b68094151",
+      "erp-benchmark/native/guard.c": "9956b9dbc9a792230dc9f2bd0e8eba5e1770b38f14efd8ee3b7009b91dce1429",
+      "erp-benchmark/native/guard.h": "91aa1c325b2d8c5c3c6ee6f4cbb5348122098ee066525c4b0ba3eb22b623d364",
+      "erp-benchmark/policy_gate.py": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b",
+      "formal/Knot/Batch.lean": "42f576407bf90ce8838a036467be9118d186ef8cfda931ae7825518afa8465b5",
+      "formal/Knot/Machine.lean": "bf5e1f20dc31639b449d6f49dcba0ab98330f6c4cd2c184b1ca80f5967912168",
+      "formal/Knot/Policy.lean": "6d603c31217b8bb31560fc870ab3ae4d4b99ed7fdb7a57b3681e422502e3bfe0",
+      "formal/Knot/Proofs.lean": "fcbfc6a95d9ea8a4551398acf4e638f0a532e7de073918f29efc96ffb24dc178",
+      "formal/Knot/Specification.lean": "b5074857de747b988665925ccc8bbfff73f17a918aed9689ea6c66c937ce74b0",
+      "formal/cases.json": "9d4c38c0ac998ee587297e91a505b6f7a257141c18570160eab470896c6fc3ce",
+      "formal/lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "formal/policy.json": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa"
+    },
+    "specializedPairs": 8192,
+    "status": "PASS",
+    "transferCases": 1032
+  },
+  "generated": {
+    "toolchain": "Lean 4.19.0 + Apple clang 21.0.0",
+    "architecture": "arm64",
+    "entrypoint": "knot_word_mask",
+    "textBytes": 216,
+    "fileBytes": 16800,
+    "undefinedSymbols": [],
+    "instructionCount": 54,
+    "assembly": [
+      "8b20414a      add x10, x10, w0, uxtw",
+      "eb0d015f      cmp x10, x13",
+      "1a8b31eb      csel w11, w15, w11, lo",
+      "d65f03c0      ret"
+    ],
+    "sha256": "b8374eef37368b437e1a87743e311e10910df5ab0ea5e7a08fe5a6825b3a0abe",
+    "axioms": [
+      "'Knot.Machine.wideSum_exact' depends on axioms: [propext, Quot.sound]",
+      "'Knot.Machine.failed_exact' depends on axioms: [propext, Quot.sound]",
+      "'Knot.Machine.bit_exact' depends on axioms: [propext, Quot.sound]",
+      "'Knot.Machine.ordered_violations' depends on axioms: [propext, Quot.sound]",
+      "'Knot.Machine.accepted_exact' depends on axioms: [propext, Quot.sound]",
+      "'Knot.Machine.no_reserved_bits' depends on axioms: [propext, Quot.sound]",
+      "'Knot.Machine.scalar_ordered' depends on axioms: [propext, Quot.sound]"
+    ],
+    "sourceSha256": "d5d3ca914cd7df8ab082a9ee66044783a2c9f7b3cbf06f67eefccfdda36c7d67"
+  },
+  "measuredCorpusLean": {
+    "schema": "knot-native-exact-timed-corpus-lean-check-v1",
+    "rows": 16384,
+    "distinctMasks": 64,
+    "measurementSha256": "be1d03a01da41476c6a1d5de6563984bfc5f4b396c8877cb9ce62a973fcfe288",
+    "oracleSha256": "8f75b1ee2e7986f4d57bca3115127948d37e063fdac5bb6b0600f36072f1e67c",
+    "oracleSourceSha256": "6eda900b40401113c885040cbbd6044984bd1697f547c0a0f0b3e4816de98f23",
+    "stdinSha256": "b04f784a5cc41f9b054d8ecb7a2ae114cb5fccfe8da467f523f75f9a9bfeba78",
+    "exitCode": 0,
+    "maskSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+    "match": true
+  },
+  "ciCorrectness": {
+    "acceptedTransfers": 106,
+    "allReasonMasks": 64,
+    "arbitraryPrecisionFallbacks": 4,
+    "binaries": {
+      "guardSha256": "f38239f56eaa2ca676deaf208a8ace3f3807cb1dd521a02e47329fc32fc12642",
+      "oracleSha256": "f2f9df2ea3e4ceef50818cfbb56ff908e1877fe80197b17e399ec7356ca0e360"
+    },
+    "corpusSha256": "1dad0767cfda344f34f59db1657c45cd05bbab5ec42d719ef67756673eb6d5ce",
+    "directLeanScalarRows": 0,
+    "format": "knot-native-conformance-v1",
+    "frozenRowCases": 11,
+    "frozenRowsBeyondUInt32": 1,
+    "guardRows": 8271,
+    "invalidTransferInputs": 9,
+    "masksSha256": "8007ddb95b5d7be3e281c9deb08ae6c76876501a3815d660c664d0d5d2bf51fc",
+    "oracleRefusals": 7,
+    "rejectedTransfers": 926,
+    "seed": 2363688,
+    "sources": {
+      "erp-benchmark/native/WordOracle.lean": "6eda900b40401113c885040cbbd6044984bd1697f547c0a0f0b3e4816de98f23",
+      "erp-benchmark/native/bridge.py": "d529471b3d0d200ba87b407e21f3aaa77454732dc026531ea0df2c4d70eaa989",
+      "erp-benchmark/native/check.py": "bdbc17f55e9815878cf7a9ace2c1a7b5602923f3f5c7429d849a317b68094151",
+      "erp-benchmark/native/guard.c": "9956b9dbc9a792230dc9f2bd0e8eba5e1770b38f14efd8ee3b7009b91dce1429",
+      "erp-benchmark/native/guard.h": "91aa1c325b2d8c5c3c6ee6f4cbb5348122098ee066525c4b0ba3eb22b623d364",
+      "erp-benchmark/policy_gate.py": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b",
+      "formal/Knot/Batch.lean": "42f576407bf90ce8838a036467be9118d186ef8cfda931ae7825518afa8465b5",
+      "formal/Knot/Machine.lean": "bf5e1f20dc31639b449d6f49dcba0ab98330f6c4cd2c184b1ca80f5967912168",
+      "formal/Knot/Policy.lean": "6d603c31217b8bb31560fc870ab3ae4d4b99ed7fdb7a57b3681e422502e3bfe0",
+      "formal/Knot/Proofs.lean": "fcbfc6a95d9ea8a4551398acf4e638f0a532e7de073918f29efc96ffb24dc178",
+      "formal/Knot/Specification.lean": "b5074857de747b988665925ccc8bbfff73f17a918aed9689ea6c66c937ce74b0",
+      "formal/cases.json": "9d4c38c0ac998ee587297e91a505b6f7a257141c18570160eab470896c6fc3ce",
+      "formal/lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+      "formal/policy.json": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa"
+    },
+    "specializedPairs": 8192,
+    "status": "PASS",
+    "transferCases": 1032
+  },
+  "ciMicro": {
+    "backends": {
+      "native-batch": {
+        "cpuNsPerOperation": {
+          "max": 3.5787668228149414,
+          "median": 3.0393877029418945,
+          "min": 3.0270333290100098
+        },
+        "operationsPerSecond": {
+          "max": 330612272.56682986,
+          "median": 329190314.8774604,
+          "min": 279603975.0750523
+        },
+        "peakRssBytes": {
+          "max": 21864448,
+          "median": 21823488,
+          "min": 21782528
+        },
+        "samples": [
+          {
+            "cpuNs": 6348149,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 21823488,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 6343237
+          },
+          {
+            "cpuNs": 7505218,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 21864448,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 7500437
+          },
+          {
+            "cpuNs": 6360287,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 21782528,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 6356076
+          },
+          {
+            "cpuNs": 6357994,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 21798912,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 6353833
+          },
+          {
+            "cpuNs": 6374058,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 21782528,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 6370637
+          },
+          {
+            "cpuNs": 6384744,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 21864448,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 6379080
+          },
+          {
+            "cpuNs": 6414257,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 2097152,
+            "peakRssBytes": 21843968,
+            "resultSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a",
+            "wallNs": 6409496
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 3.5764870643615723,
+          "median": 3.0377564430236816,
+          "min": 3.024691104888916
+        }
+      },
+      "native-transfer": {
+        "cpuNsPerOperation": {
+          "max": 3384.6710611979165,
+          "median": 3278.0747884114585,
+          "min": 3246.4995930989585
+        },
+        "operationsPerSecond": {
+          "max": 308056.2346026723,
+          "median": 305093.96685618843,
+          "min": 295485.819277718
+        },
+        "peakRssBytes": {
+          "max": 21893120,
+          "median": 21864448,
+          "min": 21753856
+        },
+        "samples": [
+          {
+            "cpuNs": 39892987,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21868544,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 39888821
+          },
+          {
+            "cpuNs": 39972605,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21864448,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 39968018
+          },
+          {
+            "cpuNs": 40067676,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21893120,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 40062758
+          },
+          {
+            "cpuNs": 40280983,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21753856,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 40276116
+          },
+          {
+            "cpuNs": 41590838,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21864448,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 41585752
+          },
+          {
+            "cpuNs": 40624794,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21757952,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 40618354
+          },
+          {
+            "cpuNs": 40566888,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21880832,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 40560458
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 3384.2571614583335,
+          "median": 3277.6787109375,
+          "min": 3246.1605631510415
+        }
+      },
+      "python-transfer": {
+        "cpuNsPerOperation": {
+          "max": 11490.474283854166,
+          "median": 11296.177815755209,
+          "min": 11121.968017578125
+        },
+        "operationsPerSecond": {
+          "max": 89910.69361336788,
+          "median": 88529.73762733876,
+          "min": 87003.19840835125
+        },
+        "peakRssBytes": {
+          "max": 21864448,
+          "median": 21745664,
+          "min": 21659648
+        },
+        "samples": [
+          {
+            "cpuNs": 137402507,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21762048,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 137450851
+          },
+          {
+            "cpuNs": 138551452,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21798912,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 138545578
+          },
+          {
+            "cpuNs": 138807433,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21659648,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 138800818
+          },
+          {
+            "cpuNs": 139884552,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21659648,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 139889926
+          },
+          {
+            "cpuNs": 139772245,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21663744,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 139784309
+          },
+          {
+            "cpuNs": 141194948,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21864448,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 141236187
+          },
+          {
+            "cpuNs": 136666743,
+            "numpyAdditionalLayoutBytes": null,
+            "numpyLayoutConversionWallNs": null,
+            "numpyReusableScratchBytes": null,
+            "numpyVersion": null,
+            "operations": 12288,
+            "peakRssBytes": 21745664,
+            "resultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+            "wallNs": 136668949
+          }
+        ],
+        "wallNsPerOperation": {
+          "max": 11493.830322265625,
+          "median": 11295.639485677084,
+          "min": 11122.147542317709
+        }
+      }
+    },
+    "completedUtc": "2026-11-28T14:14:43.404504+00:00",
+    "corpus": {
+      "batch": {
+        "accepted": 2058,
+        "canonicalInput": "little-endian uint32 in row-major order, two flags encoded 0 or 1",
+        "count": 16384,
+        "distinctMasks": 64,
+        "fieldOrder": [
+          "budget",
+          "hours",
+          "budgetIn",
+          "hoursIn",
+          "budgetOut",
+          "hoursOut",
+          "minBudget",
+          "minHours",
+          "maxBudget",
+          "maxHours",
+          "committedBudget",
+          "committedHours",
+          "closed",
+          "locked"
+        ],
+        "generatorSeed": 941103,
+        "inputSha256": "503fc36dcb54db7a6f392d06a25955026aa3636dfcc210638aed0767fbccd4d3",
+        "maskSha256": "36f01f5042dc0e96c7a86e3a699b423f7f38620200fd80f48084f60068a4cf7a"
+      },
+      "transfer": {
+        "accepted": 1519,
+        "count": 4096,
+        "fullResultSha256": "097f65ba0a8b83807edb78d568659226da85d630d3a6479f85c45c7855620c5a",
+        "generatorSeed": 837209,
+        "inputSha256": "0e2256cfe99720b8ffed8346e9503e845bd06b45afeb369ec2a604a0eca4b641",
+        "rejected": 2577,
+        "wideFallbackCount": 43
+      }
+    },
+    "host": {
+      "affinityCpus": 4,
+      "cpu": "AMD EPYC 9V74 80-Core Processor",
+      "logicalCpus": 4,
+      "machine": "x86_64",
+      "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.39",
+      "python": "3.12.3",
+      "pythonImplementation": "CPython",
+      "visibleCompiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+    },
+    "library": {
+      "bytes": 15328,
+      "disassemblyCommand": "objdump -d",
+      "disassemblyTextBytes": 14190,
+      "disassemblyTextSha256": "7c7701b71bf0d38c88200b5e0e6f1e4f2b065b501ca8ebb16c7689bf23c4ad3e",
+      "dynamicDependencies": [
+        "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]"
+      ],
+      "fileName": "guard.so",
+      "format": "ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=1a1f184d97c197ee102519f0b70cac23372de68b, not stripped",
+      "machineTextBytes": 801,
+      "sha256": "f38239f56eaa2ca676deaf208a8ace3f3807cb1dd521a02e47329fc32fc12642"
+    },
+    "method": {
+      "batch": "One call for the whole warmed, contiguous uint32 row-major input and reusable uint8 output. NumPy widens sums to uint64 and reuses scratch arrays. numpy-batch views the same interleaved rows. numpy-columnar-batch makes one contiguous transposed copy outside timing and reports the copy cost and storage. Division by row count gives per-account throughput.",
+      "config": {
+        "batchPasses": 128,
+        "repeats": 7,
+        "rows": 16384,
+        "transferPasses": 3,
+        "transfers": 4096
+      },
+      "memory": "Fresh subprocess for each backend and round; process-lifetime peak RSS includes interpreter, imports, constructed inputs and warmed execution. Scratch is an explicit array-byte count.",
+      "orderByRound": [
+        [
+          "python-transfer",
+          "native-transfer",
+          "native-batch"
+        ],
+        [
+          "native-transfer",
+          "native-batch",
+          "python-transfer"
+        ],
+        [
+          "native-batch",
+          "python-transfer",
+          "native-transfer"
+        ],
+        [
+          "python-transfer",
+          "native-transfer",
+          "native-batch"
+        ],
+        [
+          "native-transfer",
+          "native-batch",
+          "python-transfer"
+        ],
+        [
+          "native-batch",
+          "python-transfer",
+          "native-transfer"
+        ],
+        [
+          "python-transfer",
+          "native-transfer",
+          "native-batch"
+        ]
+      ],
+      "policySha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+      "ratio": "Median, min and max of paired elapsed wall-time ratios for the same round.",
+      "scalar": "One complete ERP Python call produces the full dictionary; the timed consumer counts acceptances. Canonical JSON of every full result is checked outside timing.",
+      "scope": "Transfer latency and independent batch throughput; excludes database, RPC, UI, compile and cold-start time.",
+      "timing": "One complete dataset warm-up before each sample. Each round rotates backend order. Wall and process CPU exclude startup, preparation and output verification. Corpus and outputs are reused across passes."
+    },
+    "mode": "full",
+    "numpyStatus": "disabled",
+    "ratios": {
+      "numpyColumnarOverNativeBatchWall": null,
+      "numpyOverNativeBatchWall": null,
+      "pythonOverNativeTransferWall": {
+        "byRound": [
+          3.445848925943437,
+          3.4664110189301858,
+          3.4645846898508585,
+          3.473272497278536,
+          3.3613509982938385,
+          3.4771519052692286,
+          3.3695119764180177
+        ],
+        "max": 3.4771519052692286,
+        "median": 3.4645846898508585,
+        "min": 3.3613509982938385
+      }
+    },
+    "schema": "knot-native-local-measurement-v1",
+    "source": {
+      "bridge.py": {
+        "bytes": 2761,
+        "sha256": "d529471b3d0d200ba87b407e21f3aaa77454732dc026531ea0df2c4d70eaa989"
+      },
+      "guard.c": {
+        "bytes": 3212,
+        "sha256": "9956b9dbc9a792230dc9f2bd0e8eba5e1770b38f14efd8ee3b7009b91dce1429"
+      },
+      "guard.h": {
+        "bytes": 1555,
+        "sha256": "91aa1c325b2d8c5c3c6ee6f4cbb5348122098ee066525c4b0ba3eb22b623d364"
+      },
+      "measure.py": {
+        "bytes": 17197,
+        "sha256": "5090c5543e27ab9df5b0554ec7a3c3a003266a7746974710f4ff829d93e9d069"
+      },
+      "policy_gate.py": {
+        "bytes": 2859,
+        "sha256": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b"
+      }
+    }
+  },
+  "odoo": {
+    "format": "knot-native-odoo-comparison-v1",
+    "status": "PASS",
+    "runtime": {
+      "odoo": "18.0-20261112",
+      "postgresql": "16.16 (Debian 16.16-1.pgdg12+1)",
+      "python": "3.12.3",
+      "architecture": "x86_64",
+      "deployment": {
+        "mode": "official-docker",
+        "images": {
+          "odoo": {
+            "repository": "docker.io/library/odoo",
+            "tag": "18.0-20261112",
+            "digest": "sha256:0bd79cf07f59105c5697667c2241b86447e99c6adb036200df0e4e295785bdf3",
+            "platform_manifests": {
+              "linux/amd64": "sha256:f5e18dea144c6054b2084874801283cf4e31868186415c19f21e3c0904545bec",
+              "linux/arm64": "sha256:9f66068dfbe6cba6d4e814a373b367fe02e217aca65ce9037c89bb873e07c787"
+            }
+          },
+          "postgres": {
+            "repository": "docker.io/library/postgres",
+            "tag": "16.16-bookworm",
+            "digest": "sha256:cd0e9518bda5f2ea667ff84d22795d089720c883f288e215d97ce57437e8ef37",
+            "platform_manifests": {
+              "linux/amd64": "sha256:d755a91aff87574a57060f86ecc0d55f83ccb51ceec6ec6f904c1210d018d998",
+              "linux/arm64": "sha256:a5891b08b971e6763d167887261f5586089a91ca57443437ba73cfbf72ac7776"
+            }
+          }
+        },
+        "odooPackage": "18.0.20261112",
+        "odooWorkers": 0,
+        "odooCronThreads": 0,
+        "httpMode": "threaded",
+        "dockerHost": {
+          "cpus": 4,
+          "memoryBytes": 16760320000,
+          "architecture": "x86_64",
+          "engineVersion": "28.0.4"
+        }
+      }
+    },
+    "parameters": {
+      "rows": 100000,
+      "writers": 8,
+      "repeats": 2
+    },
+    "schedule": {
+      "offered": 984,
+      "segments": [
+        {
+          "startMs": 0,
+          "endMs": 4000,
+          "requestsPerSecond": 16
+        },
+        {
+          "startMs": 4000,
+          "endMs": 16000,
+          "requestsPerSecond": 32
+        },
+        {
+          "startMs": 16000,
+          "endMs": 23000,
+          "requestsPerSecond": 8
+        },
+        {
+          "startMs": 23000,
+          "endMs": 32000,
+          "requestsPerSecond": 32
+        },
+        {
+          "startMs": 32000,
+          "endMs": 44000,
+          "requestsPerSecond": 16
+        }
+      ]
+    },
+    "openingNativeHistory": {
+      "rows": 100000,
+      "sha256": "758b3b5ce83c407a830f210cdafbfb82b7089007776ff1954ce46d39d1165e57"
+    },
+    "policySha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+    "binarySha256": "f38239f56eaa2ca676deaf208a8ace3f3807cb1dd521a02e47329fc32fc12642",
+    "sourceSha256": {
+      "guard.c": "9956b9dbc9a792230dc9f2bd0e8eba5e1770b38f14efd8ee3b7009b91dce1429",
+      "guard.h": "91aa1c325b2d8c5c3c6ee6f4cbb5348122098ee066525c4b0ba3eb22b623d364",
+      "bridge.py": "d529471b3d0d200ba87b407e21f3aaa77454732dc026531ea0df2c4d70eaa989",
+      "odoo_benchmark.py": "00a7c79bf1c4d3c9f3c9daa86259901c78d9f91d604069644d06c3abccb6aa9a",
+      "../policy_gate.py": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b",
+      "../erp/adapter.py": "11caee708a5d16938e0a1a4e31609da616e6265b1d1b1b472f3776acc6e6cdfb",
+      "../suspension.py": "e26131b4b291836466c492cc7b5274ad0b903688caaa33ac2d905e4f8ada884d",
+      "../suspension_workload.py": "25ea819ece1ef88a75c28f2628a7f74734312e754b7cc0b04ee50e9df051c6bf",
+      "../suspension_launcher.py": "53e3eba3c03ad146a49506268d5494486be5eb5905926ff67a58a21686dfc8fc",
+      "../projection.py": "800cb80927670168d48a3c1815dd3be27fd349b44e3f3c86996a478547c9f5d3",
+      "../benchmark.py": "5f1d2d826e05ef3964d99e0eb7164762f6dfd23e9413e24978bffe2c9be082e9",
+      "../install.sql": "bd26725f7bfab6b1015c33c0de1a4d37eb2afef9fa8acc22f0d332bfebde4eab",
+      "../expand.sql": "02a8db6b78f55ed24bf24dc568844ee3d74c7575eac66c4aa9743fcd85b919c5",
+      "../backfill.sql": "1dab649eb9bf555e60e8f1249168e890cd42615bc01c821f66fad3a883b01778",
+      "../erp/run.py": "992058877b5121fa2c9e428e05a159605ebfe6a6e1642b6118e36a5eba6e17b2",
+      "../erp/images.json": "bf33f26c4cad484379033761fa8c3fb80996b97ed06ebfb23c1a1c3081fc569d",
+      "../../formal/policy.json": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa"
+    },
+    "medians": {
+      "python": {
+        "guardP50Us": 24.092,
+        "guardTotalMs": 26.8395,
+        "e2eP95Ms": 275.9715
+      },
+      "native": {
+        "guardP50Us": 15.798,
+        "guardTotalMs": 39.955,
+        "e2eP95Ms": 331.89750000000004
+      }
+    },
+    "trials": [
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 100.765,
+            "p95": 262.029,
+            "p99": 1621.151,
+            "max": 2767.625
+          },
+          "serviceMs": {
+            "p50": 99.376,
+            "p95": 241.371,
+            "p99": 1494.68,
+            "max": 2766.763
+          },
+          "queueMs": {
+            "p50": 0.729,
+            "p95": 2.177,
+            "p99": 621.194,
+            "max": 1767.657
+          },
+          "maxResponseGapMs": 1288.296,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 162.932,
+                "p95": 277.309,
+                "p99": 278.151,
+                "max": 278.151
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 105.385,
+                "p95": 211.496,
+                "p99": 348.244,
+                "max": 393.07
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 524.671,
+                "p95": 2517.598,
+                "p99": 2767.625,
+                "max": 2767.625
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 98.853,
+                "p95": 136.934,
+                "p99": 143.927,
+                "max": 144.603
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 96.594,
+                "p95": 107.589,
+                "p99": 192.16,
+                "max": 192.344
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 37.913,
+            "gateHeldThroughCommitOrRollbackMs": 16.961,
+            "totalMs": 54.874,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.372,
+            "gateHeldThroughCommitOrRollbackMs": 122.42,
+            "totalMs": 122.793,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 138.019,
+              "p95": 221.991,
+              "p99": 250.321,
+              "max": 250.321
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 3890.081
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 0.377,
+            "gateHeldThroughCommitOrRollbackMs": 305.533,
+            "totalMs": 305.911,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 2.006,
+            "gateHeldThroughCommitOrRollbackMs": 641.477,
+            "totalMs": 643.483,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100942,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.564,
+            "gateHeldThroughCommitOrRollbackMs": 1215.971,
+            "totalMs": 1216.535,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 8173.404,
+                "queuedRequests": 0,
+                "outstandingRequests": 0,
+                "recentP95Ms": 348.244,
+                "recentGapMs": 417.616,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16000.798,
+                "queuedRequests": 4,
+                "outstandingRequests": 4,
+                "recentP95Ms": 121.195,
+                "recentGapMs": 245.95,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16001.011
+        },
+        "cutoverStartedAtMs": 16001.051,
+        "migrationThroughRollbackAuditMs": 19029.78,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "758b3b5ce83c407a830f210cdafbfb82b7089007776ff1954ce46d39d1165e57"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 24.107,
+            "p95": 46.95,
+            "p99": 64.327
+          },
+          "totalMs": 27.476,
+          "refusedProbe": true
+        },
+        "repeat": 1,
+        "implementation": "python"
+      },
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 98.056,
+            "p95": 371.564,
+            "p99": 1409.23,
+            "max": 2391.804
+          },
+          "serviceMs": {
+            "p50": 96.856,
+            "p95": 224.811,
+            "p99": 1120.493,
+            "max": 2391.294
+          },
+          "queueMs": {
+            "p50": 0.7,
+            "p95": 3.716,
+            "p99": 409.269,
+            "max": 1391.84
+          },
+          "maxResponseGapMs": 1301.942,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 109.565,
+                "p95": 266.642,
+                "p99": 267.788,
+                "max": 267.788
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 104.419,
+                "p95": 375.213,
+                "p99": 555.372,
+                "max": 556.715
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 110.448,
+                "p95": 2246.718,
+                "p99": 2391.804,
+                "max": 2391.804
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 94.159,
+                "p95": 112.775,
+                "p99": 224.565,
+                "max": 225.536
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 95.055,
+                "p95": 120.022,
+                "p99": 204.097,
+                "max": 204.555
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 0.704,
+            "gateHeldThroughCommitOrRollbackMs": 31.86,
+            "totalMs": 32.563,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.356,
+            "gateHeldThroughCommitOrRollbackMs": 107.862,
+            "totalMs": 108.217,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 106.439,
+              "p95": 218.087,
+              "p99": 245.64,
+              "max": 245.64
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 3168.142
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 0.371,
+            "gateHeldThroughCommitOrRollbackMs": 299.407,
+            "totalMs": 299.778,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 1.967,
+            "gateHeldThroughCommitOrRollbackMs": 610.49,
+            "totalMs": 612.457,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100942,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.526,
+            "gateHeldThroughCommitOrRollbackMs": 1092.321,
+            "totalMs": 1092.846,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 7416.509,
+                "queuedRequests": 0,
+                "outstandingRequests": 2,
+                "recentP95Ms": 406.303,
+                "recentGapMs": 406.771,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16000.817,
+                "queuedRequests": 4,
+                "outstandingRequests": 4,
+                "recentP95Ms": 119.006,
+                "recentGapMs": 239.988,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16001.058
+        },
+        "cutoverStartedAtMs": 16001.098,
+        "migrationThroughRollbackAuditMs": 18691.13,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "758b3b5ce83c407a830f210cdafbfb82b7089007776ff1954ce46d39d1165e57"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 15.743,
+            "p95": 126.109,
+            "p99": 661.836
+          },
+          "totalMs": 42.042,
+          "refusedProbe": true
+        },
+        "repeat": 1,
+        "implementation": "native"
+      },
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 98.78,
+            "p95": 292.231,
+            "p99": 1502.854,
+            "max": 3384.297
+          },
+          "serviceMs": {
+            "p50": 97.51,
+            "p95": 235.816,
+            "p99": 1367.939,
+            "max": 2881.414
+          },
+          "queueMs": {
+            "p50": 0.671,
+            "p95": 1.97,
+            "p99": 502.882,
+            "max": 2384.327
+          },
+          "maxResponseGapMs": 1027.153,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 106.715,
+                "p95": 264.308,
+                "p99": 265.337,
+                "max": 265.337
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 99.843,
+                "p95": 164.294,
+                "p99": 178.451,
+                "max": 179.743
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 386.04,
+                "p95": 2471.382,
+                "p99": 3384.297,
+                "max": 3384.297
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 96.986,
+                "p95": 291.6,
+                "p99": 539.492,
+                "max": 543.969
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 98.565,
+                "p95": 235.704,
+                "p99": 473.144,
+                "max": 473.342
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 0.655,
+            "gateHeldThroughCommitOrRollbackMs": 23.822,
+            "totalMs": 24.477,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.301,
+            "gateHeldThroughCommitOrRollbackMs": 102.627,
+            "totalMs": 102.928,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 99.853,
+              "p95": 143.871,
+              "p99": 147.684,
+              "max": 147.684
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 2791.392
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 0.407,
+            "gateHeldThroughCommitOrRollbackMs": 281.531,
+            "totalMs": 281.937,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 1.313,
+            "gateHeldThroughCommitOrRollbackMs": 558.515,
+            "totalMs": 559.828,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100942,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.529,
+            "gateHeldThroughCommitOrRollbackMs": 967.733,
+            "totalMs": 968.262,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 6921.293,
+                "queuedRequests": 0,
+                "outstandingRequests": 0,
+                "recentP95Ms": 178.451,
+                "recentGapMs": 292.207,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16000.387,
+                "queuedRequests": 7,
+                "outstandingRequests": 1,
+                "recentP95Ms": 122.883,
+                "recentGapMs": 256.521,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16000.576
+        },
+        "cutoverStartedAtMs": 16000.615,
+        "migrationThroughRollbackAuditMs": 18614.362,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "758b3b5ce83c407a830f210cdafbfb82b7089007776ff1954ce46d39d1165e57"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 15.853,
+            "p95": 81.482,
+            "p99": 693.763
+          },
+          "totalMs": 37.868,
+          "refusedProbe": true
+        },
+        "repeat": 2,
+        "implementation": "native"
+      },
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 99.026,
+            "p95": 289.914,
+            "p99": 670.733,
+            "max": 2055.526
+          },
+          "serviceMs": {
+            "p50": 97.658,
+            "p95": 221.198,
+            "p99": 590.725,
+            "max": 2054.937
+          },
+          "queueMs": {
+            "p50": 0.714,
+            "p95": 2.196,
+            "p99": 340.506,
+            "max": 1055.554
+          },
+          "maxResponseGapMs": 1412.097,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 114.054,
+                "p95": 208.112,
+                "p99": 209.287,
+                "max": 209.287
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 99.989,
+                "p95": 328.919,
+                "p99": 590.839,
+                "max": 593.77
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 108.992,
+                "p95": 1598.575,
+                "p99": 2055.526,
+                "max": 2055.526
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 97.259,
+                "p95": 145.104,
+                "p99": 302.893,
+                "max": 304.416
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 97.466,
+                "p95": 111.735,
+                "p99": 196.851,
+                "max": 199.991
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 0.617,
+            "gateHeldThroughCommitOrRollbackMs": 15.533,
+            "totalMs": 16.15,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.314,
+            "gateHeldThroughCommitOrRollbackMs": 106.491,
+            "totalMs": 106.805,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 100.41,
+              "p95": 124.473,
+              "p99": 161.951,
+              "max": 161.951
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 2617.283
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 0.291,
+            "gateHeldThroughCommitOrRollbackMs": 275.742,
+            "totalMs": 276.033,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 165.917,
+            "gateHeldThroughCommitOrRollbackMs": 549.499,
+            "totalMs": 715.416,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100944,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.433,
+            "gateHeldThroughCommitOrRollbackMs": 984.011,
+            "totalMs": 984.444,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 6771.208,
+                "queuedRequests": 1,
+                "outstandingRequests": 8,
+                "recentP95Ms": 238.514,
+                "recentGapMs": 355.385,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16000.536,
+                "queuedRequests": 6,
+                "outstandingRequests": 5,
+                "recentP95Ms": 153.715,
+                "recentGapMs": 238.442,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16000.778
+        },
+        "cutoverStartedAtMs": 16000.816,
+        "migrationThroughRollbackAuditMs": 18340.661,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "758b3b5ce83c407a830f210cdafbfb82b7089007776ff1954ce46d39d1165e57"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 24.077,
+            "p95": 45.177,
+            "p99": 54.772
+          },
+          "totalMs": 26.203,
+          "refusedProbe": true
+        },
+        "repeat": 2,
+        "implementation": "python"
+      }
+    ]
+  },
+  "provenance": {
+    "runUrl": "https://github.com/BreamResearch/lean-regen/actions/runs/46153624406",
+    "sourceCommit": "2f19576d2870fb0f6cbacdf62cc60f82287b97f2",
+    "reportSha256": {
+      "micro": "be1d03a01da41476c6a1d5de6563984bfc5f4b396c8877cb9ce62a973fcfe288",
+      "correctness": "b5ceaab3cdebc005bba5e2f01d3f1ae4cb430d8cfc90de1386c99878ae7a1c23",
+      "generated": "7f64e3757f6fd47d060dcc8341aab52e6331214bd4188620f9121d7376352a36",
+      "measuredCorpusLean": "1af0f392c79671a337079b7138cc34f54f02c012aa8f3057cc8e8bdd77c2905a",
+      "ciCorrectness": "8a7c118a6344111b2a39cfb22336b98bf888fa2e936ed004b595d61a8a5d3a91",
+      "ciMicro": "60b434e718824f7fbe3ff030438c6740618cb3c77db9465125843042b4380254",
+      "odoo": "4b7bde31d5f021b68688791c69326988380fce5f12fdd5271569380c76ab4b61",
+      "odooRepeat": "3afac77e80a9ca3afdc1355f01f39ddc9ecd228884b52b9d80678433b0329c16"
+    },
+    "repeatRunUrl": "https://github.com/BreamResearch/lean-regen/actions/runs/46153479942",
+    "repeatSourceCommit": "006532b8a38afeef54cd1dd0aaee538a3b047e4a"
+  },
+  "odooRepeat": {
+    "format": "knot-native-odoo-comparison-v1",
+    "status": "PASS",
+    "runtime": {
+      "odoo": "18.0-20261112",
+      "postgresql": "16.16 (Debian 16.16-1.pgdg12+1)",
+      "python": "3.12.3",
+      "architecture": "x86_64",
+      "deployment": {
+        "mode": "official-docker",
+        "images": {
+          "odoo": {
+            "repository": "docker.io/library/odoo",
+            "tag": "18.0-20261112",
+            "digest": "sha256:0bd79cf07f59105c5697667c2241b86447e99c6adb036200df0e4e295785bdf3",
+            "platform_manifests": {
+              "linux/amd64": "sha256:f5e18dea144c6054b2084874801283cf4e31868186415c19f21e3c0904545bec",
+              "linux/arm64": "sha256:9f66068dfbe6cba6d4e814a373b367fe02e217aca65ce9037c89bb873e07c787"
+            }
+          },
+          "postgres": {
+            "repository": "docker.io/library/postgres",
+            "tag": "16.16-bookworm",
+            "digest": "sha256:cd0e9518bda5f2ea667ff84d22795d089720c883f288e215d97ce57437e8ef37",
+            "platform_manifests": {
+              "linux/amd64": "sha256:d755a91aff87574a57060f86ecc0d55f83ccb51ceec6ec6f904c1210d018d998",
+              "linux/arm64": "sha256:a5891b08b971e6763d167887261f5586089a91ca57443437ba73cfbf72ac7776"
+            }
+          }
+        },
+        "odooPackage": "18.0.20261112",
+        "odooWorkers": 0,
+        "odooCronThreads": 0,
+        "httpMode": "threaded",
+        "dockerHost": {
+          "cpus": 4,
+          "memoryBytes": 16760320000,
+          "architecture": "x86_64",
+          "engineVersion": "28.0.4"
+        }
+      }
+    },
+    "parameters": {
+      "rows": 100000,
+      "writers": 8,
+      "repeats": 2
+    },
+    "schedule": {
+      "offered": 984,
+      "segments": [
+        {
+          "startMs": 0,
+          "endMs": 4000,
+          "requestsPerSecond": 16
+        },
+        {
+          "startMs": 4000,
+          "endMs": 16000,
+          "requestsPerSecond": 32
+        },
+        {
+          "startMs": 16000,
+          "endMs": 23000,
+          "requestsPerSecond": 8
+        },
+        {
+          "startMs": 23000,
+          "endMs": 32000,
+          "requestsPerSecond": 32
+        },
+        {
+          "startMs": 32000,
+          "endMs": 44000,
+          "requestsPerSecond": 16
+        }
+      ]
+    },
+    "openingNativeHistory": {
+      "rows": 100000,
+      "sha256": "28c535062b2cf49f0ffa66b77a3504feb65293965c0194b207f9b73b3aa53a43"
+    },
+    "policySha256": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa",
+    "binarySha256": "f38239f56eaa2ca676deaf208a8ace3f3807cb1dd521a02e47329fc32fc12642",
+    "sourceSha256": {
+      "guard.c": "9956b9dbc9a792230dc9f2bd0e8eba5e1770b38f14efd8ee3b7009b91dce1429",
+      "guard.h": "91aa1c325b2d8c5c3c6ee6f4cbb5348122098ee066525c4b0ba3eb22b623d364",
+      "bridge.py": "d529471b3d0d200ba87b407e21f3aaa77454732dc026531ea0df2c4d70eaa989",
+      "odoo_benchmark.py": "00a7c79bf1c4d3c9f3c9daa86259901c78d9f91d604069644d06c3abccb6aa9a",
+      "../policy_gate.py": "d4792fc503b807ebc82d2459040a0f4de3e5d4d7423b0f0adb50029c07f0342b",
+      "../erp/adapter.py": "11caee708a5d16938e0a1a4e31609da616e6265b1d1b1b472f3776acc6e6cdfb",
+      "../suspension.py": "e26131b4b291836466c492cc7b5274ad0b903688caaa33ac2d905e4f8ada884d",
+      "../suspension_workload.py": "25ea819ece1ef88a75c28f2628a7f74734312e754b7cc0b04ee50e9df051c6bf",
+      "../suspension_launcher.py": "53e3eba3c03ad146a49506268d5494486be5eb5905926ff67a58a21686dfc8fc",
+      "../projection.py": "800cb80927670168d48a3c1815dd3be27fd349b44e3f3c86996a478547c9f5d3",
+      "../benchmark.py": "5f1d2d826e05ef3964d99e0eb7164762f6dfd23e9413e24978bffe2c9be082e9",
+      "../install.sql": "bd26725f7bfab6b1015c33c0de1a4d37eb2afef9fa8acc22f0d332bfebde4eab",
+      "../expand.sql": "02a8db6b78f55ed24bf24dc568844ee3d74c7575eac66c4aa9743fcd85b919c5",
+      "../backfill.sql": "1dab649eb9bf555e60e8f1249168e890cd42615bc01c821f66fad3a883b01778",
+      "../erp/run.py": "992058877b5121fa2c9e428e05a159605ebfe6a6e1642b6118e36a5eba6e17b2",
+      "../erp/images.json": "bf33f26c4cad484379033761fa8c3fb80996b97ed06ebfb23c1a1c3081fc569d",
+      "../../formal/policy.json": "13386006f5808a6c287db5ce430de2c6190c0a75fc24ba088571e73cc18994aa"
+    },
+    "medians": {
+      "python": {
+        "guardP50Us": 38.286500000000004,
+        "guardTotalMs": 40.1905,
+        "e2eP95Ms": 222.3165
+      },
+      "native": {
+        "guardP50Us": 22.7075,
+        "guardTotalMs": 53.89,
+        "e2eP95Ms": 200.6095
+      }
+    },
+    "trials": [
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 125.306,
+            "p95": 234.885,
+            "p99": 2255.809,
+            "max": 2948.354
+          },
+          "serviceMs": {
+            "p50": 123.517,
+            "p95": 176.582,
+            "p99": 1924.093,
+            "max": 2948.225
+          },
+          "queueMs": {
+            "p50": 0.956,
+            "p95": 2.975,
+            "p99": 1255.844,
+            "max": 1948.383
+          },
+          "maxResponseGapMs": 1516.562,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 123.389,
+                "p95": 189.451,
+                "p99": 194.371,
+                "max": 194.371
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 126.3,
+                "p95": 203.011,
+                "p99": 335.666,
+                "max": 338.812
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 828.554,
+                "p95": 2783.755,
+                "p99": 2948.354,
+                "max": 2948.354
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 125.087,
+                "p95": 140.642,
+                "p99": 145.091,
+                "max": 149.041
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 123.657,
+                "p95": 142.653,
+                "p99": 194.289,
+                "max": 194.769
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 0.695,
+            "gateHeldThroughCommitOrRollbackMs": 14.681,
+            "totalMs": 15.376,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.468,
+            "gateHeldThroughCommitOrRollbackMs": 151.283,
+            "totalMs": 151.75,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 190.909,
+              "p95": 226.47,
+              "p99": 234.588,
+              "max": 234.588
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 4798.144
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 0.469,
+            "gateHeldThroughCommitOrRollbackMs": 382.979,
+            "totalMs": 383.448,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 2.671,
+            "gateHeldThroughCommitOrRollbackMs": 827.975,
+            "totalMs": 830.646,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100942,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.713,
+            "gateHeldThroughCommitOrRollbackMs": 1227.055,
+            "totalMs": 1227.769,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 9861.156,
+                "queuedRequests": 0,
+                "outstandingRequests": 8,
+                "recentP95Ms": 177.359,
+                "recentGapMs": 246.946,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16001.08,
+                "queuedRequests": 4,
+                "outstandingRequests": 4,
+                "recentP95Ms": 128.297,
+                "recentGapMs": 240.163,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16001.406
+        },
+        "cutoverStartedAtMs": 16001.504,
+        "migrationThroughRollbackAuditMs": 19815.725,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "28c535062b2cf49f0ffa66b77a3504feb65293965c0194b207f9b73b3aa53a43"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 38.432,
+            "p95": 66.414,
+            "p99": 94.105
+          },
+          "totalMs": 40.819,
+          "refusedProbe": true
+        },
+        "repeat": 1,
+        "implementation": "python"
+      },
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 124.935,
+            "p95": 200.403,
+            "p99": 1708.887,
+            "max": 2772.25
+          },
+          "serviceMs": {
+            "p50": 123.499,
+            "p95": 160.497,
+            "p99": 1692.194,
+            "max": 2771.235
+          },
+          "queueMs": {
+            "p50": 0.855,
+            "p95": 2.5,
+            "p99": 708.911,
+            "max": 1772.282
+          },
+          "maxResponseGapMs": 2055.314,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 130.355,
+                "p95": 194.705,
+                "p99": 200.403,
+                "max": 200.403
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 127.237,
+                "p95": 184.764,
+                "p99": 325.114,
+                "max": 327.878
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 693.523,
+                "p95": 2328.039,
+                "p99": 2772.25,
+                "max": 2772.25
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 123.831,
+                "p95": 132.938,
+                "p99": 138.723,
+                "max": 139.547
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 120.318,
+                "p95": 128.157,
+                "p99": 129.55,
+                "max": 130.97
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 0.828,
+            "gateHeldThroughCommitOrRollbackMs": 14.684,
+            "totalMs": 15.512,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.463,
+            "gateHeldThroughCommitOrRollbackMs": 143.271,
+            "totalMs": 143.735,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 140.543,
+              "p95": 175.56,
+              "p99": 177.788,
+              "max": 177.788
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 3553.093
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 0.459,
+            "gateHeldThroughCommitOrRollbackMs": 364.078,
+            "totalMs": 364.537,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 1.469,
+            "gateHeldThroughCommitOrRollbackMs": 768.308,
+            "totalMs": 769.777,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100944,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.562,
+            "gateHeldThroughCommitOrRollbackMs": 1189.705,
+            "totalMs": 1190.267,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 8509.205,
+                "queuedRequests": 0,
+                "outstandingRequests": 8,
+                "recentP95Ms": 163.02,
+                "recentGapMs": 241.346,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16000.368,
+                "queuedRequests": 7,
+                "outstandingRequests": 1,
+                "recentP95Ms": 201.092,
+                "recentGapMs": 301.739,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16000.604
+        },
+        "cutoverStartedAtMs": 16000.715,
+        "migrationThroughRollbackAuditMs": 19638.141,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "28c535062b2cf49f0ffa66b77a3504feb65293965c0194b207f9b73b3aa53a43"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 22.993,
+            "p95": 129.282,
+            "p99": 1109.351
+          },
+          "totalMs": 58.694,
+          "refusedProbe": true
+        },
+        "repeat": 1,
+        "implementation": "native"
+      },
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 125.915,
+            "p95": 200.816,
+            "p99": 1537.7,
+            "max": 2704.489
+          },
+          "serviceMs": {
+            "p50": 124.469,
+            "p95": 159.088,
+            "p99": 1508.326,
+            "max": 2703.284
+          },
+          "queueMs": {
+            "p50": 0.861,
+            "p95": 2.491,
+            "p99": 537.714,
+            "max": 1704.52
+          },
+          "maxResponseGapMs": 1872.936,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 144.455,
+                "p95": 214.679,
+                "p99": 216.477,
+                "max": 216.477
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 128.093,
+                "p95": 162.69,
+                "p99": 323.464,
+                "max": 327.596
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 399.518,
+                "p95": 2115.871,
+                "p99": 2704.489,
+                "max": 2704.489
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 123.678,
+                "p95": 132.393,
+                "p99": 134.056,
+                "max": 137.524
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 121.179,
+                "p95": 128.827,
+                "p99": 130.391,
+                "max": 130.562
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 0.783,
+            "gateHeldThroughCommitOrRollbackMs": 13.472,
+            "totalMs": 14.254,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.508,
+            "gateHeldThroughCommitOrRollbackMs": 141.995,
+            "totalMs": 142.502,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 140.542,
+              "p95": 174.645,
+              "p99": 174.88,
+              "max": 174.88
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 3565.096
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 0.432,
+            "gateHeldThroughCommitOrRollbackMs": 356.508,
+            "totalMs": 356.94,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 2.454,
+            "gateHeldThroughCommitOrRollbackMs": 759.805,
+            "totalMs": 762.258,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100944,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.601,
+            "gateHeldThroughCommitOrRollbackMs": 1210.369,
+            "totalMs": 1210.97,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 8501.668,
+                "queuedRequests": 1,
+                "outstandingRequests": 7,
+                "recentP95Ms": 162.69,
+                "recentGapMs": 244.507,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16000.975,
+                "queuedRequests": 3,
+                "outstandingRequests": 5,
+                "recentP95Ms": 132.869,
+                "recentGapMs": 233.121,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16001.163
+        },
+        "cutoverStartedAtMs": 16001.215,
+        "migrationThroughRollbackAuditMs": 19664.182,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "28c535062b2cf49f0ffa66b77a3504feb65293965c0194b207f9b73b3aa53a43"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 22.422,
+            "p95": 98.69,
+            "p99": 893.514
+          },
+          "totalMs": 49.086,
+          "refusedProbe": true
+        },
+        "repeat": 2,
+        "implementation": "native"
+      },
+      {
+        "workload": {
+          "offered": 984,
+          "acknowledged": 984,
+          "failed": 0,
+          "peakInFlight": 8,
+          "perWriter": {
+            "0": 123,
+            "1": 123,
+            "2": 123,
+            "3": 123,
+            "4": 123,
+            "5": 123,
+            "6": 123,
+            "7": 123
+          },
+          "scheduledToAckMs": {
+            "p50": 130.982,
+            "p95": 209.748,
+            "p99": 1901.264,
+            "max": 2731.016
+          },
+          "serviceMs": {
+            "p50": 129.441,
+            "p95": 163.012,
+            "p99": 1901.148,
+            "max": 2729.73
+          },
+          "queueMs": {
+            "p50": 0.907,
+            "p95": 2.62,
+            "p99": 901.294,
+            "max": 1731.066
+          },
+          "maxResponseGapMs": 1685.198,
+          "achievedPerSecond": 22.364,
+          "drainBeyondOfferedEndMs": 0.0,
+          "segments": [
+            {
+              "startMs": 0,
+              "endMs": 4000,
+              "requestsPerSecond": 16,
+              "offered": 64,
+              "scheduledToAckMs": {
+                "p50": 129.526,
+                "p95": 192.589,
+                "p99": 199.596,
+                "max": 199.596
+              }
+            },
+            {
+              "startMs": 4000,
+              "endMs": 16000,
+              "requestsPerSecond": 32,
+              "offered": 384,
+              "scheduledToAckMs": {
+                "p50": 132.865,
+                "p95": 168.469,
+                "p99": 428.392,
+                "max": 544.068
+              }
+            },
+            {
+              "startMs": 16000,
+              "endMs": 23000,
+              "requestsPerSecond": 8,
+              "offered": 56,
+              "scheduledToAckMs": {
+                "p50": 778.316,
+                "p95": 2300.165,
+                "p99": 2731.016,
+                "max": 2731.016
+              }
+            },
+            {
+              "startMs": 23000,
+              "endMs": 32000,
+              "requestsPerSecond": 32,
+              "offered": 288,
+              "scheduledToAckMs": {
+                "p50": 129.799,
+                "p95": 137.608,
+                "p99": 139.647,
+                "max": 142.981
+              }
+            },
+            {
+              "startMs": 32000,
+              "endMs": 44000,
+              "requestsPerSecond": 16,
+              "offered": 192,
+              "scheduledToAckMs": {
+                "p50": 127.718,
+                "p95": 134.971,
+                "p99": 137.944,
+                "max": 139.666
+              }
+            }
+          ]
+        },
+        "migration": {
+          "expand": {
+            "action": "expand",
+            "backfillHighId": 100080,
+            "legacyRowsAtExpansion": 100080,
+            "gateAcquisitionMs": 0.779,
+            "gateHeldThroughCommitOrRollbackMs": 13.654,
+            "totalMs": 14.433,
+            "transaction": "committed"
+          },
+          "earlyCutover": {
+            "action": "early-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 100080,
+            "gateAcquisitionMs": 0.468,
+            "gateHeldThroughCommitOrRollbackMs": 142.041,
+            "totalMs": 142.509,
+            "transaction": "rolled-back"
+          },
+          "backfill": {
+            "rowsCopied": 100080,
+            "chunks": 26,
+            "chunkSizeCounts": {
+              "4000": 26
+            },
+            "chunkLatencyMs": {
+              "p50": 137.513,
+              "p95": 169.866,
+              "p99": 174.531,
+              "max": 174.531
+            },
+            "sleepMs": 0,
+            "changeCount": 0,
+            "firstChanges": [],
+            "allChangesSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "elapsedMs": 3527.049
+          },
+          "failedCutover": {
+            "action": "failed-cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 1,
+            "gateAcquisitionMs": 9.489,
+            "gateHeldThroughCommitOrRollbackMs": 365.886,
+            "totalMs": 375.374,
+            "transaction": "rolled-back"
+          },
+          "cutover": {
+            "action": "cutover",
+            "legacyDifferences": 0,
+            "newDifferences": 0,
+            "gateAcquisitionMs": 2.547,
+            "gateHeldThroughCommitOrRollbackMs": 784.111,
+            "totalMs": 786.658,
+            "transaction": "committed"
+          },
+          "rollback": {
+            "action": "rollback",
+            "rebuiltLegacyRows": 100944,
+            "legacyDifferences": 0,
+            "gateAcquisitionMs": 0.566,
+            "gateHeldThroughCommitOrRollbackMs": 1207.828,
+            "totalMs": 1208.393,
+            "transaction": "committed"
+          }
+        },
+        "decision": {
+          "attempts": [
+            {
+              "observation": {
+                "elapsedMs": 8545.808,
+                "queuedRequests": 0,
+                "outstandingRequests": 8,
+                "recentP95Ms": 166.23,
+                "recentGapMs": 245.365,
+                "scheduledRate": 32,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 1,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "defer",
+                "reason": "scheduled-quiet-window-ahead"
+              },
+              "modelWaitMs": 0
+            },
+            {
+              "observation": {
+                "elapsedMs": 16000.899,
+                "queuedRequests": 4,
+                "outstandingRequests": 4,
+                "recentP95Ms": 138.103,
+                "recentGapMs": 235.997,
+                "scheduledRate": 8,
+                "phase": "cutover",
+                "eligible": true,
+                "attempt": 2,
+                "windowStartMs": 16000,
+                "windowEndMs": 23000,
+                "schedule": [
+                  {
+                    "startMs": 0,
+                    "endMs": 4000,
+                    "requestsPerSecond": 16
+                  },
+                  {
+                    "startMs": 4000,
+                    "endMs": 16000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 16000,
+                    "endMs": 23000,
+                    "requestsPerSecond": 8
+                  },
+                  {
+                    "startMs": 23000,
+                    "endMs": 32000,
+                    "requestsPerSecond": 32
+                  },
+                  {
+                    "startMs": 32000,
+                    "endMs": 44000,
+                    "requestsPerSecond": 16
+                  }
+                ],
+                "operationsNote": "Quarter close will produce a burst of postings. Prefer the published quiet window. If more than 8 submissions are queued or the recent scheduled-to-ack p95 exceeds 500 ms, prefer a short deferral. Once the window has opened, proceed when both measures are within budget. The readiness checks are mandatory even after a deferral deadline."
+              },
+              "structuredAlternative": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelAdvice": null,
+              "advice": {
+                "action": "proceed",
+                "reason": "window-open-or-past-within-pressure-budget"
+              },
+              "modelWaitMs": 0
+            }
+          ],
+          "deferrals": 1,
+          "modelDeferrals": 0,
+          "deadlineMs": 32000,
+          "modelDeadlineMs": 26000,
+          "fallbackWindowMs": [
+            23000,
+            32000
+          ],
+          "boundedFallback": null,
+          "effectiveAction": "submit-to-immutable-cutover-gate",
+          "modelWaitMs": 0,
+          "decisionAtMs": 16001.131
+        },
+        "cutoverStartedAtMs": 16001.187,
+        "migrationThroughRollbackAuditMs": 19706.221,
+        "workersPostingAfterCutover": 8,
+        "cutoverDuringOfferedLoad": true,
+        "integrity": {
+          "initialErpRows": 100000,
+          "fullNativeHistoryAfter": {
+            "rows": 100000,
+            "sha256": "28c535062b2cf49f0ffa66b77a3504feb65293965c0194b207f9b73b3aa53a43"
+          },
+          "projectedHistoryAfter": {
+            "rows": 100000,
+            "sha256": "615bd58a39707fe405d03659c131d44ed7015f51ced26b18d47c24d4fbc91260"
+          },
+          "finalErpRows": 101968,
+          "exactLiveLegs": 1968,
+          "finalProjectionDifferences": {
+            "knot_bench.wide": 0,
+            "knot_bench.normalized_lines": 0,
+            "knot_bench.current_lines": 0
+          },
+          "unbalancedRequestPairs": 0,
+          "oldTableRetainedOnRefusal": true,
+          "oldTableRemovedOnCutover": true,
+          "oldTableRestored": true,
+          "finalWidePhysicalTable": true
+        },
+        "guard": {
+          "calls": 984,
+          "latencyUs": {
+            "p50": 38.141,
+            "p95": 59.702,
+            "p99": 68.258
+          },
+          "totalMs": 39.562,
+          "refusedProbe": true
+        },
+        "repeat": 2,
+        "implementation": "python"
+      }
+    ]
+  }
+}

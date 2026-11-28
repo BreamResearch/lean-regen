@@ -8,6 +8,8 @@ Knot sends paired budget and effort reallocations to Odoo Community 18 analytic 
 
 固定4,000行、負荷連動、LLM の切替助言を加えた移行の比較も公開しています。Compare fixed batches, feedback control and model advice under the same Odoo workload. [比較結果と再現手順 / Comparison and reproduction](suspension/README.md)
 
+同じ Odoo の振替判定を固定幅のネイティブ実装に差し替え、処理時間と台帳の照合も測りました。Compare the existing interpreter and a fixed-width native implementation at the Odoo write boundary. [測定結果と、生成された命令 / Measurements and emitted instructions](native/README.md)
+
 ## 実測結果 / Measured results
 
 両環境で Odoo Community 18.0-20261112 を起動しました。Odoo の ORM で分析明細を10万行作成し、8人の試験ユーザーが API で予算・工数の振替を送信しました。各振替は分析明細2行を同じ Odoo トランザクションで確定します。Both runs seeded 100,000 Odoo analytic lines and reached eight overlapping authenticated API requests. Each transfer commits two native analytic lines in one Odoo transaction. [GitHub Actions run](https://github.com/BreamResearch/lean-regen/actions/runs/45523419930)
