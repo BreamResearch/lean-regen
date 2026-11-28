@@ -1,0 +1,79 @@
+name: Verify and measure the fixed-word Knot guard
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/knot-native-policy.yml
+      - docs/knot/erp-benchmark/native/*.c
+      - docs/knot/erp-benchmark/native/*.h
+      - docs/knot/erp-benchmark/native/*.py
+      - docs/knot/erp-benchmark/native/*.sh
+      - docs/knot/erp-benchmark/native/*.lean
+      - docs/knot/formal/Knot/**
+      - docs/knot/formal/policy.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
+defaults:
+  run:
+    working-directory: docs/knot/erp-benchmark
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Compile machine code and the Lean oracle
+        run: |
+          clang -std=c17 -O3 -fPIC -shared -Wall -Wextra -Werror native/guard.c -o "$RUNNER_TEMP/guard.so"
+          clang -std=c17 -O3 -Wall -Wextra -Werror -c native/guard.c -o "$RUNNER_TEMP/guard.o"
+          test -z "$(nm -u "$RUNNER_TEMP/guard.o")"
+          curl --proto '=https' --proto-redir '=https' --fail --silent --show-error --location --retry 3 \
+            --output "$RUNNER_TEMP/lean-4.19.0-linux.tar.zst" \
+            https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst
+          printf '%s  %s\n' 6fe3ce97a58f44e2b3567d455b994eacec5bfe9ae7774f2a573444480ba813fe \
+            "$RUNNER_TEMP/lean-4.19.0-linux.tar.zst" | sha256sum -c -
+          tar --zstd -xf "$RUNNER_TEMP/lean-4.19.0-linux.tar.zst" -C "$RUNNER_TEMP"
+          sh native/build_oracle.sh "$RUNNER_TEMP/lean-4.19.0-linux/bin" "$RUNNER_TEMP/knot-word-oracle"
+
+      - name: Compare C and Lean with the existing policy
+        run: |
+          python3.12 -m native.check --library "$RUNNER_TEMP/guard.so" \
+            --oracle "$RUNNER_TEMP/knot-word-oracle/.lake/build/bin/wordOracle" --out "$RUNNER_TEMP/checked.json"
+          python3.12 -m native.emit checked "$RUNNER_TEMP/checked.json"
+
+      - name: Measure Python and the native implementation
+        run: |
+          python3.12 native/measure.py --library "$RUNNER_TEMP/guard.so" --out "$RUNNER_TEMP/measured.json" --numpy off
+          python3.12 -m native.emit measured "$RUNNER_TEMP/measured.json"
+
+  odoo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Compile the guard and prepare the PostgreSQL driver
+        run: |
+          clang -std=c17 -O3 -fPIC -shared -Wall -Wextra -Werror native/guard.c -o "$RUNNER_TEMP/guard.so"
+          python3.12 -m venv "$RUNNER_TEMP/knot-native"
+          "$RUNNER_TEMP/knot-native/bin/python" -m pip install --disable-pip-version-check --only-binary=:all: --require-hashes -r requirements.txt
+
+      - name: Run actual Odoo writes with both guards
+        run: |
+          python="$RUNNER_TEMP/knot-native/bin/python"
+          "$python" suspension_launcher.py -- "$python" -m native.odoo_benchmark \
+            --library "$RUNNER_TEMP/guard.so" --out "$RUNNER_TEMP/odoo.json" --repeats 2
+          python3.12 -m native.emit odoo "$RUNNER_TEMP/odoo.json"
