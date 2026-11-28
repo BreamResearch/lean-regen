@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#19382e"><link rel="icon" href="data:,">
+  <meta name="description" content="Knotの予算・工数判定をPython、NumPy、Cで比較。Leanとの照合とOdoo実測を公開。Measured account checks, Lean conformance and Odoo response times.">
+  <title>Knot · 勘定の判定をどこまで速くできるか</title>
+  <link rel="stylesheet" href="../../operations/style.css"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<header class="mast"><div class="mast-inner">
+  <a class="wordmark" id="brand" href="../../" aria-label="Knot"><span class="brandmark" aria-hidden="true"><i></i><i></i><i></i></span>Knot</a>
+  <a class="back" id="back" href="../" data-key="back">← ERP切替の実測</a>
+  <div class="lang" role="group" aria-label="言語 / Language"><button type="button" data-lang="ja" lang="ja" aria-pressed="true">日本語</button><button type="button" data-lang="en" lang="en" aria-pressed="false">English</button></div>
+</div></header>
+<main>
+  <header class="intro"><div><p class="product">Knot / Odoo Community</p><h1 data-key="title">勘定の判定をどこまで速くできるか</h1><p data-key="intro">予算・工数の振替では、元と先の勘定がそれぞれ6条件を満たすか検査します。Pythonで規則を読み解く処理を、同じ理由で許可・拒否する整数演算に置き換え、判定とOdooの応答を測りました。</p></div>
+    <nav class="references"><a class="guide" href="https://github.com/BreamResearch/lean-regen/blob/main/docs/knot/erp-benchmark/native/README.md" data-key="guide">再現手順 ↗</a><a class="guide" id="ci" hidden data-key="ci">公開CI ↗</a><a class="guide" href="./evidence.json" data-key="json">実測JSON ↗</a></nav>
+  </header>
+  <p id="notice" role="status">実測記録を読み込んでいます。</p>
+  <div id="content" hidden>
+    <div class="select-band"><label for="host" data-key="host">単体測定の環境</label><select id="host"></select><p id="method"></p></div>
+    <div class="bench-grid two">
+      <section class="card"><div class="card-head"><h2 data-key="scalar">振替1件の判定</h2></div><div class="body" id="scalar"></div></section>
+      <section class="card"><div class="card-head"><h2 data-key="batch">勘定行の一括判定</h2></div><div class="body" id="batch"></div></section>
+    </div>
+    <section class="card section" aria-labelledby="odoo-title"><div class="card-head"><h2 id="odoo-title" data-key="odoo">Odooに書き込んだとき</h2></div><div id="odoo" class="body"></div></section>
+    <section class="card section" aria-labelledby="memory-title"><div class="card-head"><h2 id="memory-title" data-key="memory">作業配列とプロセスのメモリ</h2></div><div id="memory" class="body"></div></section>
+    <section class="card section" aria-labelledby="proof-title"><div class="card-head"><h2 id="proof-title" data-key="proof">Leanの証明とバイナリの照合</h2></div><div id="proof" class="body"></div></section>
+  </div>
+  <noscript><p>上のJSONで実測値を確認できます。 The raw measurements are available in the JSON above.</p></noscript>
+</main></body></html>

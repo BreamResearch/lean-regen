@@ -52,6 +52,7 @@ function translate() {
   byId('brand').href='../'+(lang==='en'?'?lang=en':'');
   byId('back').href='../operations/'+(lang==='en'?'?lang=en':'');
   byId('suspension').href='./suspension/'+(lang==='en'?'?lang=en':'');
+  byId('native-policy').href='./native/'+(lang==='en'?'?lang=en':'');
   byId('prev').setAttribute('aria-label',t('previous'));byId('next').setAttribute('aria-label',t('next'));
   byId('status').textContent=t(failed?'unavailable':'loading');
 }

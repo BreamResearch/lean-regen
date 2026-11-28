@@ -24,6 +24,8 @@ Odoo Community の分析会計に同時に書き込み、Knot の台帳を切り
 
 同じ Odoo 負荷で、固定バッチ、負荷に応じた自動調整、LLM の切替助言を比較できます。Explore fixed batches, feedback control and model advice under matched Odoo load. [日本語デモ](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/suspension/) · [English comparison](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/suspension/?lang=en) · [測定結果・再現手順 / Results and reproduction](docs/knot/erp-benchmark/suspension/README.md)
 
+Odoo の振替判定を固定幅の CPU 命令に落とし込み、Lean で証明した条件、処理時間とメモリ、アプリ全体への影響を確認できます。See the fixed-word implementation of Knot’s transfer guard, its Lean proof and measured cost. [日本語](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/native/) · [English](https://breamresearch.github.io/lean-regen/knot/erp-benchmark/native/?lang=en) · [測定結果・再現手順 / Results and reproduction](docs/knot/erp-benchmark/native/README.md)
+
 ## 同じ契約で3つの実装を検査する · Compare three implementations
 
 [設計例の ZIP / Download the reference design][reference-zip] · [リリース / Release][reference-release]
